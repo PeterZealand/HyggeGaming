@@ -33,7 +33,7 @@
 (9200, 'Aalborg SV'),
 (9700, 'Brønderslev'),
 (9800, 'Hjørring'),
-(9990, 'Skagen');
+(9990, 'Skagen'); 
 
 INSERT INTO Game (GameName, GameType) VALUES 
 ('Flipping Cute', 'Puzzle'),
