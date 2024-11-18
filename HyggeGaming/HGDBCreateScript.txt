@@ -21,10 +21,18 @@ CREATE TABLE Role (
     FOREIGN KEY (Employee_ID) REFERENCES Employee(Employee_ID)
 );
 
+CREATE TABLE Assignment (
+    Assignment_ID INT NOT NULL PRIMARY KEY,
+    AssignmentName VARCHAR(30) NOT NULL,
+    Description VARCHAR(300) NOT NULL
+);
+
 CREATE TABLE Game (
     Game_ID INT NOT NULL PRIMARY KEY,
     GameName VARCHAR(30) NOT NULL,
-    GameType VARCHAR(30) NOT NULL
+    GameType VARCHAR(30) NOT NULL,
+    Assignment_ID INT NOT NULL,
+    FOREIGN KEY (Assignment_ID) REFERENCES Assignment(Assignment_ID)
 );
 
 CREATE TABLE DevTeam (
