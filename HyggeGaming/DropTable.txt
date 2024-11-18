@@ -1,0 +1,6 @@
+﻿DROP TABLE [dbo].[DevTeam];
+DROP TABLE [dbo].[Game];
+DROP TABLE [dbo].[Assignment];
+DROP TABLE [dbo].[Role];
+DROP TABLE [dbo].[Employee];
+DROP TABLE [dbo].[City];
