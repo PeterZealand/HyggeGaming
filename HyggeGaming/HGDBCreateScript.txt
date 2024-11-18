@@ -32,7 +32,7 @@ CREATE TABLE Game (
     GameName VARCHAR(30) NOT NULL,
     GameType VARCHAR(30) NOT NULL,
     DevelopmentStage VARCHAR(30) NOT NULL,
-    Assignment_ID INT NOT NULL,
+    Assignment_ID INT,
     FOREIGN KEY (Assignment_ID) REFERENCES Assignment(Assignment_ID) ON DELETE CASCADE
 );
 
