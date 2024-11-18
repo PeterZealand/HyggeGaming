@@ -1,1 +1,40 @@
-﻿
+﻿INSERT INTO City (ZipCode, City) VALUES
+(1000, 'Copenhagen'),
+(2000, 'Frederiksberg'),
+(3000, 'Helsingør'),
+(4000, 'Roskilde'),
+(4300, 'Holbæk'),
+(4600, 'Køge'),
+(4652, 'Hårlev'),
+(2670, 'Greve'),
+(2750, 'Ballerup'),
+(2600, 'Glostrup'),
+(2630, 'Taastrup'),
+(4400, 'Kalundborg'),
+(4500, 'Nykøbing Sjælland'),
+(4800, 'Nykøbing Falster'),
+(4900, 'Nakskov'),
+(4700, 'Næstved'),
+(4230, 'Skælskør'),
+(4040, 'Jyllinge'),
+(4305, 'Orø');
+(5000, 'Odense'),
+(5800, 'Nyborg'),
+(5600, 'Faaborg'),
+(5500, 'Middelfart'),
+(5700, 'Svendborg'),
+(6000, 'Kolding'),
+(7000, 'Fredericia'),
+(7100, 'Vejle'),
+(8000, 'Aarhus'),
+(8700, 'Horsens'),
+(8800, 'Viborg'),
+(9000, 'Aalborg'),
+(9200, 'Aalborg SV'),
+(9700, 'Brønderslev'),
+(9800, 'Hjørring'),
+(9990, 'Skagen');
+
+INSERT INTO Game (GameName, GameType) VALUES 
+('Flipping Cute', 'Puzzle'),
+('Lava Dungeon', 'Action');
