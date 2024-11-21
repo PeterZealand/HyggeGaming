@@ -35,6 +35,9 @@
 (9800, 'Hjørring'),
 (9990, 'Skagen'); 
 
-INSERT INTO Game (GameName, GameType) VALUES 
-('Flipping Cute', 'Puzzle'),
-('Lava Dungeon', 'Action');
+INSERT INTO Game (GameName, GameType, DevelopmentStage) VALUES 
+('Flipping Cute', 'Puzzle', 'Conceptual'),
+('Lava Dungeon', 'Action', 'In development');
+
+INSERT INTO Assignment (AssignmentName, Description, Status, Game_ID) VALUES 
+()
