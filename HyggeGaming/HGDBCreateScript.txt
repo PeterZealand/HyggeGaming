@@ -24,7 +24,8 @@ CREATE TABLE Role (
 CREATE TABLE Assignment (
     Assignment_ID INT IDENTITY (1, 1) NOT NULL PRIMARY KEY,
     AssignmentName VARCHAR(30) NOT NULL,
-    Description VARCHAR(300) NOT NULL
+    Description VARCHAR(300) NOT NULL,
+    Status VARCHAR(20)
 );
 
 CREATE TABLE Game (
