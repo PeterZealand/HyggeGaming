@@ -1,3 +1,8 @@
+using HyggeGaming.Models;
+using HyggeGaming.Services.EFService;
+using HyggeGaming.Services.Interfaces;
+using Microsoft.Extensions.Hosting;
+
 namespace HyggeGaming
 {
     public class Program
@@ -8,6 +13,12 @@ namespace HyggeGaming
 
             // Add services to the container.
             builder.Services.AddRazorPages();
+            builder.Services.AddDbContext<HGDBContext>();
+            builder.Services.AddTransient<IAssignmentService, EFAssignmentService>();
+            builder.Services.AddTransient<IDevTeamService, EFDevTeamService>();
+            builder.Services.AddTransient<IEmployeeService, EFEmployeeService>();
+            builder.Services.AddTransient<IGameService, EFGameService>();
+            builder.Services.AddTransient<IRoleService, EFRoleService>();
 
             var app = builder.Build();
 
