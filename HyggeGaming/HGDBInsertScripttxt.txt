@@ -39,5 +39,10 @@ INSERT INTO Game (GameName, GameType, DevelopmentStage) VALUES
 ('Flipping Cute', 'Puzzle', 'Conceptual'),
 ('Lava Dungeon', 'Action', 'In development');
 
-INSERT INTO Assignment (AssignmentName, Description, Status, Game_ID) VALUES 
-()
+INSERT INTO Assignment (AssignmentName, Description, Game_ID) VALUES 
+('Create character', 'Make a 3D model of a cute otter using Blender', '1'),
+('Create cards', 'Create/draw the face of the memory cards', '1');
+
+INSERT INTO Employee (FirstName, LastName, Address, ZipCode, EMail, Password) VALUES
+('Paprika', 'Seidler', 'Vejen 1', '4652', 'pase@hygge-gaming.com', '1234');
+
