@@ -19,6 +19,7 @@ namespace HyggeGaming
             builder.Services.AddTransient<IEmployeeService, EFEmployeeService>();
             builder.Services.AddTransient<IGameService, EFGameService>();
             builder.Services.AddTransient<IRoleService, EFRoleService>();
+            builder.Services.AddTransient<ICityService, EFCityService>();
 
             var app = builder.Build();
 
