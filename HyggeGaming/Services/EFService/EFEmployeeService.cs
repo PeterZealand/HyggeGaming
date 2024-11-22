@@ -13,7 +13,7 @@ namespace HyggeGaming.Services.EFService
 
         public IEnumerable<Employee> GetEmployees()
         {
-            throw new NotImplementedException();
+            return context.Employees;
         }
     }
 }
