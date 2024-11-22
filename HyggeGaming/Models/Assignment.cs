@@ -21,10 +21,14 @@ public partial class Assignment
     [Unicode(false)]
     public string Description { get; set; } = null!;
 
-    [StringLength(30)]
+    [StringLength(20)]
     [Unicode(false)]
     public string? Status { get; set; }
 
-    [InverseProperty("Assignment")]
-    public virtual ICollection<Game> Games { get; set; } = new List<Game>();
+    [Column("Game_ID")]
+    public int GameId { get; set; }
+
+    [ForeignKey("GameId")]
+    [InverseProperty("Assignments")]
+    public virtual Game Game { get; set; } = null!;
 }

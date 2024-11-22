@@ -25,12 +25,8 @@ public partial class Game
     [Unicode(false)]
     public string DevelopmentStage { get; set; } = null!;
 
-    [Column("Assignment_ID")]
-    public int? AssignmentId { get; set; }
-
-    [ForeignKey("AssignmentId")]
-    [InverseProperty("Games")]
-    public virtual Assignment? Assignment { get; set; }
+    [InverseProperty("Game")]
+    public virtual ICollection<Assignment> Assignments { get; set; } = new List<Assignment>();
 
     [InverseProperty("Game")]
     public virtual ICollection<DevTeam> DevTeams { get; set; } = new List<DevTeam>();

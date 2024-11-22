@@ -27,20 +27,23 @@ public partial class Employee
 
     public int ZipCode { get; set; }
 
-    [Column("EMail")]
     [StringLength(50)]
     [Unicode(false)]
-    public string Email { get; set; } = null!;
+    public string Mail { get; set; } = null!;
 
     [StringLength(30)]
     [Unicode(false)]
     public string Password { get; set; } = null!;
 
+    [Column("Role_ID")]
+    public int RoleId { get; set; }
+
     [InverseProperty("Employee")]
     public virtual ICollection<DevTeam> DevTeams { get; set; } = new List<DevTeam>();
 
-    [InverseProperty("Employee")]
-    public virtual ICollection<Role> Roles { get; set; } = new List<Role>();
+    [ForeignKey("RoleId")]
+    [InverseProperty("Employees")]
+    public virtual Role Role { get; set; } = null!;
 
     [ForeignKey("ZipCode")]
     [InverseProperty("Employees")]

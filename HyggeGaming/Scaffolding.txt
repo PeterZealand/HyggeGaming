@@ -1,2 +1,1 @@
-﻿Scaffold-DbContext "Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=HyggeGaming;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"
-Microsoft.EntityFrameworkCore.SqlServer -OutputDir  Models -ContextDir Models  -Context HGDBContext -DataAnnotations
+﻿Scaffold-DbContext "Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=HyggeGaming;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False" Microsoft.EntityFrameworkCore.SqlServer -OutputDir  Models -ContextDir Models  -Context HGDBContext -DataAnnotations

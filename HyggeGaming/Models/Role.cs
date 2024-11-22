@@ -13,15 +13,11 @@ public partial class Role
     [Column("Role_ID")]
     public int RoleId { get; set; }
 
-    [Column("Employee_ID")]
-    public int EmployeeId { get; set; }
-
     [Column("Role")]
     [StringLength(30)]
     [Unicode(false)]
     public string Role1 { get; set; } = null!;
 
-    [ForeignKey("EmployeeId")]
-    [InverseProperty("Roles")]
-    public virtual Employee Employee { get; set; } = null!;
+    [InverseProperty("Role")]
+    public virtual ICollection<Employee> Employees { get; set; } = new List<Employee>();
 }
