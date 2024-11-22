@@ -52,4 +52,5 @@ INSERT INTO Assignment (AssignmentName, Description, Game_ID) VALUES
 ('Create character', 'Make a 3D model of a cute otter using Blender', '1'),
 ('Create cards', 'Create/draw the face of the memory cards', '1');
 
-
+INSERT INTO DevTeam (DevTName, Employee_ID, Game_ID) VALUES
+('FlippingCute', '20001', '1')
