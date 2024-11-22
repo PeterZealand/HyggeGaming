@@ -1,0 +1,33 @@
+﻿@page
+@model HyggeGaming.Pages.Games.ViewGamesModel
+@{
+}
+
+<h1>Games</h1>
+
+<p>Here you can find a list of all the games available in the system. This overview is designed to help you quickly access information about our games and stay up to date with our games and their dovelopment stage.</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Game Id</th>
+            <th>Title</th>
+            <th>Type</th>
+            <th>Development stage</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @if (Model.Game != null)
+        {
+            @foreach (var item in Model.Game)
+            {
+                <tr>
+                    <td>@item.GameId</td>
+                    <td>@item.GameName</td>
+                    <td>@item.GameType</td>
+                    <td>@item.DevelopmentStage</td>
+                </tr>
+            }
+        }
+</table>

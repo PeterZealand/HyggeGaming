@@ -13,7 +13,7 @@ namespace HyggeGaming.Services.EFService
 
         public IEnumerable<Game> GetGames()
         {
-            throw new NotImplementedException();
+            return context.Games;
         }
     }
 }
