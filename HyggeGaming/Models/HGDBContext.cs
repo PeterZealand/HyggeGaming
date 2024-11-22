@@ -6,13 +6,17 @@ namespace HyggeGaming.Models;
 
 public partial class HGDBContext : DbContext
 {
+    
+
     public HGDBContext()
     {
+       
     }
-
-    public HGDBContext(DbContextOptions<HGDBContext> options)
+    string? connectionString = null;
+    public HGDBContext(DbContextOptions<HGDBContext> options, IConfiguration config)
         : base(options)
     {
+        connectionString = config.GetConnectionString("MyConnection");
     }
 
     public virtual DbSet<Assignment> Assignments { get; set; }
@@ -28,8 +32,8 @@ public partial class HGDBContext : DbContext
     public virtual DbSet<Role> Roles { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Data Source=mssql16.unoeuro.com;Initial Catalog=hygge_gaming_com_db_data;User ID=hygge_gaming_com;Password=zEk62p5GBaydtArw93R4;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+
+        => optionsBuilder.UseSqlServer(connectionString);
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

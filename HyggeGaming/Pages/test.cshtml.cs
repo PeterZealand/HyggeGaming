@@ -11,17 +11,13 @@ namespace HyggeGaming.Pages
 
         IEmployeeService EmployeeService { get; set; }
 
-        public void GettestModel(IEmployeeService service)
+        public testModel(IEmployeeService service)
         {
             EmployeeService = service;
         }
-
-
         public void OnGet()
         {
             Employee = EmployeeService.GetEmployees();
         }
-
-
     }
 }
