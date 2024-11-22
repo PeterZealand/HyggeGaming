@@ -13,7 +13,7 @@ namespace HyggeGaming.Services.EFService
 
         public IEnumerable<Game> GetGames()
         {
-            return context.Games;
+            return context.Games; 
         }
     }
 }
