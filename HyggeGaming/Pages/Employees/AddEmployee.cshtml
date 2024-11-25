@@ -8,7 +8,7 @@
         <h2>New employee</h2>
         
 
-        @* @if (Model.SuccessMsg.Length > 0)
+       @*  @if (Model.SuccessMsg.Length > 0)
         {
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 <strong>@Model.SuccessMsg</strong>
@@ -20,40 +20,45 @@
 
             
             <div class="form-group">
-                <label asp-for="@Model.Employee.FirstName" class="control-label">FirstName</label>
-                <input asp-for="@Model.Employee.FirstName" class="form-control" />
-                <span asp-validation-for="@Model.Employee.FirstName" class="text-danger"></span>
+                <label asp-for="@Model.Emp.FirstName" class="control-label">FirstName</label>
+                <input asp-for="@Model.Emp.FirstName" class="form-control" />
+                <span asp-validation-for="@Model.Emp.FirstName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="@Model.Employee.LastName" class="control-label">LastName</label>
-                <input asp-for="@Model.Employee.LastName" class="form-control" />
-                <span asp-validation-for="@Model.Employee.LastName" class="text-danger"></span>
+                <label asp-for="@Model.Emp.LastName" class="control-label">LastName</label>
+                <input asp-for="@Model.Emp.LastName" class="form-control" />
+                <span asp-validation-for="@Model.Emp.LastName" class="text-danger"></span>
             </div>
             
             <div class="form-group">
-                <label asp-for="@Model.Employee.Address" class="control-label">Address</label>
-                <input asp-for="@Model.Employee.Address" class="form-control" />
-                <span asp-validation-for="@Model.Employee.Address" class="text-danger"></span>
+                <label asp-for="@Model.Emp.Address" class="control-label">Address</label>
+                <input asp-for="@Model.Emp.Address" class="form-control" />
+                <span asp-validation-for="@Model.Emp.Address" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="@Model.Employee.ZipCode" class="control-label">ZipCode</label>
-                <input asp-for="@Model.Employee.ZipCode" class="form-control" />
-                <span asp-validation-for="@Model.Employee.ZipCode" class="text-danger"></span>
+                <label asp-for="@Model.Emp.ZipCode" class="control-label">ZipCode</label>
+                <input asp-for="@Model.Emp.ZipCode" class="form-control" />
+                <span asp-validation-for="@Model.Emp.ZipCode" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="@Model.Employee.Mail" class="control-label">Mail</label>
-                <input asp-for="@Model.Employee.Mail" class="form-control" />
-                <span asp-validation-for="@Model.Employee.Mail" class="text-danger"></span>
+                <label asp-for="@Model.Emp.Mail" class="control-label">Mail</label>
+                <input asp-for="@Model.Emp.Mail" class="form-control" />
+                <span asp-validation-for="@Model.Emp.Mail" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="@Model.Employee.EmployeeId" class="control-label">Id</label>
-                <input asp-for="@Model.Employee.EmployeeId" class="form-control" />
-                <span asp-validation-for="@Model.Employee.EmployeeId" class="text-danger"></span>
+                <label asp-for="@Model.Emp.EmployeeId" class="control-label">Id</label>
+                <input asp-for="@Model.Emp.EmployeeId" class="form-control" />
+                <span asp-validation-for="@Model.Emp.EmployeeId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="@Model.Employee.Password" class="control-label">Password</label>
-                <input asp-for="@Model.Employee.Password" class="form-control" />
-                <span asp-validation-for="@Model.Employee.Password" class="text-danger"></span>
+                <label asp-for="@Model.Emp.Password" class="control-label">Password</label>
+                <input asp-for="@Model.Emp.Password" class="form-control" />
+                <span asp-validation-for="@Model.Emp.Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.Emp.RoleId" class="control-label">Role</label>
+                <input asp-for="@Model.Emp.RoleId" class="form-control" />
+                <span asp-validation-for="@Model.Emp.RoleId" class="text-danger"></span>
             </div>
 
             

@@ -10,24 +10,28 @@ namespace HyggeGaming.Pages.Employees
 
         public string SuccessMsg = string.Empty;
 
-        [BindProperty]
-        public Employee Employee { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public Employee Emp { get; set; }
 
 
         public AddEmployeeModel(HGDBContext context) => dbContext = context;
-        public void OnGet(int employeeId)
+        public void OnGet(int? employeeId)
         {
-            Employee = new Employee();
-
-
-            //return Page();
+            if (employeeId.HasValue)
+            {
+                Emp = dbContext.Employees.Find(employeeId.Value);
+            }
+            else
+            {
+                Emp = new Employee();
+            }
         }
 
         public IActionResult OnPost(int employeeId)
         {
-            
 
-            dbContext.Employees.Add(Employee);
+
+            dbContext.Employees.Add(Emp);
             dbContext.SaveChanges();
 
             SuccessMsg = "You have added a new employee";
@@ -35,27 +39,10 @@ namespace HyggeGaming.Pages.Employees
         }
 
 
-        //private bool LinkBugToGame(int bugId, int gameId)
-        //{
-        //    var newBug = dbContext.Bugs
-        //        .Include(x => x.Game)
-        //        .FirstOrDefault(nb => nb.BugId == bugId && nb.GameId == gameId);
+        
 
-        //    if (newBug == null)
-        //    {
-        //        var newGameBug = new Bug
-        //        {
-        //            BugId = bugId,
-        //            GameId = gameId
-        //        };
-
-        //        dbContext.Bugs.Add(newGameBug);
-        //        //dbContext.SaveChanges();
-        //        return true;
-        //    }
-        //    return false;
-        //}
     }
-    
 }
+
+
 
