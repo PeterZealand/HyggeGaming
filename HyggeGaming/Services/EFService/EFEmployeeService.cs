@@ -16,12 +16,12 @@ namespace HyggeGaming.Services.EFService
             context = service;
         }
 
-        public Employee? CheckCredentials()
+        public Employee CheckCredentials(Employee employee)
         {
-            Employee employee = context.Employees.
-                FirstOrDefault(e => e.Mail == Employee.Mail);
+            context.Employees.
+                FirstOrDefault(e => e.Mail == employee.Mail);
 
-            if (employee != null && employee.Password == Employee.Password)
+            if (employee != null && employee.Password == employee.Password)
             {
                 return employee;
             }
