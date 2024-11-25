@@ -1,22 +1,154 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
+    padding: 0px;
+    margin: 0px;
+    /*background-color: #050414;
+    color: ivory;*/
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
 }
+
+.container-fluid {
+    background-color: #050414;
+}
+
+.themeColor {
+    background-color: #050414;
+    color: ivory;
+}
+
+.image-container {
+    position: relative;
+    display: flex; /* Enable Flexbox */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.index-img {
+    width: 100%;
+    height: 100%;
+}
+
+.containerLogin {
+    background-color: #222;
+    border-radius: 5px;
+    margin: 20px;
+    padding: 30px;
+    padding-bottom: 50px;
+    color: ivory;
+}
+
+/* Styling for the form input boxes */
+input.form-control {
+    background-color: #333; /* Dark background color for the input */
+    color: ivory; /* Light text color */
+    border: 1px solid #555; /* Subtle border color */
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+    input.form-control:focus {
+        background-color: #444; /* Slightly lighter background when focused */
+        color: ivory;
+        outline: none;
+        border-color: #777;
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.1); /* Subtle glow effect */
+    }
+
+/*table css*/
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th {
+    color: ivory;
+    background-color: #524b58;
+}
+
+td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #2D2B40;
+    color: ivory;
+}
+
+tr:hover {
+    background-color: #524b58;
+    color: ivory;
+}
+
+/*---*/
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 40%;
+    border-radius: 10px;
+    max-width: 316px;
+}
+
+    .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    }
+
+.profileImg {
+    max-width: 300px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.upvote-btn {
+    border-radius: 50%;
+    border: 1px solid;
+    border-color: green;
+    color: green;
+    background-color: #050414;
+    justify-content: center;
+}
+
+.downvote-btn {
+    border-radius: 50%;
+    border: 1px solid;
+    border-color: red;
+    color: red;
+    background-color: #050414;
+    justify-content: center;
+}
+
+.MyColor {
+    color: ivory;
+}
+
+/*Modal*/
+.myModal {
+    background-color: #222;
+    color: ivory;
+}
+
+/*---*/
