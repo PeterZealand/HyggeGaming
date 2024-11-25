@@ -32,5 +32,13 @@ namespace HyggeGaming.Services.EFService
         {
             return context.Employees;
         }
+
+        public Employee? GetEmployee(string employeeMail)
+        {
+            return context.Employees
+                .Include(e => e.Role)
+                .Include(e => e.ZipCodeNavigation)
+                .FirstOrDefault(e => e.Mail == employeeMail);
+        }
     }
 }

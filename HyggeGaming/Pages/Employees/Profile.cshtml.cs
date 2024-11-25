@@ -1,4 +1,5 @@
 using HyggeGaming.Models;
+using HyggeGaming.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
@@ -7,31 +8,28 @@ namespace HyggeGaming.Pages.Employees
 {
     public class ProfileModel : PageModel
     {
-        public Employee Employee { get; set; }
-        public HGDBContext HGDBContext { get; set; }
+        [BindProperty]
+        public Employee? Employee { get; set; }
+        IEmployeeService EmployeeService { get; set; }
+        IEnumerable<Employee> Employees { get; set; }
 
-        public ProfileModel(HGDBContext context)
+        public ProfileModel(IEmployeeService service)
         {
-            HGDBContext = context;
+            EmployeeService = service;
         }
 
         public IActionResult OnGet()
         {
             var loggedInEmployee = HttpContext.Session.GetString("LoggedIn");
-            //Console.WriteLine($"Mail: {Employee.Mail}");
 
             if (!string.IsNullOrEmpty(loggedInEmployee))
             {
-                Employee = HGDBContext.Employees
-                    .Include(e => e.Role)
-                    .Include(e => e.ZipCodeNavigation)
-                    .FirstOrDefault(e => e.Mail == loggedInEmployee);
-                return Page();
+                Employee = EmployeeService.GetEmployee(loggedInEmployee);   
             }
 
-            if (Employee == null)
+            if (Employee != null)
             {
-                
+                return Page();
             }
 
             return RedirectToPage("/Employees/Login");

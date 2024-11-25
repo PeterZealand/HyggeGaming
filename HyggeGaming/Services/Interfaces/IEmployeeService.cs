@@ -7,5 +7,7 @@ namespace HyggeGaming.Services.Interfaces
         public IEnumerable<Employee> GetEmployees();
 
         public Employee CheckCredentials(Employee employee);
+        
+        public Employee? GetEmployee(string loggedInEmployee);
     }   
 }
