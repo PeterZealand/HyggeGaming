@@ -37,7 +37,7 @@
         </button>
     </div>
 
-    <div class="col-4">
+    <div class="col-7 mt-5">
         <div class="form-like">
             <span class="fake-label">Role</span>
             <span class="fake-input">@Model.Employee.Role.Role1</span>
@@ -45,7 +45,50 @@
         <div class="form-like">
             <span class="fake-label">Team members:</span>
             <span class="fake-input"></span>
-        </div>     
+
+@*             <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var member in Model.Employees)
+                    {
+                        <tr>
+                            <td>@member.FirstName @member.LastName</td>
+                            <td>@member.Mail</td>
+                            <td>@member.Role?.Role1</td>
+                        </tr>
+                    }
+                </tbody>
+            </table> *@
+
+        </div> 
+        
+        <div class="d-flex justify-content-between pt-5 mt-5">
+            <div class="container fake-input me-3 flex-fill">
+                <h4>Important Resources</h4>
+                <p>Access essential tools and documents to support your work. Explore policies, training materials, and other helpful resources:</p>
+                <ul>
+                    <li><a href="/policies">Company Policies</a></li>
+                    <li><a href="/handbook.pdf" target="_blank">Employee Handbook</a></li>
+                    <li><a href="/training">Training Modules</a></li>
+                </ul>
+            </div>
+
+            <div class="container fake-input flex-fill">
+                <h4>Support and IT Help</h4>
+                <p>If you need assistance, you can:</p>
+                <ul>
+                    <li><a href="/support/faq">Browse the FAQ</a></li>
+                    <li><a href="/support/ticket">Submit a Support Request</a></li>
+                    <li>Email us at: <a href="mailto:support@company.com">support@company.com</a></li>
+                </ul>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -57,7 +100,7 @@
         <a href="#">All teams</a>
         <a href="#">Support</a>
 
-        <div class="logout-container">
+        <div class="logout-container align-bottom">
             <form method="Post" asp-page-handler="Logout" class="d-inline">
                 <button type="submit" class="btn btn-outline-danger">Logout</button>
             </form>
@@ -73,10 +116,11 @@
         <a href="#">Manage Teams</a>
         <a href="#">Support</a>
 
-        <div class="d-inline-block align-bottom">
+        <div class="logout-container align-bottom">
             <form method="Post" asp-page-handler="Logout" class="d-inline">
                 <button type="submit" class="btn btn-outline-danger">Logout</button>
             </form>
         </div>
     </div>
 }
+

@@ -5,5 +5,7 @@ namespace HyggeGaming.Services.Interfaces
     public interface IDevTeamService
     {
         public IEnumerable<DevTeam> GetDevTeams();
+
+        //public List<Employee> GetTeamMembers(string teamName);
     }
 }
