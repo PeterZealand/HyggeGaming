@@ -10,8 +10,10 @@ namespace HyggeGaming.Pages.Employees
     {
         [BindProperty]
         public Employee? Employee { get; set; }
+
         IEmployeeService EmployeeService { get; set; }
-        IEnumerable<Employee> Employees { get; set; }
+        //IDevTeamService DevTeamService { get; set; }
+        public IEnumerable<Employee> Employees { get; set; }
 
         public ProfileModel(IEmployeeService service)
         {
@@ -24,11 +26,17 @@ namespace HyggeGaming.Pages.Employees
 
             if (!string.IsNullOrEmpty(loggedInEmployee))
             {
-                Employee = EmployeeService.GetEmployee(loggedInEmployee);   
+                Employee = EmployeeService.GetEmployee(loggedInEmployee);
+                
             }
 
             if (Employee != null)
             {
+                //var teamName = Employee.DevTeams.FirstOrDefault()?.DevTname;
+                //if (!string.IsNullOrEmpty(teamName))
+                //{
+                //    Employees = DevTeamService.GetTeamMembers(teamName);
+                //}
                 return Page();
             }
 
