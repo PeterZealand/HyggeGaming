@@ -26,11 +26,11 @@ namespace HyggeGaming.Pages.Employees
 
         public IActionResult OnPost()
         {
-            Employee employee = EmployeeService.CheckCredentials();
-            if (employee != null)
+            EmployeeService.CheckCredentials(Employee);
+            if (Employee != null)
             {
-                HttpContext.Session.SetString("LoggedIn", employee.Mail);
-                return RedirectToPage("/Profile");
+                HttpContext.Session.SetString("LoggedIn", Employee.Mail);
+                return RedirectToPage("/Employees/Profile");
             }
             return Page();
         }
