@@ -1,0 +1,66 @@
+﻿@page
+@model HyggeGaming.Pages.Employees.AddEmployeeModel
+@{
+}
+<div class="row flex-column align-content-center">
+    <div class="col-md-5 containerLogin">
+
+        <h2>New employee</h2>
+        
+
+        @* @if (Model.SuccessMsg.Length > 0)
+        {
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>@Model.SuccessMsg</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        } *@
+
+        <form method="post" asp-page-handler="Add">
+
+            
+            <div class="form-group">
+                <label asp-for="@Model.Employee.FirstName" class="control-label">FirstName</label>
+                <input asp-for="@Model.Employee.FirstName" class="form-control" />
+                <span asp-validation-for="@Model.Employee.FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.Employee.LastName" class="control-label">LastName</label>
+                <input asp-for="@Model.Employee.LastName" class="form-control" />
+                <span asp-validation-for="@Model.Employee.LastName" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="@Model.Employee.Address" class="control-label">Address</label>
+                <input asp-for="@Model.Employee.Address" class="form-control" />
+                <span asp-validation-for="@Model.Employee.Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.Employee.ZipCode" class="control-label">ZipCode</label>
+                <input asp-for="@Model.Employee.ZipCode" class="form-control" />
+                <span asp-validation-for="@Model.Employee.ZipCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.Employee.Mail" class="control-label">Mail</label>
+                <input asp-for="@Model.Employee.Mail" class="form-control" />
+                <span asp-validation-for="@Model.Employee.Mail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.Employee.EmployeeId" class="control-label">Id</label>
+                <input asp-for="@Model.Employee.EmployeeId" class="form-control" />
+                <span asp-validation-for="@Model.Employee.EmployeeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.Employee.Password" class="control-label">Password</label>
+                <input asp-for="@Model.Employee.Password" class="form-control" />
+                <span asp-validation-for="@Model.Employee.Password" class="text-danger"></span>
+            </div>
+
+            
+
+            <div class="form-group button-container align-content-center">
+                <input type="submit" value="Add employee" class="btn MyColor btn-outline-light large-btn mt-2" />
+            </div>
+        </form>
+    </div>
+</div>
