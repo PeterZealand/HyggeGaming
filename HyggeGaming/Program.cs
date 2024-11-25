@@ -21,6 +21,22 @@ namespace HyggeGaming
             builder.Services.AddTransient<IRoleService, EFRoleService>();
             builder.Services.AddTransient<ICityService, EFCityService>();
 
+            // Session services:
+            ////Bruges til at lagre session i memory
+            builder.Services.AddDistributedMemoryCache();
+
+            ////Giver options/muligheder for hvordan vi vil opsætte vores session
+            builder.Services.AddSession(options =>
+            {
+                ////Stopper session efter 30 min inaktivitet
+                options.IdleTimeout = TimeSpan.FromMinutes(30);
+
+                ////Lagre session ID - holder brugeren logged in
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+
+            });
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -35,6 +51,9 @@ namespace HyggeGaming
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            //Skal bruges for at session virker
+            app.UseSession();
 
             app.UseAuthorization();
 

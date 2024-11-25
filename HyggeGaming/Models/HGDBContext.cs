@@ -30,6 +30,7 @@ public partial class HGDBContext : DbContext
     public virtual DbSet<Game> Games { get; set; }
 
     public virtual DbSet<Role> Roles { get; set; }
+    public object Employee { get; internal set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 
