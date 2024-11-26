@@ -10,6 +10,6 @@ namespace HyggeGaming.Services.Interfaces
         
         public Employee? GetEmployee(string loggedInEmployee);
 
-        
+        public IEnumerable<Employee>? GetTeamMembers(Employee emp);
     }   
 }

@@ -87,7 +87,7 @@ table {
 }
 
 th {
-    color: ivory;
+    /*color: ivory;*/
     background-color: #524b58;
 }
 
@@ -95,12 +95,12 @@ td {
     padding: 8px;
     text-align: left;
     border-bottom: 1px solid #2D2B40;
-    color: ivory;
+    /*color: ivory;*/
 }
 
 tr:hover {
     background-color: #524b58;
-    color: ivory;
+    /*color: ivory;*/
 }
 
 /*---*/
@@ -214,6 +214,7 @@ tr:hover {
     border-radius: 5px;
     background-color: #f9f9f9;
     color: #333;
+    width: 100%;
     min-width: 200px;
     display: inline-block;
 }

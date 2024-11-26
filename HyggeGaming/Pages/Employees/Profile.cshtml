@@ -44,27 +44,31 @@
         </div>
         <div class="form-like">
             <span class="fake-label">Team members:</span>
-            <span class="fake-input"></span>
+            <span class="fake-input">
 
-@*             <table class="table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Role</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var member in Model.Employees)
-                    {
+            @if (Model.Employees != null)
+            {
+                <table class="table">
+                    <thead>
                         <tr>
-                            <td>@member.FirstName @member.LastName</td>
-                            <td>@member.Mail</td>
-                            <td>@member.Role?.Role1</td>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Role</th>
                         </tr>
-                    }
-                </tbody>
-            </table> *@
+                    </thead>
+                    <tbody>
+                        @foreach (var member in Model.Employees)
+                        {
+                            <tr>
+                                <td>@member.FirstName @member.LastName</td>
+                                <td>@member.Mail</td>
+                                <td>@member.Role?.Role1</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            </span>
 
         </div> 
         

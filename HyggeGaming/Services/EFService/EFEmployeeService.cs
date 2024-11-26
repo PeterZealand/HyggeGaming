@@ -40,5 +40,13 @@ namespace HyggeGaming.Services.EFService
                 .Include(e => e.ZipCodeNavigation)
                 .FirstOrDefault(e => e.Mail == employeeMail);
         }
+
+        public IEnumerable<Employee>? GetTeamMembers(Employee emp)
+        {
+            return context.Employees
+                .Where(e => e.DevTeamId == emp.DevTeamId && e.EmployeeId != emp.EmployeeId)
+                .Include(e => e.Role)
+                .ToList();
+        }
     }
 }
