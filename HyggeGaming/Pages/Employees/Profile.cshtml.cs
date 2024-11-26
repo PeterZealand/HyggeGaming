@@ -32,11 +32,7 @@ namespace HyggeGaming.Pages.Employees
 
             if (Employee != null)
             {
-                //var teamName = Employee.DevTeams.FirstOrDefault()?.DevTname;
-                //if (!string.IsNullOrEmpty(teamName))
-                //{
-                //    Employees = DevTeamService.GetTeamMembers(teamName);
-                //}
+                Employees = EmployeeService.GetTeamMembers(Employee);
                 return Page();
             }
 
