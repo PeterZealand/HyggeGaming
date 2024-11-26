@@ -38,8 +38,12 @@ public partial class Employee
     [Column("Role_ID")]
     public int RoleId { get; set; }
 
-    [InverseProperty("Employee")]
-    public virtual ICollection<DevTeam> DevTeams { get; set; } = new List<DevTeam>();
+    [Column("DevTeam_ID")]
+    public int? DevTeamId { get; set; }
+
+    [ForeignKey("DevTeamId")]
+    [InverseProperty("Employees")]
+    public virtual DevTeam? DevTeam { get; set; }
 
     [ForeignKey("RoleId")]
     [InverseProperty("Employees")]

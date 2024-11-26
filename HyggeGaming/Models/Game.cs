@@ -29,5 +29,5 @@ public partial class Game
     public virtual ICollection<Assignment> Assignments { get; set; } = new List<Assignment>();
 
     [InverseProperty("Game")]
-    public virtual ICollection<DevTeam> DevTeams { get; set; } = new List<DevTeam>();
+    public virtual ICollection<TeamManager> TeamManagers { get; set; } = new List<TeamManager>();
 }

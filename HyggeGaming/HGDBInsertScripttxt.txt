@@ -40,10 +40,6 @@ INSERT INTO Role (Role) VALUES
 ('Developer'),
 ('Designer');
 
-INSERT INTO Employee (Employee_ID, FirstName, LastName, Role_ID, Address, ZipCode, Mail, Password) VALUES
-('20001', 'Paprika', 'Seidler', '2', 'Vejen 1', '4652', 'pase@hygge-gaming.com', '1234'),
-('10001', 'Bob', 'Bobber', '1', 'Vej 27', '4600', 'bobo@hygge-gaming.com', '1234');
-
 INSERT INTO Game (GameName, GameType, DevelopmentStage) VALUES 
 ('Flipping Cute', 'Puzzle', 'Conceptual'),
 ('Lava Dungeon', 'Action', 'In development');
@@ -52,5 +48,15 @@ INSERT INTO Assignment (AssignmentName, Description, Game_ID) VALUES
 ('Create character', 'Make a 3D model of a cute otter using Blender', '1'),
 ('Create cards', 'Create/draw the face of the memory cards', '1');
 
-INSERT INTO DevTeam (DevTName, Employee_ID, Game_ID) VALUES
-('FlippingCute', '20001', '1')
+INSERT INTO DevTeam (DevTName) VALUES
+('FlippingCute');
+
+INSERT INTO TeamManager (DevTeam_ID, Game_ID) VALUES 
+('1', '1');
+
+INSERT INTO Employee (Employee_ID, FirstName, LastName, Role_ID, Address, ZipCode, Mail, Password, DevTeam_ID) VALUES
+('20001', 'Paprika', 'Seidler', '2', 'Vejen 1', '4652', 'pase@hygge-gaming.com', '1234', '1'),
+('20002', 'Peter', 'Eriksen', '2', 'Vejen 2', '4300', 'peer@hygge-gaming.com', '1234', '1');
+
+INSERT INTO Employee (Employee_ID, FirstName, LastName, Role_ID, Address, ZipCode, Mail, Password) VALUES
+('10001', 'Bob', 'Bobber', '1', 'Vej 27', '4600', 'bobo@hygge-gaming.com', '1234');

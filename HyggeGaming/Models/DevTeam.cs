@@ -18,17 +18,9 @@ public partial class DevTeam
     [Unicode(false)]
     public string DevTname { get; set; } = null!;
 
-    [Column("Employee_ID")]
-    public int EmployeeId { get; set; }
+    [InverseProperty("DevTeam")]
+    public virtual ICollection<Employee> Employees { get; set; } = new List<Employee>();
 
-    [Column("Game_ID")]
-    public int GameId { get; set; }
-
-    [ForeignKey("EmployeeId")]
-    [InverseProperty("DevTeams")]
-    public virtual Employee Employee { get; set; } = null!;
-
-    [ForeignKey("GameId")]
-    [InverseProperty("DevTeams")]
-    public virtual Game Game { get; set; } = null!;
+    [InverseProperty("DevTeam")]
+    public virtual ICollection<TeamManager> TeamManagers { get; set; } = new List<TeamManager>();
 }
