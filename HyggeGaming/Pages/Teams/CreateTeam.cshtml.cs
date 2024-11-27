@@ -6,16 +6,20 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using HyggeGaming.Models;
+using HyggeGaming.Services.Interfaces;
 
 namespace HyggeGaming.Pages.Teams
 {
     public class CreateTeamModel : PageModel
     {
-        private readonly HGDBContext _context;
+        IDevTeamService DevTeamService { get; set; }
 
-        public CreateTeamModel(HGDBContext context)
+        [BindProperty]
+        public DevTeam DevTeam { get; set; }
+
+        public CreateTeamModel(IDevTeamService service)
         {
-            _context = context;
+            DevTeamService = service;
         }
 
         public IActionResult OnGet()
@@ -23,19 +27,14 @@ namespace HyggeGaming.Pages.Teams
             return Page();
         }
 
-        [BindProperty]
-        public DevTeam DevTeam { get; set; } = default!;
-
-        // For more information, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
+        public IActionResult OnPost()
         {
             if (!ModelState.IsValid)
             {
                 return Page();
             }
 
-            _context.DevTeams.Add(DevTeam);
-            await _context.SaveChangesAsync();
+            DevTeamService.CreateDevTeam(DevTeam);
 
             return RedirectToPage("/Teams/GetDevTeams");
         }

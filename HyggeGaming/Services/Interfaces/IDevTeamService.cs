@@ -6,6 +6,6 @@ namespace HyggeGaming.Services.Interfaces
     {
         public IEnumerable<DevTeam> GetDevTeams();
 
-        
+        public void CreateDevTeam(DevTeam team);
     }
 }

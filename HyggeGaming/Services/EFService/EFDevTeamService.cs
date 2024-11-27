@@ -12,11 +12,17 @@ namespace HyggeGaming.Services.EFService
             context = service;
         }
 
+        public void CreateDevTeam(DevTeam team)
+        {
+            context.DevTeams.Add(team);
+            context.SaveChanges();
+            //return team;
+        }
+
         public IEnumerable<DevTeam> GetDevTeams()
         {
             return context.DevTeams
-                .Include(t => t.Employees)
-                /*.ToList()*/;
+                .Include(t => t.Employees);
                 
         }
     }
