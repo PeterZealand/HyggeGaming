@@ -1,43 +1,11 @@
 ﻿@page
-@model HyggeGaming.Pages.DevTeams.GetDevTeamsModel
+@model HyggeGaming.Pages.Teams.GetDevTeamsModel
 @{
 }
 
 <h1>All teams</h1>
 <p>...</p>
 
-@* <table class="table">
-    <thead>
-        <tr>
-            <th>Team Id</th>
-            <th>Team name</th>
-            <th>Assigned game</th>
-            <th>Members</th>
-        </tr>
-    </thead>
-    <tbody>
-        @if (Model.DevTeam != null)  
-        {
-            @foreach (var item in Model.DevTeam)
-            {
-                <tr>
-                    <td>@item.DevTeamId</td>
-                    <td>@item.DevTname</td>
-                    <td>..Game title here...</td>
-                    <td>
-                        <ul>
-                            @foreach (var member in item.Employees)
-                            {
-                                <li>@member.FirstName @member.LastName</li>
-                            }
-                        </ul>
-                    </td> 
-                    
-            }
-            
-        } 
-    </tbody>
-</table> *@
 
 <table class="table">
     <thead>

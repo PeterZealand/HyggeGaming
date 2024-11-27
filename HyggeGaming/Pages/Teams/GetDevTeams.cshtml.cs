@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using HyggeGaming.Models;
 using HyggeGaming.Services.Interfaces;
 
-namespace HyggeGaming.Pages.DevTeams
+namespace HyggeGaming.Pages.Teams
 {
     public class GetDevTeamsModel : PageModel
     {
