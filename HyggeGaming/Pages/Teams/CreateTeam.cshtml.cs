@@ -11,9 +11,9 @@ namespace HyggeGaming.Pages.Teams
 {
     public class CreateTeamModel : PageModel
     {
-        private readonly HyggeGaming.Models.HGDBContext _context;
+        private readonly HGDBContext _context;
 
-        public CreateTeamModel(HyggeGaming.Models.HGDBContext context)
+        public CreateTeamModel(HGDBContext context)
         {
             _context = context;
         }
@@ -37,7 +37,7 @@ namespace HyggeGaming.Pages.Teams
             _context.DevTeams.Add(DevTeam);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("/Teams/GetDevTeams");
         }
     }
 }
