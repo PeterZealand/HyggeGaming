@@ -14,19 +14,10 @@ namespace HyggeGaming.Services.EFService
 
         public IEnumerable<DevTeam> GetDevTeams()
         {
-            throw new NotImplementedException();
+            return context.DevTeams
+                .Include(t => t.Employees)
+                /*.ToList()*/;
+                
         }
-
-        //public List<Employee> GetTeamMembers(string teamName) //bruger teamName til at lave en liste med emplyees som har teamName til fælles...
-        //{
-        //    return context.DevTeams
-        //        .Where(t => t.DevTname == teamName)
-        //        .Include(t => t.Employee)
-        //        .Select(t => t.Employee)
-        //        .ToList();
-        //}
-
-
-
     }
 }
