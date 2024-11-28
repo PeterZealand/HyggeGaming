@@ -51,18 +51,18 @@ namespace HyggeGaming.Pages.Employees
         //    Console.WriteLine($"Logged in user from session: {loggedInEmployee}");
 
         //    // Step 2: Query the database
-        //    Employee = HGDBContext.Employees
+        //    DevT = HGDBContext.Employees
         //        .Include(e => e.Role)
         //        .FirstOrDefault(e => e.Mail == loggedInEmployee);
 
-        //    if (Employee == null)
+        //    if (DevT == null)
         //    {
         //        Console.WriteLine($"No employee found for email: {loggedInEmployee}. Redirecting to Login.");
         //        return RedirectToPage("/Employees/Login");
         //    }
 
-        //    // Step 3: Debugging the Employee object
-        //    Console.WriteLine($"Employee loaded: {Employee.FirstName} {Employee.LastName}, Email: {Employee.Mail}");
+        //    // Step 3: Debugging the DevT object
+        //    Console.WriteLine($"DevT loaded: {DevT.FirstName} {DevT.LastName}, Email: {DevT.Mail}");
 
         //    // Render page
         //    return Page();

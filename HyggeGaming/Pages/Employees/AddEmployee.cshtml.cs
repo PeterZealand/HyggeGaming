@@ -35,11 +35,12 @@ namespace HyggeGaming.Pages.Employees
             dbContext.SaveChanges();
 
             SuccessMsg = "You have added a new employee";
-            return Page();
+            return RedirectToPage("/Employees/Profile");
+            //return Page();
         }
 
 
-        
+
 
     }
 }
