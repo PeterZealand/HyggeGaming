@@ -29,8 +29,6 @@ namespace HyggeGaming.Pages.Employees
 
         public IActionResult OnPost(int employeeId)
         {
-
-
             dbContext.Employees.Add(Emp);
             dbContext.SaveChanges();
 
