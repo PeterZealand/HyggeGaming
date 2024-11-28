@@ -17,12 +17,12 @@ namespace HyggeGaming.Services.EFService
             throw new NotImplementedException();
         }
 
-        //public List<DevT> GetTeamMembers(string teamName) //bruger teamName til at lave en liste med emplyees som har teamName til fælles...
+       //public List<Employee> GetTeamMembers(string teamName) //bruger teamName til at lave en liste med emplyees som har teamName til fælles...
         //{
         //    return context.DevTeams
         //        .Where(t => t.DevTname == teamName)
-        //        .Include(t => t.DevT)
-        //        .Select(t => t.DevT)
+        //        .Include(t => t.Employee)
+        //        .Select(t => t.Employee)
         //        .ToList();
         //}
 
