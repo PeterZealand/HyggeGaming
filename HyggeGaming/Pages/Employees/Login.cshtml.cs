@@ -30,6 +30,7 @@ namespace HyggeGaming.Pages.Employees
             if (Employee != null)
             {
                 HttpContext.Session.SetString("LoggedIn", Employee.Mail);
+
                 return RedirectToPage("/Employees/Profile");
             }
             return Page();

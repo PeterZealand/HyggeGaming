@@ -12,9 +12,11 @@ namespace HyggeGaming.Services.EFService
             context = service;
         }
 
-        public IEnumerable<DevTeam> GetDevTeams()
+        public void CreateDevTeam(DevTeam team)
         {
-            throw new NotImplementedException();
+            context.DevTeams.Add(team);
+            context.SaveChanges();
+            //return team;
         }
 
        //public List<Employee> GetTeamMembers(string teamName) //bruger teamName til at lave en liste med emplyees som har teamName til fælles...
@@ -26,7 +28,11 @@ namespace HyggeGaming.Services.EFService
         //        .ToList();
         //}
 
-
-
+        public IEnumerable<DevTeam> GetDevTeams()
+        {
+            return context.DevTeams
+                .Include(t => t.Employees);
+                
+        }
     }
 }

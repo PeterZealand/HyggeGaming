@@ -12,7 +12,7 @@ namespace HyggeGaming.Pages.Employees
         public Employee? Employee { get; set; }
 
         IEmployeeService EmployeeService { get; set; }
-        //IDevTeamService DevTeamService { get; set; }
+
         public IEnumerable<Employee> Employees { get; set; }
 
         public ProfileModel(IEmployeeService service)

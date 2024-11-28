@@ -7,5 +7,8 @@ namespace HyggeGaming.Services.Interfaces
         public IEnumerable<DevTeam> GetDevTeams();
 
         //public List<DevT> GetTeamMembers(string teamName);
+
+        public void CreateDevTeam(DevTeam team);
+
     }
 }
