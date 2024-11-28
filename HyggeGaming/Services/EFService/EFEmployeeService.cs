@@ -16,16 +16,27 @@ namespace HyggeGaming.Services.EFService
             context = service;
         }
 
-        public Employee CheckCredentials(Employee employee)
+        //public Employee CheckCredentials(Employee employee)
+        //{
+        //    context.Employees.
+        //        FirstOrDefault(e => e.Mail == employee.Mail);
+
+        //    if (employee != null && employee.Password == employee.Password)
+        //    {
+        //        return employee;
+        //    }
+        //    return null;
+        //}
+        public bool CheckCredentials(Employee employee)
         {
-            context.Employees.
+            Employee? isEmp = context.Employees.
                 FirstOrDefault(e => e.Mail == employee.Mail);
 
-            if (employee != null && employee.Password == employee.Password)
+            if (isEmp != null && isEmp.Password == employee.Password)
             {
-                return employee;
+                return true;
             }
-            return null;
+            return false;
         }
 
         public IEnumerable<Employee> GetEmployees()

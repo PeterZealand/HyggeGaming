@@ -9,7 +9,7 @@ using HyggeGaming.Models;
 using HyggeGaming.Services.Interfaces;
 
 namespace HyggeGaming.Pages.Teams
-{
+{ //TODO Team navn skal være uniq
     public class CreateTeamModel : PageModel
     {
         IDevTeamService DevTeamService { get; set; }
