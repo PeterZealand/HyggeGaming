@@ -38,10 +38,6 @@ namespace HyggeGaming.Pages.Employees
             return RedirectToPage("/Employees/Profile");
             //return Page();
         }
-
-
-
-
     }
 }
 
