@@ -48,7 +48,5 @@ namespace HyggeGaming.Services.EFService
                 .Include(e => e.Role)
                 .ToList();
         }
-
-
     }
 }
