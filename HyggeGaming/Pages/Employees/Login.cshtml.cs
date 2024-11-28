@@ -12,7 +12,7 @@ namespace HyggeGaming.Pages.Employees
         IEmployeeService EmployeeService { get; set; }
 
         public string ErrorMsg = string.Empty;
-        public string SuccessMsg = string.Empty;
+        //public string SuccessMsg = string.Empty; - Der behøves vel ikke en success msg her? hvis det er en succes logger den jo bare ind
 
         public LoginModel(IEmployeeService service)
         {
@@ -26,14 +26,25 @@ namespace HyggeGaming.Pages.Employees
 
         public IActionResult OnPost()
         {
-            EmployeeService.CheckCredentials(Employee);
-            if (Employee != null)
+            //EmployeeService.CheckCredentials(Employee);
+            //if (Employee != null)
+            //{
+            //    HttpContext.Session.SetString("LoggedIn", Employee.Mail);
+
+            //    return RedirectToPage("/Employees/Profile");      
+            //}
+            //return Page();
+            
+            if (EmployeeService.CheckCredentials(Employee))
             {
                 HttpContext.Session.SetString("LoggedIn", Employee.Mail);
-
                 return RedirectToPage("/Employees/Profile");
             }
-            return Page();
+            else
+            {               
+                ErrorMsg = "Incorrect email or password";
+                return Page();
+            }
         }
     }
 }
