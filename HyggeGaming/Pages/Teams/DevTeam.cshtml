@@ -39,39 +39,39 @@
 
     <div class="col-7 mt-5">
         <div class="form-like">
-            <span class="fake-label">Role</span>
-            <span class="fake-input">@Model.Employee.Role.Role1</span>
+            <span class="fake-label">My Team</span>
+            <span class="fake-input">@Model.Employee.DevTeam</span>
         </div>
         <div class="form-like">
             <span class="fake-label">Team members:</span>
             <span class="fake-input">
 
-            @if (Model.Employees != null)
-            {
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Role</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var member in Model.Employees)
-                        {
+                @if (Model.Employees != null)
+                {
+                    <table class="table">
+                        <thead>
                             <tr>
-                                <td>@member.FirstName @member.LastName</td>
-                                <td>@member.Mail</td>
-                                <td>@member.Role?.Role1</td>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Role</th>
                             </tr>
-                        }
-                    </tbody>
-                </table>
-            }
+                        </thead>
+                        <tbody>
+                            @foreach (var member in Model.Employees)
+                            {
+                                <tr>
+                                    <td>@member.FirstName @member.LastName</td>
+                                    <td>@member.Mail</td>
+                                    <td>@member.Role?.Role1</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
             </span>
 
-        </div> 
-        
+        </div>
+
         <div class="d-flex justify-content-between pt-5 mt-5">
             <div class="container fake-input me-3 flex-fill">
                 <h4>Important Resources</h4>
@@ -95,39 +95,4 @@
         </div>
     </div>
 </div>
-
-@if (Model.Employee.RoleId != 1)
-{
-    <div class="sidenav">
-
-        <a class="nav-link text-light" asp-area="" asp-page="/Teams/DevTeam">My Team</a>
-        <a asp-page="/Games/ViewGames">All Games</a>
-        <a asp-page="#">All teams</a> 
-        <a href="#">Support</a>
-
-        <div class="logout-container align-bottom">
-            <form method="Post" asp-page-handler="Logout" class="d-inline">
-                <button type="submit" class="btn btn-outline-danger">Logout</button>
-            </form>
-        </div>
-    </div>
-}
-
-@if (Model.Employee.RoleId == 1)
-{
-    <div class="sidenav">
-
-       @*  <a href="#">Manage Employees</a> *@
-        <a class="nav-link text-light" asp-area="" asp-page="/Employees/AddEmployee">Manage Employees</a>
-        <a asp-page="/Games/ViewGames">Manage Games</a>
-        <a asp-page="/Teams/GetDevTeams">Manage Teams</a>
-        <a href="#">Support</a>
-
-        <div class="logout-container align-bottom">
-            <form method="Post" asp-page-handler="Logout" class="d-inline">
-                <button type="submit" class="btn btn-outline-danger">Logout</button>
-            </form>
-        </div>
-    </div>
-}
 
