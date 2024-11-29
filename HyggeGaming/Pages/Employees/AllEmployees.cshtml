@@ -1,0 +1,48 @@
+﻿@page
+@model HyggeGaming.Pages.Employees.AllEmployeesModel
+
+@{
+    ViewData["Title"] = "All Employees";
+}
+
+<h1>All Employees</h1>
+
+<p>
+    <a asp-page="">Add New Employee (if needed)</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Employees.FirstOrDefault().FirstName)</th>
+            <th>@Html.DisplayNameFor(model => model.Employees.FirstOrDefault().LastName)</th>
+            <th>@Html.DisplayNameFor(model => model.Employees.FirstOrDefault().Address)</th>
+            <th>@Html.DisplayNameFor(model => model.Employees.FirstOrDefault().Mail)</th>
+            <th>@Html.DisplayNameFor(model => model.Employees.FirstOrDefault().Password)</th>
+            <th>@Html.DisplayNameFor(model => model.Employees.FirstOrDefault().DevTeam.DevTeamId)</th>
+            <th>@Html.DisplayNameFor(model => model.Employees.FirstOrDefault().Role.RoleId)</th>
+            <th>@Html.DisplayNameFor(model => model.Employees.FirstOrDefault().ZipCodeNavigation.ZipCode)</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Employees)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.FirstName)</td>
+                <td>@Html.DisplayFor(modelItem => item.LastName)</td>
+                <td>@Html.DisplayFor(modelItem => item.Address)</td>
+                <td>@Html.DisplayFor(modelItem => item.Mail)</td>
+                <td>@Html.DisplayFor(modelItem => item.Password)</td>
+                <td>@Html.DisplayFor(modelItem => item.DevTeam.DevTeamId)</td>
+                <td>@Html.DisplayFor(modelItem => item.Role.RoleId)</td>
+                <td>@Html.DisplayFor(modelItem => item.ZipCodeNavigation.ZipCode)</td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.EmployeeId">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.EmployeeId">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.EmployeeId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
