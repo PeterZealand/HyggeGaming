@@ -1,4 +1,6 @@
 using HyggeGaming.Models;
+using HyggeGaming.Services.EFService;
+using HyggeGaming.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -6,38 +8,85 @@ namespace HyggeGaming.Pages.Employees
 {
     public class AddEmployeeModel : PageModel
     {
-        private readonly HGDBContext dbContext;
+        IEmployeeService EmployeeService { get; set; }
 
-        public string SuccessMsg = string.Empty;
-
-        [BindProperty(SupportsGet = true)]
+        [BindProperty]      
+       
         public Employee Emp { get; set; }
 
-
-        public AddEmployeeModel(HGDBContext context) => dbContext = context;
-        public void OnGet(int? employeeId)
+        public AddEmployeeModel(IEmployeeService service)
         {
-            if (employeeId.HasValue)
-            {
-                Emp = dbContext.Employees.Find(employeeId.Value);
-            }
-            else
-            {
-                Emp = new Employee();
-            }
+            EmployeeService = service;
         }
 
+        public IActionResult OnGet()
+        {
+            return Page();
+        }
+       
         public IActionResult OnPost(int employeeId)
         {
-            dbContext.Employees.Add(Emp);
-            dbContext.SaveChanges();
+            //if (!ModelState.IsValid)
+            //{
+            //    return Page();
+            //}
+            EmployeeService.AddEmployee(Emp);
 
-            SuccessMsg = "You have added a new employee";
             return RedirectToPage("/Employees/Profile");
-            //return Page();
         }
     }
+
+    //IEmployeeService EmployeeService { get; set; }
+
+    //private readonly HGDBContext dbContext;
+    //public string SuccessMsg = string.Empty;
+
+    //[BindProperty(SupportsGet = true)]
+    //public Employee Emp { get; set; }
+
+
+    //public AddEmployeeModel(IEmployeeService service)
+    //{
+    //    EmployeeService = service;
+    //}
+
+
+    //public IActionResult OnGet()
+    //{
+    //    return Page();
+    //}
+    //public void OnGet(int? employeeId)
+    //{
+    //    if (employeeId.HasValue)
+    //    {
+    //        Emp = Context.Employees.Find(employeeId.Value);
+    //    }
+    //    else
+    //    {
+    //        Emp = new Employee();
+    //    }
+    //}
+
+    //public IActionResult OnPost()
+    //{
+    //    if (!ModelState.IsValid)
+    //    {
+    //        return Page();
+    //    }
+
+    //    EmployeeService.AddEmployee(Emp);
+
+    //    return RedirectToPage("/Employees/Profile");
+    //    return RedirectToPage("/Teams/GetDevTeams");
+    //}
+
+    //public IActionResult OnPost(int employeeId)
+    //{
+    //    dbContext.Employees.Add(Emp);
+    //    dbContext.SaveChanges();
+
+    //    SuccessMsg = "You have added a new employee";
+    //    return RedirectToPage("/Employees/Profile");
+    //    //return Page();
+    //}
 }
-
-
-
