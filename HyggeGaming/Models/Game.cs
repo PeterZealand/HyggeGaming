@@ -13,14 +13,17 @@ public partial class Game
     [Column("Game_ID")]
     public int GameId { get; set; }
 
+    [Required(ErrorMessage = "Title is required")]
     [StringLength(30)]
     [Unicode(false)]
     public string GameName { get; set; } = null!;
 
+    [Required(ErrorMessage = "Game genre is required")]
     [StringLength(30)]
     [Unicode(false)]
     public string GameType { get; set; } = null!;
 
+    [Required(ErrorMessage = "Developmental stage is required")]
     [StringLength(30)]
     [Unicode(false)]
     public string DevelopmentStage { get; set; } = null!;
