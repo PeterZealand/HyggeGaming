@@ -14,6 +14,13 @@ namespace HyggeGaming.Services.EFService
             context = service;
         }
 
+        public void AddEmployee(Employee Emp)
+        {
+            context.Employees.Add(Emp);
+            context.SaveChanges();
+            //return team;
+        }
+
         //public Employee CheckCredentials(Employee employee)
         //{
         //    context.Employees.
@@ -36,6 +43,8 @@ namespace HyggeGaming.Services.EFService
             }
             return false;
         }
+
+       
 
         public IEnumerable<Employee> GetEmployees()
         {
@@ -61,5 +70,7 @@ namespace HyggeGaming.Services.EFService
                 .Include(e => e.Role)
                 .ToList();
         }
+
+
     }
 }
