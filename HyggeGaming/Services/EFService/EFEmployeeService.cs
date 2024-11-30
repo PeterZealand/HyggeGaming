@@ -8,7 +8,7 @@ namespace HyggeGaming.Services.EFService
     public class EFEmployeeService: IEmployeeService
     {
         private HGDBContext context;
-        //public Employee Employee { get; set; }
+
         public EFEmployeeService(HGDBContext service)
         {
             context = service;
@@ -48,7 +48,11 @@ namespace HyggeGaming.Services.EFService
 
         public IEnumerable<Employee> GetEmployees()
         {
-            return context.Employees;
+            return context.Employees
+                  .Include(e => e.DevTeam)
+                  .Include(e => e.Role)
+                  .Include(e => e.ZipCodeNavigation)
+                  .ToList();
         }
 
         public Employee? GetEmployee(string employeeMail)
