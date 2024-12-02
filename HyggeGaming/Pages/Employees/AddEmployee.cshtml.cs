@@ -26,8 +26,9 @@ namespace HyggeGaming.Pages.Employees
        
         public IActionResult OnPost(int employeeId)
         {
-            Emp.ZipCodeNavigation = new City()
-            { City1 = "4600", ZipCode = 4600 };
+            //Manually remove fields from validation if needed
+            ModelState.Remove("Emp.ZipCodeNavigation");
+            ModelState.Remove("Emp.Role");
 
             if (!ModelState.IsValid)
             {

@@ -16,10 +16,10 @@ namespace HyggeGaming.Services.EFService
 
         public void AddEmployee(Employee Emp)
         {
-            context.Employees
-                .Include(e => e.Role)
-                .Include(e => e.ZipCodeNavigation)
-                .ToList();
+            //context.Employees
+            //    .Include(e => e.Role)
+            //    .Include(e => e.ZipCode)
+            //    .ToList();
             context.Employees.Add(Emp);
             context.SaveChanges();
             //return team;
