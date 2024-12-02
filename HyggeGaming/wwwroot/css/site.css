@@ -219,3 +219,8 @@ td {
     .textnav a:hover {
         color: #f1f1f1;
     }
+
+.btn-bg {
+    background-color: antiquewhite;
+    color: black;
+}
