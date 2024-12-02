@@ -42,7 +42,7 @@ namespace HyggeGaming.Pages.Employees
     //public string SuccessMsg = string.Empty;
 
     //[BindProperty(SupportsGet = true)]
-    //public Employee Emp { get; set; }
+    //public Employee Emp1 { get; set; }
 
 
     //public AddEmployeeModel(IEmployeeService service)
@@ -59,11 +59,11 @@ namespace HyggeGaming.Pages.Employees
     //{
     //    if (employeeId.HasValue)
     //    {
-    //        Emp = Context.Employees.Find(employeeId.Value);
+    //        Emp1 = Context.Employees.Find(employeeId.Value);
     //    }
     //    else
     //    {
-    //        Emp = new Employee();
+    //        Emp1 = new Employee();
     //    }
     //}
 
@@ -74,7 +74,7 @@ namespace HyggeGaming.Pages.Employees
     //        return Page();
     //    }
 
-    //    EmployeeService.AddEmployee(Emp);
+    //    EmployeeService.AddEmployee(Emp1);
 
     //    return RedirectToPage("/Employees/Profile");
     //    return RedirectToPage("/Teams/GetDevTeams");
@@ -82,7 +82,7 @@ namespace HyggeGaming.Pages.Employees
 
     //public IActionResult OnPost(int employeeId)
     //{
-    //    dbContext.Employees.Add(Emp);
+    //    dbContext.Employees.Add(Emp1);
     //    dbContext.SaveChanges();
 
     //    SuccessMsg = "You have added a new employee";

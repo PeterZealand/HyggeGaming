@@ -14,5 +14,9 @@ namespace HyggeGaming.Services.Interfaces
         public IEnumerable<Employee>? GetTeamMembers(Employee emp);
 
         public void AddEmployee(Employee addEmp);
+
+        public void DeleteEmployee(Employee DeleteEmp);
+
     }   
+
 }

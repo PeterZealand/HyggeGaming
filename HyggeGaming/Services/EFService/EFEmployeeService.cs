@@ -21,6 +21,18 @@ namespace HyggeGaming.Services.EFService
             //return team;
         }
 
+        public bool DeleteEmployee(int employeeId)
+        {
+            var employee = context.Employees.Find(employeeId);
+            if (employee != null)
+            {
+                context.Employees.Remove(employee);
+                context.SaveChanges();
+                return true;
+            }
+            return false;
+        }
+
         //public Employee CheckCredentials(Employee employee)
         //{
         //    context.Employees.
