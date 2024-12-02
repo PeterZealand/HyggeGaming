@@ -26,10 +26,13 @@ namespace HyggeGaming.Pages.Employees
        
         public IActionResult OnPost(int employeeId)
         {
-            //if (!ModelState.IsValid)
-            //{
-            //    return Page();
-            //}
+            Emp.ZipCodeNavigation = new City()
+            { City1 = "4600", ZipCode = 4600 };
+
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
             EmployeeService.AddEmployee(Emp);
 
             return RedirectToPage("/Employees/Profile");

@@ -11,6 +11,22 @@ namespace HyggeGaming.Services.EFService
             context = service;
         }
 
+        public void AddGame(Game newGame)
+        {
+            context.Games.Add(newGame);
+            context.SaveChanges();
+        }
+        public List<string> DevStages()
+        {
+            return new List<string>
+            {
+                "Conceptual",
+                "In progress",
+                "Beta",
+                "Released"
+            };
+        }
+
         public IEnumerable<Game> GetGames()
         {
             return context.Games; 

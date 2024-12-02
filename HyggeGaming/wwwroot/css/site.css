@@ -31,7 +31,7 @@ body {
 
 .themeColor {
     background-color: #050414;
-    color: ivory;
+    /*color: ivory;*/
 }
 
 .image-container {
@@ -65,7 +65,7 @@ body {
 /* Styling for the form input boxes */
 input.form-control {
     background-color: #333; /* Dark background color for the input */
-    color: ivory; /* Light text color */
+    /*color: ivory;*/ /* Light text color */
     border: 1px solid #555; /* Subtle border color */
     padding: 10px;
     border-radius: 5px;
@@ -74,7 +74,7 @@ input.form-control {
 
     input.form-control:focus {
         background-color: #444; /* Slightly lighter background when focused */
-        color: ivory;
+        /*color: ivory;*/
         outline: none;
         border-color: #777;
         box-shadow: 0 0 5px rgba(255, 255, 255, 0.1); /* Subtle glow effect */
@@ -98,10 +98,10 @@ td {
     /*color: ivory;*/
 }
 
-tr:hover {
-    background-color: #524b58;
+/*tr:hover {
+    background-color: #524b58;*/
     /*color: ivory;*/
-}
+/*}*/
 
 /*---*/
 
@@ -217,4 +217,19 @@ tr:hover {
     width: 100%;
     min-width: 200px;
     display: inline-block;
+}
+
+/*---*/
+
+.select-option {
+    color: black;
+    background-color: white;
+}
+
+.bg-image {
+    background-image: url('../img/frontpage hyggegaming.png'); /* Used if the image is unavailable */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+    position: absolute;
 }

@@ -8,7 +8,7 @@
 <h1>All Employees</h1>
 
 <p>
-    <a asp-page="">Add New Employee (if needed)</a>
+    <a asp-page="/Employees/AddEmployee">Add New Employee</a>
 </p>
 
 <table class="table">
@@ -38,9 +38,8 @@
                 <td>@Html.DisplayFor(modelItem => item.Role.RoleId)</td>
                 <td>@Html.DisplayFor(modelItem => item.ZipCodeNavigation.ZipCode)</td>
                 <td>
-                    <a asp-page="./Edit" asp-route-id="@item.EmployeeId">Edit</a> |
-                    <a asp-page="./Details" asp-route-id="@item.EmployeeId">Details</a> |
-                    <a asp-page="./Delete" asp-route-id="@item.EmployeeId">Delete</a>
+                    <a asp-page="/Employees/Edit" asp-route-id="@item.EmployeeId">Edit</a> 
+                    <a asp-page="/Employees/Delete" asp-route-id="@item.EmployeeId">Delete</a>
                 </td>
             </tr>
         }
