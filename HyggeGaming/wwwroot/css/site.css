@@ -63,22 +63,22 @@ body {
 }
 
 /* Styling for the form input boxes */
-input.form-control {
-    background-color: #333; /* Dark background color for the input */
+/*input.form-control {
+    background-color: #333;*/ /* Dark background color for the input */
     /*color: ivory;*/ /* Light text color */
-    border: 1px solid #555; /* Subtle border color */
-    padding: 10px;
+    /*border: 1px solid #555;*/ /* Subtle border color */
+    /*padding: 10px;
     border-radius: 5px;
     margin-bottom: 15px;
 }
 
     input.form-control:focus {
-        background-color: #444; /* Slightly lighter background when focused */
+        background-color: #444;*/ /* Slightly lighter background when focused */
         /*color: ivory;*/
-        outline: none;
+        /*outline: none;
         border-color: #777;
-        box-shadow: 0 0 5px rgba(255, 255, 255, 0.1); /* Subtle glow effect */
-    }
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);*/ /* Subtle glow effect */
+    /*}*/
 
 /*table css*/
 table {
@@ -87,7 +87,6 @@ table {
 }
 
 th {
-    /*color: ivory;*/
     background-color: #524b58;
 }
 
@@ -95,13 +94,8 @@ td {
     padding: 8px;
     text-align: left;
     border-bottom: 1px solid #2D2B40;
-    /*color: ivory;*/
 }
 
-/*tr:hover {
-    background-color: #524b58;*/
-    /*color: ivory;*/
-/*}*/
 
 /*---*/
 
@@ -117,33 +111,7 @@ td {
         box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     }
 
-.profileImg {
-    max-width: 300px;
-    height: auto;
-    border-radius: 10px;
-}
 
-.upvote-btn {
-    border-radius: 50%;
-    border: 1px solid;
-    border-color: green;
-    color: green;
-    background-color: #050414;
-    justify-content: center;
-}
-
-.downvote-btn {
-    border-radius: 50%;
-    border: 1px solid;
-    border-color: red;
-    color: red;
-    background-color: #050414;
-    justify-content: center;
-}
-
-.MyColor {
-    color: ivory;
-}
 
 /*Modal*/
 .myModal {
@@ -227,9 +195,27 @@ td {
 }
 
 .bg-image {
-    background-image: url('../img/frontpage hyggegaming.png'); /* Used if the image is unavailable */
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Do not repeat the image */
-    background-size: cover; /* Resize the background image to cover the entire container */
-    position: absolute;
+    background-image: url('../img/Pedro.png'); 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover; 
+
 }
+
+/*nav*/
+.navbar-transparent {
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+
+.textnav a {
+    padding: 6px 6px 6px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+}
+
+    .textnav a:hover {
+        color: #f1f1f1;
+    }

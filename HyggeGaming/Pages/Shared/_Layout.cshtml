@@ -11,7 +11,7 @@
 <body class="@((ViewData["Title"]?.ToString() == "Index" ? "bg-image" : ""))">
     <header>
 
-        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <nav class="navbar navbar-collapse navbar-dark textnav" style="opacity: 0.7;">
             <div class="container-fluid">
                 <a class="navbar-brand" href="javascript:void(0)"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
@@ -59,10 +59,6 @@
                             <a class="nav-link" asp-page="/Employees/AllEmployees">AllEmployees</a>
                         </li>
                     </ul>
-                    <form class="d-flex">
-                        <input class="form-control me-2" type="text" placeholder="Search">
-                        <button class="btn btn-primary" type="button">Search</button>
-                    </form>
                 </div>
             </div>
         </nav>
