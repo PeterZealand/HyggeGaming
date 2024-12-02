@@ -4,10 +4,27 @@
     ViewData["Title"] = "Index";
 }
 
+<div class="container">
+    <div class="row">
+        <div class="text-center">
+            <h1 class="display-4">Welcome to Hygge Gaming</h1>
+            <p>Hygge - A feeling that cannot be translated - but <a class="nav-link" href="https://en.wikipedia.org/wiki/Hygge">Hygge</a></p>
+            <p>It is in the Spirit of hygge, that we will endevor to bring you enjoyable games.</p>
+            <p>We are working on this website as you read this!</p>
+        </div>
+    </div>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome to Hygge Gaming</h1>
-    <p>Hygge - A feeling that cannot be translated - but <a class="nav-link" href="https://en.wikipedia.org/wiki/Hygge">Hygge</a></p>
-    <p>It is in the Spirit of hygge, that we will endevor to bring you enjoyable games.</p>
-    <p>We are working on this website as you read this!</p>
+    <div class="row ">
+        <div class="col-2 btn btn-outline-light">
+            <a asp-page="/Employees/AllEmployees">About Us</a>
+        </div>
+        <div class="col-2 btn btn-outline-light">
+            <a asp-page="/Games/ViewGames">Our Games</a>
+        </div>
+        <div class="col-2 btn btn-outline-light">
+            <a asp-page="#">News</a>
+        </div>
+    </div>
 </div>
+
+
