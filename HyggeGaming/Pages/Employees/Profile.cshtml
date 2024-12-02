@@ -100,9 +100,9 @@
 {
     <div class="sidenav">
 
-        <a class="nav-link text-light" asp-area="" asp-page="/Teams/DevTeam">My Team</a>
+        <a asp-page="/Teams/DevTeam">My Team</a>
         <a asp-page="/Games/ViewGames">All Games</a>
-        <a class="nav-link text-light" asp-area="" asp-page="/Teams/GetDevTeams">All Teams</a>
+        <a asp-page="/Teams/GetDevTeams">All Teams</a>
         <a href="#">Support</a>
 
         <div class="logout-container align-bottom">
@@ -117,8 +117,8 @@
 {
     <div class="sidenav">
 
-       @*  <a href="#">Manage Employees</a> *@
-        <a class="nav-link text-light" asp-area="" asp-page="/Employees/AddEmployee">Manage Employees</a>
+        <a asp-page="/Employees/AllEmployees">Manage Employees</a>
+        <a asp-page="/Employees/AddEmployee">New Employee</a>
         <a asp-page="/Games/ManageGames">Manage Games</a>
         <a asp-page="/Teams/GetDevTeams">Manage Teams</a>
         <a href="#">Support</a>

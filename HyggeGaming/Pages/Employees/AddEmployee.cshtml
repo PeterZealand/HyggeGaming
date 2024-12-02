@@ -10,51 +10,42 @@
 <div class="row">
     <div class="col-md-4">
         <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div asp-validation-summary="All" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Emp.FirstName" class="control-label"></label>
-                <input asp-for="Emp.FirstName" class="form-control" />
-                <span asp-validation-for="Emp.FirstName" class="text-danger"></span>
+                <label asp-for="@Model.Emp.FirstName" class="control-label"></label>
+                <input asp-for="@Model.Emp.FirstName" class="form-control" />
             </div>
             <div class="form-group">
-                <label asp-for="Emp.LastName" class="control-label">LastName</label>
-                <input asp-for="Emp.LastName" class="form-control" />
-                <span asp-validation-for="Emp.LastName" class="text-danger"></span>
+                <label asp-for="@Model.Emp.LastName" class="control-label">LastName</label>
+                <input asp-for="@Model.Emp.LastName" class="form-control" />
             </div>
             <div class="form-group">
-                <label asp-for="Emp.Address" class="control-label">Address</label>
-                <input asp-for="Emp.Address" class="form-control" />
-                <span asp-validation-for="Emp.Address" class="text-danger"></span>
+                <label asp-for="@Model.Emp.Address" class="control-label">Address</label>
+                <input asp-for="@Model.Emp.Address" class="form-control" />
             </div>
             <div class="form-group">
-                <label asp-for="Emp.ZipCode" class="control-label">ZipCode</label>
-                <input asp-for="Emp.ZipCode" class="form-control" />
-                <span asp-validation-for="Emp.ZipCode" class="text-danger"></span>
+                <label asp-for="@Model.Emp.ZipCodeNavigation" class="control-label">ZipCode</label>
+                <input asp-for="@Model.Emp.ZipCodeNavigation" class="form-control" />
             </div>
             <div class="form-group">
-                <label asp-for="Emp.Mail" class="control-label">Mail</label>
-                <input asp-for="Emp.Mail" class="form-control" />
-                <span asp-validation-for="Emp.Mail" class="text-danger"></span>
+                <label asp-for="@Model.Emp.Mail" class="control-label">Mail</label>
+                <input asp-for="@Model.Emp.Mail" class="form-control" />
             </div>
             <div class="form-group">
-                <label asp-for="Emp.EmployeeId" class="control-label">Id</label>
-                <input asp-for="Emp.EmployeeId" class="form-control" />
-                <span asp-validation-for="Emp.EmployeeId" class="text-danger"></span>
+                <label asp-for="@Model.Emp.EmployeeId" class="control-label">Id</label>
+                <input asp-for="@Model.Emp.EmployeeId" class="form-control" />
             </div>
             <div class="form-group">
-                <label asp-for="Emp.Password" class="control-label">Password</label>
-                <input asp-for="Emp.Password" class="form-control" />
-                <span asp-validation-for="@Model.Emp.Password" class="text-danger"></span>
+                <label asp-for="@Model.Emp.Password" class="control-label">Password</label>
+                <input asp-for="@Model.Emp.Password" class="form-control" />
             </div>
             <div class="form-group">
-                <label asp-for="Emp.RoleId" class="control-label">Role</label>
-                <input asp-for="Emp.RoleId" class="form-control" />
-                <span asp-validation-for="Emp.RoleId" class="text-danger"></span>
+                <label asp-for="@Model.Emp.RoleId" class="control-label">Role</label>
+                <input asp-for="@Model.Emp.RoleId" class="form-control" />
             </div>
             <div class="form-group">
-                <label asp-for="Emp.DevTeamId" class="control-label">Team Id</label>
-                <input asp-for="Emp.DevTeamId" class="form-control" />
-                <span asp-validation-for="Emp.DevTeamId" class="text-danger"></span>
+                <label asp-for="@Model.Emp.DevTeamId" class="control-label">Team Id</label>
+                <input asp-for="@Model.Emp.DevTeamId" class="form-control" />
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

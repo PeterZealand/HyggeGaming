@@ -225,3 +225,11 @@ td {
     color: black;
     background-color: white;
 }
+
+.bg-image {
+    background-image: url('../img/frontpage hyggegaming.png'); /* Used if the image is unavailable */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+    position: absolute;
+}
