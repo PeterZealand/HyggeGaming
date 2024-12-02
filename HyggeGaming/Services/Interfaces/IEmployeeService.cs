@@ -15,7 +15,7 @@ namespace HyggeGaming.Services.Interfaces
 
         public void AddEmployee(Employee addEmp);
 
-        public void DeleteEmployee(Employee DeleteEmp);
+        public void DeleteEmployee(Employee deleteEmp);
 
     }   
 

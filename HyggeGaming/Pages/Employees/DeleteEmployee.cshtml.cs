@@ -9,11 +9,11 @@ using HyggeGaming.Models;
 
 namespace HyggeGaming.Pages.Employees
 {
-    public class DeleteModel : PageModel
+    public class DeleteEmployeeModel : PageModel
     {
         private readonly HGDBContext _context;
 
-        public DeleteModel(HGDBContext context)
+        public DeleteEmployeeModel(HGDBContext context)
         {
             _context = context;
         }
@@ -56,7 +56,7 @@ namespace HyggeGaming.Pages.Employees
                 await _context.SaveChangesAsync();
             }
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("/Employees/AllEmployees");
         }
     }
 }
