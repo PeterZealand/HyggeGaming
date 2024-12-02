@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/HyggeGaming.styles.css" asp-append-version="true" />
 </head>
-<body>
+<body class="@((ViewData["Title"]?.ToString() == "Index" ? "bg-image" : ""))">
     <header>
 
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
