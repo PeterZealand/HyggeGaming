@@ -12,7 +12,7 @@ public partial class Employee
     [Key]
     [Column("Employee_ID")]
     public int EmployeeId { get; set; }
-
+     
     [Required(ErrorMessage = "FirstName is required")]
     [StringLength(30)]
     [Unicode(false)]
