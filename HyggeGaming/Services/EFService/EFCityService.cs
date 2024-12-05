@@ -11,7 +11,6 @@ namespace HyggeGaming.Services.EFService
             context = service;
         }
 
-
         public IEnumerable<City> GetCities()
         {
             throw new NotImplementedException();
