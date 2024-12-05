@@ -32,6 +32,13 @@ namespace HyggeGaming.Services.EFService
             context?.SaveChanges();
         }
 
+        public void UpdateEmployee(Employee Emp)
+        {
+           
+            context?.Employees.Update(Emp);
+            context?.SaveChanges();
+        }
+
         //public Employee CheckCredentials(Employee employee)
         //{
         //    context.Employees.
@@ -82,6 +89,14 @@ namespace HyggeGaming.Services.EFService
                 .ToList();
         }
 
-       
+        public IEnumerable<Employee> GetEmployee(Employee Emp)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Employee GetEmployee(int employeeId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
