@@ -34,5 +34,16 @@ namespace HyggeGaming.Services.EFService
                 .Include(t => t.Employees);
                 
         }
+
+        public IEnumerable<DevTeam> ManageDevTeams()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateDevTeam(DevTeam devT)
+        {
+            context.DevTeams.Add(devT);
+            context.SaveChanges();
+        }
     }
 }

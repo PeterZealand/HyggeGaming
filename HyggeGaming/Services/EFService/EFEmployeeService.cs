@@ -1,4 +1,3 @@
-﻿
 using HyggeGaming.Models;
 using HyggeGaming.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -45,6 +44,13 @@ namespace HyggeGaming.Services.EFService
         {
 
             context?.Employees.Remove(Emp);
+            context?.SaveChanges();
+        }
+
+        public void UpdateEmployee(Employee Emp)
+        {
+           
+            context?.Employees.Update(Emp);
             context?.SaveChanges();
         }
 
@@ -97,6 +103,7 @@ namespace HyggeGaming.Services.EFService
                 .Include(e => e.Role)
                 .ToList();
         }
+
 
         public Employee? GetEmployeeForUpdating(int employeeId)
         {

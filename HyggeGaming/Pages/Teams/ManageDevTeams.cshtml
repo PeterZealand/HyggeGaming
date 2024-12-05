@@ -1,0 +1,87 @@
+﻿@page
+@model HyggeGaming.Pages.Teams.ManageDevTeamsModel
+@{
+}
+
+<h1>All teams</h1>
+<p>...</p>
+
+<a class="btn btn-outline-success" asp-page="/Teams/CreateTeam">Create new team</a>
+@*TODO*@ <a class="btn btn-outline-success" asp-page="/">Add employee to a team (to be implemented)</a>
+@* <table class="table">
+    <thead>
+        <tr>
+            <th>Team Id</th>
+            <th>Team Name</th>
+            <th>Assigned Game</th>
+            <th>Members</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.DevTeam != null)
+        {
+            @foreach (var team in Model.DevTeam)
+            {
+                <tr>
+                    <td>@team.DevTeamId</td>
+                    <td>@team.DevTname</td>
+                    <td>AssignedGameTitle</td>
+                    
+                    <td>
+                        <ul class="list-unstyled">
+                            @foreach (var member in team.Employees)
+                            {
+                                <li>
+                                    <strong>@member.FirstName @member.LastName</strong>
+                                    | Role: @member.RoleId | Email: <a href="mailto:@member.Mail">@member.Mail</a>)
+
+                                </li>
+                                
+                            }
+                        </ul>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table> *@
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Team Id</th>
+            <th>Team Name</th>
+            <th>Assigned Game</th>
+            <th>Members</th>
+            <th>Actions</th> <!-- Ny kolonne -->
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.DevTeam != null)
+        {
+            @foreach (var team in Model.DevTeam)
+            {
+                <tr>
+                    <td>@team.DevTeamId</td>
+                    <td>@team.DevTname</td>
+                    <td>AssignedGameTitle</td>
+                    <td>
+                        <ul class="list-unstyled">
+                            @foreach (var member in team.Employees)
+                            {
+                                <li>
+                                    <strong>@member.FirstName @member.LastName</strong>
+                                    | Role: @member.RoleId | Email: <a href="mailto:@member.Mail">@member.Mail</a>
+                                </li>
+                            }
+                        </ul>
+                    </td>
+                    <td>
+                        <a asp-page="/Teams/UpdateDevTeam" asp-route-id="@team.DevTeamId">Edit</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
