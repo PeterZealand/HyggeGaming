@@ -38,7 +38,7 @@
                 <td>@Html.DisplayFor(modelItem => item.Role.RoleId)</td>
                 <td>@Html.DisplayFor(modelItem => item.ZipCodeNavigation.ZipCode)</td>
                 <td>
-                    <a asp-page="/Employees/UpdateEmployee" asp-route-id="@item.EmployeeId">Edit</a> 
+                    <a asp-page="/Employees/UpdateEmployee" asp-route-employeeId="@item.EmployeeId">Update</a>
                     <a asp-page="/Employees/DeleteEmployee" asp-route-id="@item.EmployeeId">Delete</a>
                 </td>
             </tr>

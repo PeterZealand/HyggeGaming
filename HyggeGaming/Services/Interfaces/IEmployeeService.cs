@@ -1,9 +1,16 @@
-﻿using HyggeGaming.Models;
+using HyggeGaming.Models;
+using System.Collections;
 
 namespace HyggeGaming.Services.Interfaces
 {
     public interface IEmployeeService
     {
+        public IEnumerable<DevTeam> GetDevTeams();
+
+        public IEnumerable<Role> GetRoles();
+
+        public IEnumerable<City> GetCities();
+
         public IEnumerable<Employee> GetEmployees();
         public IEnumerable<Employee> GetEmployee(Employee Emp);
 
@@ -18,8 +25,10 @@ namespace HyggeGaming.Services.Interfaces
         public void AddEmployee(Employee addEmp);
 
         public void DeleteEmployee(Employee deleteEmp);
-        public void UpdateEmployee(Employee updateEmp);
-        Employee GetEmployee(int employeeId);
-    }   
 
+        public Employee? GetEmployeeForUpdating(int employeeId);
+
+        void UpdateEmployee(Employee employee);
+
+    }
 }

@@ -1,8 +1,8 @@
 ﻿@page
-@model HyggeGaming.Pages.Assignments.CreateModel
+@model HyggeGaming.Pages.Assignments.CreateAssignmentModel
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Create Assignment";
 }
 
 <h1>Create</h1>
@@ -40,9 +40,7 @@
 </div>
 
 <div>
-    <a asp-page="Index">Back to List</a>
+    <a asp-page="/Assignments/AllAssignments">Back to Assignments</a>
 </div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+
