@@ -13,7 +13,7 @@ namespace HyggeGaming.Services.EFService
 
         public IEnumerable<City> GetCities()
         {
-            throw new NotImplementedException();
+            return context.Cities;
         }
     }
 }

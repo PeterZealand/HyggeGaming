@@ -13,7 +13,7 @@ namespace HyggeGaming.Services.EFService
 
         public IEnumerable<Role> GetRoles()
         {
-            throw new NotImplementedException();
+            return context.Roles;
         }
     }
 }
