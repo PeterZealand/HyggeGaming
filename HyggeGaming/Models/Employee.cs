@@ -32,6 +32,7 @@ public partial class Employee
     public int ZipCode { get; set; }
 
     [Required(ErrorMessage = "Mail is required")]
+    [EmailAddress(ErrorMessage = "Invalid Email Address")]
     [StringLength(50)]
     [Unicode(false)]
     public string Mail { get; set; } = null!;
