@@ -47,24 +47,13 @@ namespace HyggeGaming.Services.EFService
             context?.SaveChanges();
         }
 
-        public void UpdateEmployee(Employee Emp)
+        public void UpdateProfile(Employee Emp)
         {
            
             context?.Employees.Update(Emp);
             context?.SaveChanges();
         }
 
-        //public Employee CheckCredentials(Employee employee)
-        //{
-        //    context.Employees.
-        //        FirstOrDefault(e => e.Mail == employee.Mail);
-
-        //    if (employee != null && employee.Password == employee.Password)
-        //    {
-        //        return employee;
-        //    }
-        //    return null;
-        //}
         public bool CheckCredentials(Employee employee)
         {
             Employee? isEmp = context.Employees.
@@ -76,8 +65,6 @@ namespace HyggeGaming.Services.EFService
             }
             return false;
         }
-
-
 
         public IEnumerable<Employee> GetEmployees()
         {
@@ -151,6 +138,11 @@ namespace HyggeGaming.Services.EFService
 
             // Save changes to the database
             context.SaveChanges();
+        }
+
+        public IEnumerable<Employee> GetEmployee(Employee Emp)
+        {
+            throw new NotImplementedException();
         }
     }
 }
