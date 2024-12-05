@@ -1,0 +1,26 @@
+﻿@page
+@model HyggeGaming.Pages.Public.OurGamesModel
+@{
+}
+
+<h1>Our Games</h1>
+<p>Feel free to browse our games...</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sit amet interdum nisl. Praesent a fermentum nulla. Integer aliquet non orci non mollis. Morbi ornare dapibus rutrum. Curabitur ac tincidunt tortor.</p>
+
+<div class="row align-content-center">
+    @foreach (var item in Model.Game)
+    {
+        <div class="container rounded-3 m-5" style="background-color:#EEE2CA;">
+            <div class="row align-content-center">
+            <div class="col-4 align-content-center">
+                <img src="~/img/PlaceholderPedro1.png" style="max-width:400px; max-height:auto;" /> 
+            </div>
+            <div class="col-5 m-5">
+                <h3>@item.GameName (@item.DevelopmentStage)</h3>
+                <p>Genre: @item.GameType</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sit amet interdum nisl. Praesent a fermentum nulla. Integer aliquet non orci non mollis. Morbi ornare dapibus rutrum. Curabitur ac tincidunt tortor. Sed venenatis facilisis magna, id consectetur metus tincidunt in. Duis vehicula et arcu in accumsan. Suspendisse imperdiet, ligula vitae porttitor vulputate, purus nisl semper massa, in vehicula eros purus in erat. Curabitur id urna at neque finibus mollis id nec dolor. Aliquam erat volutpat. </p>
+            </div>
+            </div>
+        </div>
+    }
+</div>

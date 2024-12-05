@@ -1,51 +1,68 @@
-using HyggeGaming.Models;
-using HyggeGaming.Services.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using HyggeGaming.Models;
+using HyggeGaming.Services.Interfaces;
 
 namespace HyggeGaming.Pages.Employees
 {
     public class UpdateEmployeeModel : PageModel
     {
-        private readonly HGDBContext _context;
-        public UpdateEmployeeModel(HGDBContext context)
-        {
-            _context = context;
-        }
 
-        private readonly IEmployeeService employeeService;
+        IEmployeeService EmployeeService { get; set; }
 
         [BindProperty]
+
         public Employee Emp { get; set; }
 
-       
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public UpdateEmployeeModel(IEmployeeService service)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var employee = await _context.Employees.FirstOrDefaultAsync(m => m.EmployeeId == id);
-
-            if (employee == null)
-            {
-                return NotFound();
-            }
-            else
-            {
-                Emp = employee;
-            }
-            return Page();
-            
+            EmployeeService = service;
         }
 
-        public IActionResult OnPost()
+        public IActionResult OnGet(int? employeeId)
         {
-           
+            if (employeeId == null)
 
-            return RedirectToPage("/Employees/AllEmployees");
+            {
+                return NotFound();
+            }
+
+            // Fetch the employee with related data
+            Emp = EmployeeService.GetEmployeeForUpdating(employeeId.Value);
+
+            if (Emp == null)
+            {
+                return NotFound();
+            }
+
+            // Populate dropdowns for related fields
+            ViewData["DevTeamId"] = new SelectList(EmployeeService.GetDevTeams(), "DevTeamId", "DevTeamName", Emp.DevTeamId);
+            ViewData["RoleId"] = new SelectList(EmployeeService.GetRoles(), "RoleId", "RoleName", Emp.RoleId);
+            ViewData["ZipCode"] = new SelectList(EmployeeService.GetCities(), "ZipCode", "CityName", Emp.ZipCode);
+
+            return Page();
+        }
+
+
+        public IActionResult OnPost(int employeeId)
+        {
+            //Manually remove fields from validation if needed
+            ModelState.Remove("Emp.ZipCodeNavigation");
+            ModelState.Remove("Emp.Role");
+
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
+            EmployeeService.AddEmployee(Emp);
+
+            return RedirectToPage("/Employees/Profile");
+
         }
     }
 }

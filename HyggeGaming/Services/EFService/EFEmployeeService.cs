@@ -1,13 +1,28 @@
-﻿
 using HyggeGaming.Models;
 using HyggeGaming.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using System.Collections;
 
 namespace HyggeGaming.Services.EFService
 {
-    public class EFEmployeeService: IEmployeeService
+    public class EFEmployeeService : IEmployeeService
     {
         private HGDBContext context;
+
+        public IEnumerable<DevTeam> GetDevTeams()
+        {
+            return context.DevTeams.ToList();
+        }
+
+        public IEnumerable<Role> GetRoles()
+        {
+            return context.Roles.ToList();
+        }
+
+        public IEnumerable<City> GetCities()
+        {
+            return context.Cities.ToList();
+        }
 
         public EFEmployeeService(HGDBContext service)
         {
@@ -16,10 +31,10 @@ namespace HyggeGaming.Services.EFService
 
         public void AddEmployee(Employee Emp)
         {
-            context.Employees
-                .Include(e => e.Role)
-                .Include(e => e.ZipCodeNavigation)
-                .ToList();
+            //context.Employees
+            //    .Include(e => e.Role)
+            //    .Include(e => e.ZipCode)
+            //    .ToList();
             context.Employees.Add(Emp);
             context.SaveChanges();
             //return team;
@@ -27,8 +42,8 @@ namespace HyggeGaming.Services.EFService
 
         public void DeleteEmployee(Employee Emp)
         {
-            
-            context?.Employees .Remove(Emp);
+
+            context?.Employees.Remove(Emp);
             context?.SaveChanges();
         }
 
@@ -62,7 +77,7 @@ namespace HyggeGaming.Services.EFService
             return false;
         }
 
-       
+
 
         public IEnumerable<Employee> GetEmployees()
         {
@@ -89,14 +104,53 @@ namespace HyggeGaming.Services.EFService
                 .ToList();
         }
 
-        public IEnumerable<Employee> GetEmployee(Employee Emp)
+
+        public Employee? GetEmployeeForUpdating(int employeeId)
         {
-            throw new NotImplementedException();
+            return context.Employees
+                .Include(e => e.Role)           // Include Role details
+                .Include(e => e.DevTeam)        // Include DevTeam details
+                .Include(e => e.ZipCodeNavigation) // Include City details
+                .FirstOrDefault(e => e.EmployeeId == employeeId); // Filter by EmployeeId
         }
 
-        public Employee GetEmployee(int employeeId)
+        public void UpdateEmployee(Employee employee)
         {
-            throw new NotImplementedException();
+            // Attach the existing employee to the context and mark it as modified
+            var existingEmployee = context.Employees
+                .Include(e => e.Role)
+                .Include(e => e.DevTeam)
+                .Include(e => e.ZipCodeNavigation)
+                .FirstOrDefault(e => e.EmployeeId == employee.EmployeeId);
+
+            if (existingEmployee == null)
+            {
+                throw new ArgumentException("Employee not found");
+            }
+
+            // Update properties
+            existingEmployee.FirstName = employee.FirstName;
+            existingEmployee.LastName = employee.LastName;
+            existingEmployee.Address = employee.Address;
+            existingEmployee.Mail = employee.Mail;
+            existingEmployee.Password = employee.Password;
+            existingEmployee.RoleId = employee.RoleId;
+            existingEmployee.DevTeamId = employee.DevTeamId;
+
+            // If ZipCode changes, update the ZipCodeNavigation
+            if (existingEmployee.ZipCode != employee.ZipCode)
+            {
+                var city = context.Cities.FirstOrDefault(c => c.ZipCode == employee.ZipCode);
+                if (city == null)
+                {
+                    throw new ArgumentException("Invalid Zip Code");
+                }
+                existingEmployee.ZipCode = city.ZipCode;
+                existingEmployee.ZipCodeNavigation = city;
+            }
+
+            // Save changes to the database
+            context.SaveChanges();
         }
     }
 }

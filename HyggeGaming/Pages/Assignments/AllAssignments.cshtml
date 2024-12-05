@@ -1,35 +1,36 @@
 ﻿@page
-@model HyggeGaming.Pages.Assignments.IndexModel
+@model HyggeGaming.Pages.Assignments.AllAssignmentsModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "All Assignments";
 }
 
-<h1>Index</h1>
+<h1>All Assignments</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="CreateAssignment">Create New Assignment</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Assignment[0].AssignmentName)
+                @Html.DisplayNameFor(model => model.Assignment.FirstOrDefault().AssignmentName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Assignment[0].Description)
+                @Html.DisplayNameFor(model => model.Assignment.FirstOrDefault().Description)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Assignment[0].Status)
+                @Html.DisplayNameFor(model => model.Assignment.FirstOrDefault().Status)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Assignment[0].Game)
+                @Html.DisplayNameFor(model => model.Assignment.FirstOrDefault().Game)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Assignment) {
+@foreach (var item in Model.Assignment) 
+        {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.AssignmentName)
@@ -49,6 +50,6 @@
                 <a asp-page="./Delete" asp-route-id="@item.AssignmentId">Delete</a>
             </td>
         </tr>
-}
+        }
     </tbody>
 </table>
