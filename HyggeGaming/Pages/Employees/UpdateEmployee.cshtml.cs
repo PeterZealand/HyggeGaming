@@ -59,9 +59,9 @@ namespace HyggeGaming.Pages.Employees
             {
                 return Page();
             }
-            EmployeeService.AddEmployee(Emp);
+            EmployeeService.UpdateEmployee(Emp);
 
-            return RedirectToPage("/Employees/Profile");
+            return RedirectToPage("/Employees/AllEmployees");
 
         }
     }
