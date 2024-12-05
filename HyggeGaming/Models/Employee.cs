@@ -12,39 +12,49 @@ public partial class Employee
     [Key]
     [Column("Employee_ID")]
     public int EmployeeId { get; set; }
-
+     
+    [Required(ErrorMessage = "FirstName is required")]
     [StringLength(30)]
     [Unicode(false)]
     public string FirstName { get; set; } = null!;
 
+    [Required(ErrorMessage = "LastName is required")]
     [StringLength(30)]
     [Unicode(false)]
     public string LastName { get; set; } = null!;
 
+    [Required(ErrorMessage = "Address is required")]
     [StringLength(50)]
     [Unicode(false)]
     public string Address { get; set; } = null!;
 
+    [Required(ErrorMessage = "ZipCode is required")]
     public int ZipCode { get; set; }
 
+    [Required(ErrorMessage = "Mail is required")]
     [StringLength(50)]
     [Unicode(false)]
     public string Mail { get; set; } = null!;
 
+    [Required(ErrorMessage = "Password is required")]
     [StringLength(30)]
     [Unicode(false)]
     public string Password { get; set; } = null!;
 
+    [Required(ErrorMessage = "RoleId is required")]
     [Column("Role_ID")]
     public int RoleId { get; set; }
 
+    [Required(ErrorMessage = "DevTeamId is required")]
     [Column("DevTeam_ID")]
     public int? DevTeamId { get; set; }
 
+    [Required(ErrorMessage = "DevTeam is required")]
     [ForeignKey("DevTeamId")]
     [InverseProperty("Employees")]
     public virtual DevTeam? DevTeam { get; set; }
 
+    [Required(ErrorMessage = "Role is required")]
     [ForeignKey("RoleId")]
     [InverseProperty("Employees")]
     public virtual Role Role { get; set; } = null!;
