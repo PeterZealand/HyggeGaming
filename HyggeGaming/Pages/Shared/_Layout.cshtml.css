@@ -47,20 +47,10 @@ button.accept-policy {
   line-height: 60px;
 }
 
-/*.navbar-transparent {
-    background-color: transparent !important;
-    box-shadow: none !important;
+.navbar-toggler {
+    background-color: rgba(255, 255, 255); /* Semi-transparent white */
+    border: 2px solid black; /* Optional border */
+    border-radius: 5px; /* Rounded corners for better aesthetics */
 }
 
-.textnav a {
-    padding: 6px 6px 6px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-    background-color: none;
-}
 
-    .textnav a:hover {
-        color: #f1f1f1;
-    }*/

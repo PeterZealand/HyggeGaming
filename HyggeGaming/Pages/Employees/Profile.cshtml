@@ -7,10 +7,10 @@
     <h1>Profile</h1>
 </div>
 
-<div class="row">
+<div class="row d-flex align-items-start">
     <div class="col-3 border-end align-content-center">
         <div>
-            <img class="profile-img" src="~/img/profile.png" />
+            <img class="profile-img" src="~/img/ProfileOtter.png" />
         </div>
 
         <div class="form-like">
@@ -43,34 +43,70 @@
             <span class="fake-input">@Model.Employee.Role.Role1</span>
         </div>
         <div class="form-like">
-            <span class="fake-label">Team members:</span>
-            <span class="fake-input">
-
-            @if (Model.Employees != null)
+            @if (Model.Employee.DevTeam != null)
             {
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Role</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var member in Model.Employees)
-                        {
-                            <tr>
-                                <td>@member.FirstName @member.LastName</td>
-                                <td>@member.Mail</td>
-                                <td>@member.Role?.Role1</td>
-                            </tr>
-                        }
-                    </tbody>
-                </table>
-            }
-            </span>
+                <h3>Team @Model.Employee.DevTeam.DevTname:</h3>
 
+                <span class="fake-label">Team members:</span>
+
+                <div class="fake-input">
+
+                    @if (Model.Employees != null)
+                    {
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var member in Model.Employees)
+                                {
+                                    <tr>
+                                        <td>@member.FirstName @member.LastName</td>
+                                        <td>@member.Mail</td>
+                                        <td>@member.Role?.Role1</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    }
+
+                </div>
+            }
+            
         </div> 
+
+        @if (Model.Game != null)
+        {
+        <h4>Assignments for @Model.Game.GameName</h4>
+
+        <div class="row justify-content-evenly">
+            @if (Model.Assignments != null)
+            {
+                @foreach (var item in Model.Assignments)
+                {
+                    <div class="col-12 col-sm-6 col-lg-3 m-2">
+                        <div class="fake-input p-1">
+                            <h4>@item.AssignmentName</h4>
+                            <p>@item.Description</p>
+                            <p>Status: @item.Status</p>
+                            <div class="card-footer">
+                                <a class="btn btn-primary" asp-page="/Assignments/Edit">Change status</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <p>No assignments available for this game.</p>
+            }
+            </div>
+        }
+
         
         <div class="d-flex justify-content-between pt-5 mt-5">
             <div class="container fake-input me-3 flex-fill">
@@ -105,9 +141,16 @@
         <a asp-page="/Teams/GetDevTeams">All Teams</a>
         <a href="#">Support</a>
 
-        <div class="logout-container align-bottom">
+        @* <div class="logout-container align-bottom">
             <form method="Post" asp-page-handler="Logout" class="d-inline">
                 <button type="submit" class="btn btn-outline-danger">Logout</button>
+            </form>
+        </div> *@
+        <div class="logout-container align-bottom">
+            <form method="Post" asp-page-handler="Logout" class="d-inline">
+                <button type="submit" class="btn btn-outline-dark">
+                    <img src="~/img/logout.png"class="p-4" style="max-width:200px;" /> @*Hvis dette beholdes - husk style i css*@
+                </button>
             </form>
         </div>
     </div>
@@ -130,7 +173,9 @@
 
         <div class="logout-container align-bottom">
             <form method="Post" asp-page-handler="Logout" class="d-inline">
-                <button type="submit" class="btn btn-outline-danger">Logout</button>
+                <button type="submit" class="btn btn-outline-danger">
+                    <img src="~/img/logout.png" style="max-width:200px;"/>
+                </button>
             </form>
         </div>
     </div>

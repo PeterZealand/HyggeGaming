@@ -18,8 +18,17 @@
             <div class="col-5 m-5">
                 <h3>@item.GameName (@item.DevelopmentStage)</h3>
                 <p>Genre: @item.GameType</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sit amet interdum nisl. Praesent a fermentum nulla. Integer aliquet non orci non mollis. Morbi ornare dapibus rutrum. Curabitur ac tincidunt tortor. Sed venenatis facilisis magna, id consectetur metus tincidunt in. Duis vehicula et arcu in accumsan. Suspendisse imperdiet, ligula vitae porttitor vulputate, purus nisl semper massa, in vehicula eros purus in erat. Curabitur id urna at neque finibus mollis id nec dolor. Aliquam erat volutpat. </p>
-            </div>
+                
+                    @if (item.GameId == 1) @*Flipping Cute - vi har ikke description for spil i databasen, så måske dette kan være en midlertidig løsning*@
+                    {
+                        <p>Flipping Cute is a charming matching game for mobile and tablet, starring Pedro the Otter! Explore colorful settings as Pedro searches for matching cards to complete his quest. With simple gameplay and fun challenges, it’s designed to bring joy to all ages. Whether testing your memory or uncovering pairs together, Flipping Cute offers a delightful way for families to connect. Perfect for casual play or friendly competition, this game invites everyone to join the fun and create lasting memories.</p>
+                    }
+                    else
+                    {
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sit amet interdum nisl. Praesent a fermentum nulla. Integer aliquet non orci non mollis. Morbi ornare dapibus rutrum. Curabitur ac tincidunt tortor. Sed venenatis facilisis magna, id consectetur metus tincidunt in. Duis vehicula et arcu in accumsan. Suspendisse imperdiet, ligula vitae porttitor vulputate, purus nisl semper massa, in vehicula eros purus in erat. Curabitur id urna at neque finibus mollis id nec dolor. Aliquam erat volutpat. </p>
+                    }
+
+                </div>
             </div>
         </div>
     }

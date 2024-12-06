@@ -25,15 +25,6 @@ body {
     margin-bottom: 60px;
 }
 
-.container-fluid {
-    background-color: #050414;
-}
-
-.themeColor {
-    background-color: #050414;
-    /*color: ivory;*/
-}
-
 .image-container {
     position: relative;
     display: flex; /* Enable Flexbox */
