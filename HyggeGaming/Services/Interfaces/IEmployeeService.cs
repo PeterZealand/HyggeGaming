@@ -1,4 +1,4 @@
-﻿using HyggeGaming.Models;
+using HyggeGaming.Models;
 using System.Collections;
 
 namespace HyggeGaming.Services.Interfaces
@@ -12,11 +12,13 @@ namespace HyggeGaming.Services.Interfaces
         public IEnumerable<City> GetCities();
 
         public IEnumerable<Employee> GetEmployees();
+        public IEnumerable<Employee> GetEmployee(Employee Emp);
 
         //public Employee CheckCredentials(Employee employee);
         public bool CheckCredentials(Employee employee);
 
         public Employee? GetEmployee(string loggedInEmployee);
+       
 
         public IEnumerable<Employee>? GetTeamMembers(Employee emp);
 
@@ -29,5 +31,4 @@ namespace HyggeGaming.Services.Interfaces
         void UpdateEmployee(Employee employee);
 
     }
-
 }

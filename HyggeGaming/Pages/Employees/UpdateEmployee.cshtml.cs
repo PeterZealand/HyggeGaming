@@ -1,7 +1,6 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -13,6 +12,7 @@ namespace HyggeGaming.Pages.Employees
 {
     public class UpdateEmployeeModel : PageModel
     {
+
         IEmployeeService EmployeeService { get; set; }
 
         private readonly IDevTeamService DevTeamService;
@@ -37,6 +37,7 @@ namespace HyggeGaming.Pages.Employees
             //Console.WriteLine($"Title : {ViewData["Title"]}");
 
             if (employeeId == null)
+
             {
                 return NotFound();
             }
@@ -74,9 +75,10 @@ namespace HyggeGaming.Pages.Employees
 
                 return Page();
             }
-            EmployeeService.AddEmployee(Emp);
+            EmployeeService.UpdateEmployee(Emp);
 
-            return RedirectToPage("/Employees/Profile");
+            return RedirectToPage("/Employees/AllEmployees");
+
         }
     }
 }
