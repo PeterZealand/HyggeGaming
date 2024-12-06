@@ -46,16 +46,14 @@ public partial class Employee
     [Column("Role_ID")]
     public int RoleId { get; set; }
 
-    [Required(ErrorMessage = "DevTeamId is required")]
+    //[Required(ErrorMessage = "DevTeamId is required")]
     [Column("DevTeam_ID")]
     public int? DevTeamId { get; set; }
 
-    [Required(ErrorMessage = "DevTeam is required")]
     [ForeignKey("DevTeamId")]
     [InverseProperty("Employees")]
     public virtual DevTeam? DevTeam { get; set; }
 
-    [Required(ErrorMessage = "Role is required")]
     [ForeignKey("RoleId")]
     [InverseProperty("Employees")]
     public virtual Role Role { get; set; } = null!;
