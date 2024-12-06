@@ -15,17 +15,27 @@ namespace HyggeGaming.Pages.Employees
 
         IEmployeeService EmployeeService { get; set; }
 
+        private readonly IDevTeamService DevTeamService;
+        private readonly IRoleService RoleService;
+        private readonly ICityService CityService;
+
         [BindProperty]
 
         public Employee Emp { get; set; }
 
-        public UpdateEmployeeModel(IEmployeeService service)
+        public UpdateEmployeeModel(IEmployeeService empService, IDevTeamService teamService, IRoleService roleService, ICityService cityService)
         {
-            EmployeeService = service;
+            EmployeeService = empService;
+            DevTeamService = teamService;
+            RoleService = roleService;
+            CityService = cityService;
         }
 
         public IActionResult OnGet(int? employeeId)
         {
+            //ViewData["Title"] = "Update Employee";
+            //Console.WriteLine($"Title : {ViewData["Title"]}");
+
             if (employeeId == null)
 
             {
@@ -41,9 +51,11 @@ namespace HyggeGaming.Pages.Employees
             }
 
             // Populate dropdowns for related fields
-            ViewData["DevTeamId"] = new SelectList(EmployeeService.GetDevTeams(), "DevTeamId", "DevTeamName", Emp.DevTeamId);
-            ViewData["RoleId"] = new SelectList(EmployeeService.GetRoles(), "RoleId", "RoleName", Emp.RoleId);
-            ViewData["ZipCode"] = new SelectList(EmployeeService.GetCities(), "ZipCode", "CityName", Emp.ZipCode);
+            //ViewData["RoleId"] = new SelectList(RoleService.GetRoles(), "RoleId", "RoleName");
+            //ViewData["DevTeamId"] = new SelectList(DevTeamService.GetDevTeams(), "DevTeamId", "DevTeamName");
+            //ViewData["ZipCode"] = new SelectList(CityService.GetCities(), "ZipCode", "CityName");
+
+            //Console.WriteLine(ViewData["Title"]);
 
             return Page();
         }
@@ -57,6 +69,10 @@ namespace HyggeGaming.Pages.Employees
 
             if (!ModelState.IsValid)
             {
+                //ViewData["RoleId"] = new SelectList(RoleService.GetRoles(), "RoleId", "RoleName");
+                //ViewData["DevTeamId"] = new SelectList(DevTeamService.GetDevTeams(), "DevTeamId", "DevTeamName");
+                //ViewData["ZipCode"] = new SelectList(CityService.GetCities(), "ZipCode", "CityName");
+
                 return Page();
             }
             EmployeeService.UpdateEmployee(Emp);
