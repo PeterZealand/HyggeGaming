@@ -80,6 +80,10 @@ namespace HyggeGaming.Services.EFService
             return context.Employees
                 .Include(e => e.Role)
                 .Include(e => e.ZipCodeNavigation)
+                .Include(e => e.DevTeam)
+                    .ThenInclude(t =>  t.TeamManagers)
+                        .ThenInclude(tm => tm.Game)
+                            .ThenInclude(g => g.Assignments)
                 .FirstOrDefault(e => e.Mail == employeeMail);
         }
 
@@ -90,6 +94,7 @@ namespace HyggeGaming.Services.EFService
                 .Include(e => e.Role)
                 .ToList();
         }
+
 
 
         public Employee? GetEmployeeForUpdating(int employeeId)

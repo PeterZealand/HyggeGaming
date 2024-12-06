@@ -1,4 +1,5 @@
 using HyggeGaming.Models;
+using HyggeGaming.Services.EFService;
 using HyggeGaming.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -10,6 +11,13 @@ namespace HyggeGaming.Pages.Employees
     {
         [BindProperty]
         public Employee? Employee { get; set; }
+
+
+        [BindProperty]
+        public Game Game { get; set; }
+        [BindProperty]
+        public IEnumerable<Assignment> Assignments { get; set; }
+
 
         IEmployeeService EmployeeService { get; set; }
 
@@ -33,6 +41,14 @@ namespace HyggeGaming.Pages.Employees
             if (Employee != null)
             {
                 Employees = EmployeeService.GetTeamMembers(Employee);
+                
+                var teamManagers = Employee.DevTeam?.TeamManagers;
+                if(teamManagers != null)
+                {
+                    Game = teamManagers.FirstOrDefault()?.Game;
+                    Assignments = Game?.Assignments;
+                }
+                
                 return Page();
             }
 
