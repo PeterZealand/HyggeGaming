@@ -7,6 +7,13 @@
 
 <h1>All Employees</h1>
 
+<form method="get">
+    <div class="form-group">
+        <input type="text" name="SearchString" class="form-control" placeholder="Search employees by name" value="@Model.SearchString" />
+        <button type="submit" class="btn btn-primary">Search</button>
+    </div>
+</form>
+
 <p>
     <a asp-page="/Employees/AddEmployee">Add New Employee</a>
 </p>
@@ -45,3 +52,4 @@
         }
     </tbody>
 </table>
+

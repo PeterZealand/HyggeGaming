@@ -149,5 +149,17 @@ namespace HyggeGaming.Services.EFService
         {
             throw new NotImplementedException();
         }
+
+        public void UpdatePassword(Employee employee)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<Employee> SearchEmployee(string SearchString)
+        {
+            return context.Employees.Where(e =>
+                 e.FirstName.Contains(SearchString) ||
+                 e.LastName.Contains(SearchString));
+        }
     }
 }

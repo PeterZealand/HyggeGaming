@@ -12,8 +12,10 @@ namespace HyggeGaming.Pages.Employees
 {
     public class AllEmployeesModel : PageModel
     {
-        
         public IEnumerable<Employee>? Employees { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public string? SearchString { get; set; }
 
         IEmployeeService EmployeeService { get; set; }
 
@@ -22,12 +24,15 @@ namespace HyggeGaming.Pages.Employees
             EmployeeService = context;
         }
 
-        
-
         public void OnGet()
         {
-            Employees = EmployeeService.GetEmployees();
-
+            if (!String.IsNullOrEmpty(SearchString))
+            {
+                Employees = EmployeeService.SearchEmployee(SearchString);
+            }
+            else
+                Employees = EmployeeService.GetEmployees();
         }
     }
 }
+

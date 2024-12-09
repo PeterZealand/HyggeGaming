@@ -10,6 +10,9 @@ namespace HyggeGaming.Services.Interfaces
         IEnumerable<Assignment> GetAllAssignments();
 
         public void CreateAssignment(Assignment assignment);
+
         public void UpdateAssignment(Assignment assignment);
+
+        public IEnumerable<Assignment> SearchAssignment(string SearchString);
     }
 }
