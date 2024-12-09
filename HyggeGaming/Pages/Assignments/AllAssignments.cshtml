@@ -10,6 +10,14 @@
 <p>
     <a asp-page="CreateAssignment">Create New Assignment</a>
 </p>
+<p>
+<form method="get">
+    <div class="form-group">
+        <input type="text" name="SearchString" class="form-control" placeholder="Search Assignments" value="@Model.SearchString" />
+        <button type="submit" class="btn btn-primary">Search</button>
+    </div>
+</form>
+</p>
 <table class="table">
     <thead>
         <tr>
