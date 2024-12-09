@@ -8,29 +8,6 @@ using Microsoft.EntityFrameworkCore;
 using HyggeGaming.Models;
 using HyggeGaming.Services.Interfaces;
 
-//namespace HyggeGaming.Pages.Employees
-//{
-//    public class AllEmployeesModel : PageModel
-//    {
-
-//        public IEnumerable<Employee>? Employees { get; set; }
-
-//        IEmployeeService EmployeeService { get; set; }
-
-//        public AllEmployeesModel(IEmployeeService context)
-//        {
-//            EmployeeService = context;
-//        }
-
-
-
-//        public void OnGet()
-//        {
-//            Employees = EmployeeService.GetEmployees();
-
-//        }
-//    }
-//}
 namespace HyggeGaming.Pages.Employees
 {
     public class AllEmployeesModel : PageModel
@@ -56,23 +33,6 @@ namespace HyggeGaming.Pages.Employees
             else
                 Employees = EmployeeService.GetEmployees();
         }
-
-
-        //public void OnGet(string? searchString)
-        //{
-        //    SearchString = searchString;
-
-        //    var employees = EmployeeService.GetEmployees();
-
-        //    if (!string.IsNullOrEmpty(SearchString))
-        //    {
-        //        employees = employees.Where(e =>
-        //            e.FirstName.Contains(SearchString, StringComparison.OrdinalIgnoreCase) ||
-        //            e.LastName.Contains(SearchString, StringComparison.OrdinalIgnoreCase));
-        //    }
-
-        //    Employees = employees;
-        //}
     }
 }
 
