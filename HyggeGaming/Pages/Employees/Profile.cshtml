@@ -94,10 +94,59 @@
                             <p>@item.Description</p>
                             <p>Status: @item.Status</p>
                             <div class="card-footer">
-                                <a class="btn btn-primary" asp-page="/Assignments/Edit">Change status</a>
+                                @* <a class="btn btn-primary" asp-page="/Assignments/Edit">Change status</a> *@
+                                <!--Modal btn-->
+                                <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#editModal_@item.AssignmentId">
+                                    Change status
+                                </button>
                             </div>
                         </div>
                     </div>
+
+
+                        <!-- Modal -->
+                        <div class="modal" id="editModal_@item.AssignmentId">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5>Change status for assignment</h5>
+                                    </div>
+                                    <div class="modal-body">
+
+                                        <form method="post" asp-page-handler="Edit">
+                                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                            <input type="hidden" asp-for="@item.AssignmentId" name="assignment.AssignmentId" />
+
+                                            <div class="form-group">
+                                                <label asp-for="@item.AssignmentName" class="control-label"></label>
+                                                <input asp-for="@item.AssignmentName" name="assignment.AssignmentName" class="form-control" disabled />
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label asp-for="@item.Description" class="control-label"></label>
+                                                <input asp-for="@item.Description" name="assignment.Description" class="form-control" disabled />
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label asp-for="@item.Status" class="control-label"></label>
+                                                <select asp-for="@item.Status" name="assignment.Status" class="form-control">
+                                                    <option value="@item.Status">---</option>
+                                                    @foreach (var status in Model.Statuses)
+                                                    {
+                                                        <option value="@status">@status</option>
+                                                    }
+                                                </select>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <input type="submit" value="Save" class="btn btn-primary" />
+                                            </div>
+                                        </form>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                 }
             }
             else
@@ -105,7 +154,12 @@
                 <p>No assignments available for this game.</p>
             }
             </div>
+
+
+
         }
+
+
 
         
         <div class="d-flex justify-content-between pt-5 mt-5">

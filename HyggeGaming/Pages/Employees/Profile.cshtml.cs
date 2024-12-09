@@ -12,20 +12,23 @@ namespace HyggeGaming.Pages.Employees
         [BindProperty]
         public Employee? Employee { get; set; }
 
-
         [BindProperty]
         public Game Game { get; set; }
         [BindProperty]
+        public Assignment assignment { get; set; }
+        [BindProperty]
         public IEnumerable<Assignment> Assignments { get; set; }
-
+        public List<string> Statuses { get; set; }
 
         IEmployeeService EmployeeService { get; set; }
+        IAssignmentService AssignmentService { get; set; }
 
         public IEnumerable<Employee> Employees { get; set; }
 
-        public ProfileModel(IEmployeeService service)
+        public ProfileModel(IEmployeeService service, IAssignmentService aService)
         {
             EmployeeService = service;
+            AssignmentService = aService;
         }
 
         public IActionResult OnGet()
@@ -47,6 +50,7 @@ namespace HyggeGaming.Pages.Employees
                 {
                     Game = teamManagers.FirstOrDefault()?.Game;
                     Assignments = Game?.Assignments;
+                    Statuses = AssignmentService.Statuses();
                 }
                 
                 return Page();
@@ -83,6 +87,16 @@ namespace HyggeGaming.Pages.Employees
         //    // Render page
         //    return Page();
         //}
+
+        public IActionResult OnPostEdit()
+        {
+            //Ingen ModelState validation fordi det kun er et felt som opdateres og dette er en dropdown
+            AssignmentService.UpdateAssignment(assignment);
+
+            return RedirectToPage();
+            //OnGet();
+            //return RedirectToPage("/Employees/Profile");
+        }
 
 
 

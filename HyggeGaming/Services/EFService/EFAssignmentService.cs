@@ -12,6 +12,17 @@ namespace HyggeGaming.Services.EFService
         {
             context = service;
         }
+        public List<string> Statuses()
+        {
+            return new List<string>
+            {
+                "To Do",
+                "In progress",
+                "Pending review",
+                "Complete",
+                "On hold"
+            };
+        }
 
         public IEnumerable<Assignment> GetAssignment()
         {
@@ -30,5 +41,17 @@ namespace HyggeGaming.Services.EFService
                 .Include(a => a.Game)
                 .ToList();
         }
+
+        public void UpdateAssignment(Assignment assignment)
+        {
+            var existingAssignment = context.Assignments.FirstOrDefault(a => a.AssignmentId == assignment.AssignmentId);
+
+            if (existingAssignment != null)
+            {
+                existingAssignment.Status = assignment.Status;
+                context.SaveChanges();
+            }            
+        }
+
     }
 }
