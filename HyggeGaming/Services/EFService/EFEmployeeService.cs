@@ -145,6 +145,30 @@ namespace HyggeGaming.Services.EFService
             context.SaveChanges();
         }
 
+        public void AssignEmpToTeam(Employee emp, DevTeam team)
+        {
+            var existingEmployee = context.Employees
+                .Include(e => e.DevTeam)
+                .FirstOrDefault(e => e.Mail == emp.Mail);
+
+            if (existingEmployee == null)
+            {
+                throw new ArgumentException("Employee not found");
+            }
+
+            var existingTeam = context.DevTeams
+                .Include(t => t.Employees)
+                .FirstOrDefault(t => t.DevTeamId == team.DevTeamId);
+
+            if (existingTeam == null)
+            {
+                throw new ArgumentException("DevTeam not found");
+            }
+
+            existingEmployee.DevTeamId = existingTeam.DevTeamId;
+            context.SaveChanges();
+        }
+
         public IEnumerable<Employee> GetEmployee(Employee Emp)
         {
             throw new NotImplementedException();
