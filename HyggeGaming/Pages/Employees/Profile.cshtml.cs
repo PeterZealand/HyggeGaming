@@ -83,8 +83,48 @@ namespace HyggeGaming.Pages.Employees
         //    // Render page
         //    return Page();
         //}
+        //public IActionResult OnGet(int? employeeId)
+        //{
+           
 
+        //    if (employeeId == null)
 
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    // Fetch the employee with related data
+        //    Employee = EmployeeService.GetEmployeeForUpdating(employeeId.Value);
+
+        //    if (Employee == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    return Page();
+        //}
+
+        public IActionResult OnPost(int employeeId)
+        {
+            
+            
+                //Manually remove fields from validation if needed
+                ModelState.Remove("Emp.ZipCodeNavigation");
+                ModelState.Remove("Emp.Role");
+
+                if (!ModelState.IsValid)
+                {
+                    
+                    return Page();
+                }
+                EmployeeService.UpdateEmployee(Employee);
+
+                return RedirectToPage("/Employees/Profile");
+
+            
+        }
+
+      
 
         public IActionResult OnPostLogout()
         {
