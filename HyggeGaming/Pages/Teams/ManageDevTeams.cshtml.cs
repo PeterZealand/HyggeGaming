@@ -7,18 +7,61 @@ namespace HyggeGaming.Pages.Teams
 {
     public class ManageDevTeamsModel : PageModel
     {
-        public IEnumerable<DevTeam>? DevTeam { get; set; }
-        IDevTeamService DevTeamService { get; set; }
         [BindProperty]
         public DevTeam DevT { get; set; }
-        public ManageDevTeamsModel(IDevTeamService service)
+        public IEnumerable<DevTeam>? DevTeams { get; set; }
+        IDevTeamService DevTeamService { get; set; }
+        
+        [BindProperty]
+        public Employee Employee { get; set; }
+        public IEnumerable<Employee> Employees { get; set; }
+        IEmployeeService EmployeeService { get; set; }
+
+        [BindProperty (SupportsGet = true)]
+        public string? SearchString { get; set; }
+
+        public ManageDevTeamsModel(IDevTeamService service, IEmployeeService empService)
         {
             DevTeamService = service;
+            EmployeeService = empService;
         }
 
         public void OnGet()
         {
-            DevTeam = DevTeamService.GetDevTeams();
+            Employees = EmployeeService.GetEmployees();
+            DevTeams = DevTeamService.GetDevTeams();
+
+            if (!String.IsNullOrEmpty(SearchString))
+            {
+                DevTeams = DevTeamService.TeamSearch(SearchString);
+            }
+            else
+            {
+                DevTeams = DevTeamService.GetDevTeams();
+            }
+            
+        }
+
+        public IActionResult OnPostAssignEmp()
+        {
+
+            var teamIdString = Request.Form["DevT.DevTeamId"];
+            Console.WriteLine($"Raw Form Value for DevT.DevTeamId: {teamIdString}");
+
+            if (int.TryParse(teamIdString, out int teamId))
+            {
+                Console.WriteLine($"Parsed DevTeamId: {teamId}");
+                DevT.DevTeamId = teamId;
+            }
+            else
+            {
+                Console.WriteLine("Invalid input for DevTeamId.");
+                return Page();
+            }
+
+
+            EmployeeService.AssignEmpToTeam(Employee, DevT);
+            return RedirectToPage();
         }
     }
 }
