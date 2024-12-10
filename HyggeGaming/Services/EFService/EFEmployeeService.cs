@@ -155,11 +155,23 @@ namespace HyggeGaming.Services.EFService
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Employee> SearchEmployee(string SearchString)
+        public IEnumerable<Employee> SearchEmployee(string searchString)
         {
-            return context.Employees.Where(e =>
-                 e.FirstName.Contains(SearchString) ||
-                 e.LastName.Contains(SearchString));
+           return context.Employees
+               .Include(e => e.DevTeam)
+               .Include(e => e.Role)
+               .Include(e => e.ZipCodeNavigation)
+               .Where(e =>
+                   e.FirstName.Contains(searchString) ||
+                   e.LastName.Contains(searchString) ||
+                   e.Address.Contains(searchString) ||
+                   e.Mail.Contains(searchString) ||
+                   //e.Password.Contains(searchString) ||
+                   e.DevTeam.DevTeamId.ToString().Contains(searchString) ||
+                   e.Role.RoleId.ToString().Contains(searchString))
+               .ToList();
         }
+
     }
 }
+    
