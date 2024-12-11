@@ -16,6 +16,9 @@ namespace HyggeGaming.Pages.Employees
         [BindProperty]
         public Employee Emp { get; set; }
 
+        public IEnumerable<City> Cities { get; set; }
+        public IEnumerable<Role> Roles { get; set; }
+
         public UpdateEmployeeModel(IEmployeeService empService, IDevTeamService teamService, IRoleService roleService, ICityService cityService)
         {
             EmployeeService = empService;
@@ -28,7 +31,6 @@ namespace HyggeGaming.Pages.Employees
         {
 
             if (employeeId == null)
-
             {
                 return NotFound();
             }
@@ -41,21 +43,55 @@ namespace HyggeGaming.Pages.Employees
                 return NotFound();
             }
 
+            Cities = CityService.GetCities();
+            Roles = RoleService.GetRoles();
+
             return Page();
         }
 
 
         public IActionResult OnPost(int employeeId)
         {
+            //Zipcode connection
+            var cityString = Request.Form["Emp.ZipCode"];
+            if (int.TryParse(cityString, out int zipcodeInt))
+            {
+                Console.WriteLine($"Parsed zipcodeInt: {zipcodeInt}");
+                Emp.ZipCode = zipcodeInt;
+            }
+            else
+            {
+                Console.WriteLine("Invalid input for zipcodeInt.");
+                return RedirectToPage();
+            }
+
+            //Role connection
+            //var roleString = Request.Form["Emp.RoleId"];
+            var roleIdString = Request.Form["Emp.RoleId"];
+            if (int.TryParse(roleIdString, out int roleId))
+            {
+                Emp.RoleId = roleId; // Directly set RoleId
+            }
+            //var role = RoleService.GetRoles().FirstOrDefault(r => r.RoleId == roleString); //Denne kan nok godt flyttes til Service, men det virker for nu
+            //if (role != null)
+            //{
+            //    Emp.RoleId = role.RoleId;
+            //}
+            else
+            {
+                Console.WriteLine("Invalid input for role.");
+                return RedirectToPage();
+            }
+
             //Manually remove fields from validation if needed
             ModelState.Remove("Emp.ZipCodeNavigation");
+            ModelState.Remove("Emp.Role.Role1");
+            ModelState.Remove("Emp.Role.RoleId");
             ModelState.Remove("Emp.Role");
 
             if (!ModelState.IsValid)
             {
-
-
-                return Page();
+                return RedirectToPage();
             }
             EmployeeService.UpdateEmployee(Emp);
 

@@ -21,15 +21,21 @@
                 <input asp-for="@Model.Emp.LastName" class="form-control" />
                 <span asp-validation-for="Emp.LastName" class="text-danger"></span>
             </div>
+            
             <div class="form-group">
                 <label asp-for="@Model.Emp.Address" class="control-label">Address</label>
                 <input asp-for="@Model.Emp.Address" class="form-control" />
                 <span asp-validation-for="Emp.Address" class="text-danger"></span>
-            </div>
-            <div class="form-group">
+            </div>           
+            <div class="form-group"> @*Zipcode/city dropdown*@
                 <label asp-for="@Model.Emp.ZipCode" class="control-label">ZipCode</label>
-                <input asp-for="@Model.Emp.ZipCode" class="form-control" />
-                <span asp-validation-for="Emp.ZipCode" class="text-danger"></span>
+                <select asp-for="@Model.Emp.ZipCode" class="form-control">
+                    <option value="">Choose zipcode</option>
+                    @foreach (var zip in Model.Cities)
+                    {
+                        <option value="@zip.ZipCode">@zip.ZipCode @zip.City1</option>
+                    }                    
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="@Model.Emp.Mail" class="control-label">Mail</label>
@@ -46,12 +52,19 @@
                 <input asp-for="@Model.Emp.Password" class="form-control" />
                 <span asp-validation-for="Emp.Password" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="@Model.Emp.RoleId" class="control-label">Role</label>
-                <input asp-for="@Model.Emp.RoleId" class="form-control" />
-                <span asp-validation-for="Emp.RoleId" class="text-danger"></span>
+            
+            <div class="form-group"> @*Add role dropdown*@
+                <label asp-for="@Model.Emp.Role.RoleId" class="control-label">Role</label>
+                <select asp-for="@Model.Emp.Role.RoleId" class="form-control">
+                    <option value="">Choose role</option>
+                    @foreach (var role in Model.Roles)
+                    {
+                        <option value="@role.Role1">@role.Role1</option>
+                    }
+                </select>
             </div>
-            <div class="form-group">
+            @*Add team dropdown*@
+            <div class="form-group visually-hidden">
                 <label asp-for="@Model.Emp.DevTeamId" class="control-label">Team Id</label>
                 <input asp-for="@Model.Emp.DevTeamId" class="form-control" />
                 <span asp-validation-for="Emp.DevTeam" class="text-danger"></span>
