@@ -28,7 +28,7 @@ namespace HyggeGaming.Pages.Games
         {
             if (!ModelState.IsValid)
             {
-                devStages = GameService.DevStages(); //Ensure devStages gets re-rendered when onPost is called
+                devStages = GameService.DevStages(); //Ensure DevStages gets re-rendered when onPost is called
                 return Page();
             }
 

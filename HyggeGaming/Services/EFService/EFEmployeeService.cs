@@ -54,7 +54,7 @@ namespace HyggeGaming.Services.EFService
             context?.SaveChanges();
         }
 
-        public bool CheckCredentials(Employee employee)
+        public bool CheckCredentials(Employee employee) 
         {
             Employee? isEmp = context.Employees.
                 FirstOrDefault(e => e.Mail == employee.Mail);
@@ -119,7 +119,7 @@ namespace HyggeGaming.Services.EFService
             {
                 throw new ArgumentException("Employee not found");
             }
-
+ 
             // Update properties
             existingEmployee.FirstName = employee.FirstName;
             existingEmployee.LastName = employee.LastName;
@@ -176,8 +176,20 @@ namespace HyggeGaming.Services.EFService
 
         public void UpdatePassword(Employee employee)
         {
-            throw new NotImplementedException();
+            var existingEmployee = context.Employees
+                .FirstOrDefault(e => e.EmployeeId == employee.EmployeeId);
+
+            if (existingEmployee != null)
+            {
+                existingEmployee.Password = employee.Password;
+                context.SaveChanges();
+            }
+            else
+            {
+                throw new ArgumentException("Employee not found.");
+            }
         }
+
 
         public IEnumerable<Employee> SearchEmployee(string searchString)
         {
