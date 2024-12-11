@@ -46,7 +46,6 @@ public partial class Employee
     [Column("Role_ID")]
     public int RoleId { get; set; }
 
-    //[Required(ErrorMessage = "DevTeamId is required")]
     [Column("DevTeam_ID")]
     public int? DevTeamId { get; set; }
 

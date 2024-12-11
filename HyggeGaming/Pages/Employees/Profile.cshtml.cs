@@ -1,9 +1,7 @@
 using HyggeGaming.Models;
-using HyggeGaming.Services.EFService;
 using HyggeGaming.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
 
 namespace HyggeGaming.Pages.Employees
 {
@@ -63,9 +61,7 @@ namespace HyggeGaming.Pages.Employees
 
        
         public IActionResult OnPost(int employeeId)
-        {
-            
-            
+        {   
                 //Manually remove fields from validation if needed
                 ModelState.Remove("Emp.ZipCodeNavigation");
                 ModelState.Remove("Emp.Role");
@@ -87,8 +83,6 @@ namespace HyggeGaming.Pages.Employees
             AssignmentService.UpdateAssignment(assignment);
 
             return RedirectToPage();
-            //OnGet();
-            //return RedirectToPage("/Employees/Profile");
         }
 
         public IActionResult OnPostLogout()

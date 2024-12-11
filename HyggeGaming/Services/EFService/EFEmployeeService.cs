@@ -9,6 +9,7 @@ namespace HyggeGaming.Services.EFService
     {
         private HGDBContext context;
 
+        //Skal de bruges?
         public IEnumerable<DevTeam> GetDevTeams()
         {
             return context.DevTeams.ToList();
@@ -23,6 +24,7 @@ namespace HyggeGaming.Services.EFService
         {
             return context.Cities.ToList();
         }
+        //
 
         public EFEmployeeService(HGDBContext service)
         {
@@ -31,25 +33,18 @@ namespace HyggeGaming.Services.EFService
 
         public void AddEmployee(Employee Emp)
         {
-            //context.Employees
-            //    .Include(e => e.Role)
-            //    .Include(e => e.ZipCode)
-            //    .ToList();
             context.Employees.Add(Emp);
             context.SaveChanges();
-            //return team;
         }
 
         public void DeleteEmployee(Employee Emp)
         {
-
             context?.Employees.Remove(Emp);
             context?.SaveChanges();
         }
 
         public void UpdateProfile(Employee Emp)
         {
-           
             context?.Employees.Update(Emp);
             context?.SaveChanges();
         }
@@ -94,8 +89,6 @@ namespace HyggeGaming.Services.EFService
                 .Include(e => e.Role)
                 .ToList();
         }
-
-
 
         public Employee? GetEmployeeForUpdating(int employeeId)
         {
@@ -169,11 +162,6 @@ namespace HyggeGaming.Services.EFService
             context.SaveChanges();
         }
 
-        public IEnumerable<Employee> GetEmployee(Employee Emp)
-        {
-            throw new NotImplementedException();
-        }
-
         public void UpdatePassword(Employee employee)
         {
             var existingEmployee = context.Employees
@@ -190,7 +178,6 @@ namespace HyggeGaming.Services.EFService
             }
         }
 
-
         public IEnumerable<Employee> SearchEmployee(string searchString)
         {
            return context.Employees
@@ -202,12 +189,10 @@ namespace HyggeGaming.Services.EFService
                    e.LastName.Contains(searchString) ||
                    e.Address.Contains(searchString) ||
                    e.Mail.Contains(searchString) ||
-                   //e.Password.Contains(searchString) ||
                    e.DevTeam.DevTeamId.ToString().Contains(searchString) ||
                    e.Role.RoleId.ToString().Contains(searchString))
                .ToList();
         }
-
     }
 }
     

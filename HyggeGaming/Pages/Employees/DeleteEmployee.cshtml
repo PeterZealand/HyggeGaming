@@ -34,22 +34,22 @@
         <!-- Confirm Delete Buttons -->
         <div class="d-flex gap-2">
             <button type="submit" class="btn btn-danger">Yes, Delete</button>
-            <a asp-page="/Employees/Profile" class="btn btn-secondary">Cancel</a>
+            <a asp-page="/Employees/AllEmployees" class="btn btn-secondary">Cancel</a>
         </div>
     </form>
 
     <!-- Error or Success Messages -->
-  @*   @if (Model.Message != null)
+    @* @if (Model.Message != null)
     {
         <div class="alert alert-warning mt-3">
             @Model.Message
         </div>
     } *@
 
-    @if (TempData["SuccessMessage"] != null)
+    @* @if (TempData["SuccessMessage"] != null)
     {
         <div class="alert alert-success mt-3">
             @TempData["SuccessMessage"]
         </div>
-    }
+    } *@
 </div>

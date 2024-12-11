@@ -13,7 +13,7 @@ namespace HyggeGaming.Pages.Assignments
     public class CreateAssignmentModel : PageModel
     {
         private readonly IAssignmentService AssignmentService;
-        private readonly IGameService GameService; // Assuming a service for fetching games.
+        private readonly IGameService GameService; 
 
         [BindProperty]
         public Assignment Assignment { get; set; }
@@ -39,7 +39,6 @@ namespace HyggeGaming.Pages.Assignments
                 return Page();
             }
 
-            // Add assignment via the service.
             AssignmentService.CreateAssignment(Assignment);
 
             return RedirectToPage("/Assignments/AllAssignments");

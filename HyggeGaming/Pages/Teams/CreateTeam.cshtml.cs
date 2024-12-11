@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using HyggeGaming.Models;
 using HyggeGaming.Services.Interfaces;
 
 namespace HyggeGaming.Pages.Teams
-{ //TODO Team navn skal være uniq
+{ 
     public class CreateTeamModel : PageModel
     {
         IDevTeamService DevTeamService { get; set; }
@@ -36,7 +31,7 @@ namespace HyggeGaming.Pages.Teams
 
             DevTeamService.CreateDevTeam(DevTeam);
 
-            return RedirectToPage("/Teams/GetDevTeams");
+            return RedirectToPage("/Teams/ManageDevTeams");
         }
     }
 }

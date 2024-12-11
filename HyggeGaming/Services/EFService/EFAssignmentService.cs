@@ -65,23 +65,5 @@ namespace HyggeGaming.Services.EFService
                     a.Game.GameId.ToString().Contains(SearchString))
                  .ToList(); 
         }
-
-        //forsøg med en int.parse - virkede ikke
-        //public IEnumerable<Assignment> SearchAssignment(string SearchString)
-        //{
-        //    IEnumerable<Assignment>SearchedAssignments = context.Assignments.Where(a =>
-        //         a.Description.Contains(SearchString) ||
-        //         a.AssignmentName.Contains(SearchString) ||
-        //         a.Status.Contains(SearchString));
-        //    if (SearchedAssignments == null) 
-        //            {
-        //        int searchInt = Int32.Parse("SearchString");
-        //        SearchedAssignments = context.Assignments.Where(a =>
-        //         a.GameId.Equals(SearchString));  
-        //          }
-
-        //    return SearchedAssignments;
-        //}
-
     }
 }

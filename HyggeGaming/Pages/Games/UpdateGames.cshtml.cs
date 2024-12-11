@@ -1,5 +1,4 @@
 using HyggeGaming.Models;
-using HyggeGaming.Services.EFService;
 using HyggeGaming.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;

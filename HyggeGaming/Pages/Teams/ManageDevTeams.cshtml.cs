@@ -38,8 +38,7 @@ namespace HyggeGaming.Pages.Teams
             else
             {
                 DevTeams = DevTeamService.GetDevTeams();
-            }
-            
+            } 
         }
 
         public IActionResult OnPostAssignEmp()
@@ -58,8 +57,6 @@ namespace HyggeGaming.Pages.Teams
                 Console.WriteLine("Invalid input for DevTeamId.");
                 return Page();
             }
-
-
             EmployeeService.AssignEmpToTeam(Employee, DevT);
             return RedirectToPage();
         }

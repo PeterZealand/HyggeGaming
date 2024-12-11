@@ -2,10 +2,10 @@
 @model HyggeGaming.Pages.Assignments.AllAssignmentsModel
 
 @{
-    ViewData["Title"] = "All Assignments";
+    ViewData["Title"] = "Manage Assignments";
 }
 
-<h1>All Assignments</h1>
+<h1>Manage Assignments</h1>
 
 <p>
     <a asp-page="CreateAssignment">Create New Assignment</a>
@@ -53,9 +53,7 @@
                 @Html.DisplayFor(modelItem => item.Game.GameId)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.AssignmentId">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.AssignmentId">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.AssignmentId">Delete</a>
+                <a asp-page="./Edit" asp-route-id="@item.AssignmentId">Edit</a>
             </td>
         </tr>
         }

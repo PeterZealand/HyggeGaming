@@ -2,8 +2,6 @@ html {
     font-size: 14px;
     padding: 0px;
     margin: 0px;
-    /*background-color: #050414;
-    color: ivory;*/
 }
 
 @media (min-width: 768px) {
@@ -27,9 +25,9 @@ body {
 
 .image-container {
     position: relative;
-    display: flex; /* Enable Flexbox */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
 }
 
 .centered {
@@ -52,24 +50,6 @@ body {
     padding-bottom: 50px;
     color: ivory;
 }
-
-/* Styling for the form input boxes */
-/*input.form-control {
-    background-color: #333;*/ /* Dark background color for the input */
-    /*color: ivory;*/ /* Light text color */
-    /*border: 1px solid #555;*/ /* Subtle border color */
-    /*padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 15px;
-}
-
-    input.form-control:focus {
-        background-color: #444;*/ /* Slightly lighter background when focused */
-        /*color: ivory;*/
-        /*outline: none;
-        border-color: #777;
-        box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);*/ /* Subtle glow effect */
-    /*}*/
 
 /*table css*/
 table {
@@ -110,7 +90,6 @@ td {
     color: ivory;
 }
 
-/*---*/
 
 /*SideNAV til Employee*/
 .sidenav {

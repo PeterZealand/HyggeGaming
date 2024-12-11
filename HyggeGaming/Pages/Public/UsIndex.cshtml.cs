@@ -1,9 +1,8 @@
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace HyggeGaming.Pages.Teams
+namespace HyggeGaming.Pages.Public
 {
-    public class IndexModel : PageModel
+    public class UsIndexModel : PageModel
     {
         public void OnGet()
         {

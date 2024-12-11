@@ -31,8 +31,6 @@ namespace HyggeGaming.Pages.Games
                 devStages = GameService.DevStages(); //Ensure DevStages gets re-rendered when onPost is called
                 return Page();
             }
-
-            
             GameService.AddGame(game);
 
             return RedirectToPage("/Games/ManageGames");

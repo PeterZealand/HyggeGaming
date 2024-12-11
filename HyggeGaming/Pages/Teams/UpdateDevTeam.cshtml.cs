@@ -3,53 +3,9 @@ using HyggeGaming.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace HyggeGaming.Pages.Teams
 {
-    //public class UpdateTeamModel : PageModel
-    //{
-    //    private readonly HGDBContext _context;
-    //    public UpdateTeamModel(HGDBContext context)
-    //    {
-    //        _context = context;
-    //    }
-
-    //    private readonly IDevTeamService devTeamService;
-
-    //    [BindProperty]
-    //    public DevTeam DevT { get; set; }
-
-
-    //    public async Task<IActionResult> OnGetAsync(int? id)
-    //    {
-    //        if (id == null)
-    //        {
-    //            return NotFound();
-    //        }
-
-    //        var employee = await _context.DevTeams.FirstOrDefaultAsync(m => m.DevTeamId == id);
-
-    //        if (employee == null)
-    //        {
-    //            return NotFound();
-    //        }
-    //        else
-    //        {
-    //            DevT = employee;
-    //        }
-    //        return Page();
-
-    //    }
-
-    //    public IActionResult OnPost()
-    //    {
-
-
-    //        return RedirectToPage("/Teams/ManageDevTeams");
-    //    }
-    //}
     public class UpdateDevTeamModel : PageModel
     {
         private readonly HGDBContext _context;
@@ -62,7 +18,7 @@ namespace HyggeGaming.Pages.Teams
         }
 
         private readonly IDevTeamService devTeamService;
- //{ get; set; }
+
 
         [BindProperty]
         public DevTeam DevT { get; set; }
@@ -71,8 +27,6 @@ namespace HyggeGaming.Pages.Teams
 
         //public IEnumerable<DevTeam> DevTeams { get; set; }
         //public IEnumerable<Employee>? Employees { get; private set; }
-
-       
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {

@@ -56,10 +56,5 @@ namespace HyggeGaming.Services.EFService
         {
             return context.Games; 
         }
-
-        public Game UpdateGame(object updateGame)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

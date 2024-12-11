@@ -12,14 +12,11 @@ namespace HyggeGaming.Services.Interfaces
         public IEnumerable<City> GetCities();
 
         public IEnumerable<Employee> GetEmployees();
-        public IEnumerable<Employee> GetEmployee(Employee Emp);
-
-        //public Employee CheckCredentials(Employee employee);
+        
         public bool CheckCredentials(Employee employee);
 
         public Employee? GetEmployee(string loggedInEmployee);
        
-
         public IEnumerable<Employee>? GetTeamMembers(Employee emp);
 
         public void AddEmployee(Employee addEmp);
