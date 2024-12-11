@@ -9,6 +9,8 @@ namespace HyggeGaming.Pages.Employees
 {
     public class ProfileModel : PageModel
     {
+        public string ErrorMessage { get; set; }
+
         [BindProperty]
         public Employee? Employee { get; set; }
 
@@ -93,6 +95,28 @@ namespace HyggeGaming.Pages.Employees
         {
             HttpContext.Session.Clear();
             return RedirectToPage("/Employees/Login");
+        }
+
+        public IActionResult OnPostChangePassword(int employeeId, string newPassword, string confirmPassword)
+        {
+            if (newPassword == confirmPassword)
+            {
+                Employee = EmployeeService.GetEmployeeForUpdating(employeeId);
+                if (Employee != null)
+                {
+                    Employee.Password = newPassword;
+                    EmployeeService.UpdateEmployee(Employee);
+                }
+
+                return RedirectToPage("/Employees/Profile");
+            }
+            else
+            {
+                //ErrorMessage = "Password er ikke ens.";
+                //ModelState.AddModelError(string.Empty, "Passwords do not match.");
+                return RedirectToPage("/Employees/Profile");
+            }
+
         }
     }
 }
