@@ -28,14 +28,14 @@ namespace HyggeGaming.Pages.Assignments
 
         
 
-        public IActionResult OnGet(int? id)
+        public IActionResult OnGet(int id)
         {
-            if (id == null)
+            if (id == 0)
             {
                 return NotFound();
             }
-
-            var assignment = AssignmentService.GetAssignmentById(id.Value);
+            
+            var assignment = AssignmentService.GetAssignmentById(id);
             if (assignment == null)
             {
                 return NotFound();
@@ -49,7 +49,8 @@ namespace HyggeGaming.Pages.Assignments
 
         public IActionResult OnPost()
         {
-            if (ModelState.IsValid)
+            ModelState.Remove("assignment.Game");
+            if (!ModelState.IsValid)
             {
                 ViewData["GameId"] = new SelectList(GameService.GetGames(), "GameId", "GameId");
                 StatusOptions = AssignmentService.Statuses();

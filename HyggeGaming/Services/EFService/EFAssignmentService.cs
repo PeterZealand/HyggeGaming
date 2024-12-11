@@ -90,5 +90,10 @@ namespace HyggeGaming.Services.EFService
 
             context.SaveChanges();
         }
+
+        public IEnumerable<Assignment> GetAssignment()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
