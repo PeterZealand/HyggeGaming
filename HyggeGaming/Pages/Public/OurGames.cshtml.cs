@@ -7,7 +7,7 @@ namespace HyggeGaming.Pages.Public
 {
     public class OurGamesModel : PageModel
     {
-        //public Game Game {  get; set; }
+        //public GameObject GameObject {  get; set; }
         public IEnumerable<Game> Game { get; set; }
         public IGameService GameService { get; set; }
 

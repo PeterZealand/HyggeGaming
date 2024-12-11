@@ -59,34 +59,25 @@ namespace HyggeGaming.Pages.Employees
             return RedirectToPage("/Employees/Login");
         }
 
-        //public IActionResult OnGet()
-        //{
-        //    // Step 1: Retrieve session
-        //    var loggedInEmployee = HttpContext.Session.GetString("LoggedIn");
-        //    if (string.IsNullOrEmpty(loggedInEmployee))
-        //    {
-        //        Console.WriteLine("Session is empty or expired. Redirecting to Login.");
-        //        return RedirectToPage("/Employees/Login");
-        //    }
-        //    Console.WriteLine($"Logged in user from session: {loggedInEmployee}");
+       
+        public IActionResult OnPost(int employeeId)
+        {
+            
+            
+                //Manually remove fields from validation if needed
+                ModelState.Remove("Emp.ZipCodeNavigation");
+                ModelState.Remove("Emp.Role");
 
-        //    // Step 2: Query the database
-        //    Employee = HGDBContext.Employees
-        //        .Include(e => e.Role)
-        //        .FirstOrDefault(e => e.Mail == loggedInEmployee);
+                if (!ModelState.IsValid)
+                {
+                    
+                    return Page();
+                }
+                EmployeeService.UpdateEmployee(Employee);
 
-        //    if (Employee == null)
-        //    {
-        //        Console.WriteLine($"No employee found for email: {loggedInEmployee}. Redirecting to Login.");
-        //        return RedirectToPage("/Employees/Login");
-        //    }
+                return RedirectToPage("/Employees/Profile");
 
-        //    // Step 3: Debugging the Employee object
-        //    Console.WriteLine($"Employee loaded: {Employee.FirstName} {Employee.LastName}, Email: {Employee.Mail}");
-
-        //    // Render page
-        //    return Page();
-        //}
+        }
 
         public IActionResult OnPostEdit()
         {
@@ -97,8 +88,6 @@ namespace HyggeGaming.Pages.Employees
             //OnGet();
             //return RedirectToPage("/Employees/Profile");
         }
-
-
 
         public IActionResult OnPostLogout()
         {
