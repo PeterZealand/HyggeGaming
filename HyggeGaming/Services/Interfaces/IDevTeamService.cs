@@ -11,6 +11,7 @@ namespace HyggeGaming.Services.Interfaces
 
         public void CreateDevTeam(DevTeam devT);
         public void UpdateDevTeam(DevTeam updatedevT);
+        public IEnumerable<DevTeam> TeamSearch(string SearchString);
 
     }
 }

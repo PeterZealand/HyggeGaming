@@ -45,5 +45,15 @@ namespace HyggeGaming.Services.EFService
             context.DevTeams.Add(devT);
             context.SaveChanges();
         }
+
+        public IEnumerable<DevTeam> TeamSearch(string SearchString)
+        {
+            return context.DevTeams
+                .Include(t => t.Employees)
+                .Where(t => t.DevTname.Contains(SearchString) 
+                    || t.Employees.Any(e => e.FirstName.Contains(SearchString) 
+                    ||  e.LastName.Contains(SearchString)));
+        }
+
     }
 }

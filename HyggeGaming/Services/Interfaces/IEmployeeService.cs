@@ -28,6 +28,8 @@ namespace HyggeGaming.Services.Interfaces
 
         public Employee? GetEmployeeForUpdating(int employeeId);
 
+        public void AssignEmpToTeam(Employee emp, DevTeam team);
+
         void UpdateEmployee(Employee employee);
         void UpdatePassword(Employee employee);
         public IEnumerable<Employee> SearchEmployee(string SearchString);
