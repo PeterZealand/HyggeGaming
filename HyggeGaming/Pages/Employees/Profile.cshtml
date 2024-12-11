@@ -198,7 +198,7 @@
 </div>
 
 
-
+@*SideNav - !Admin*@
 @if (Model.Employee.RoleId != 1)
 {
     <div class="sidenav">
@@ -215,6 +215,7 @@
     </div>
 }
 
+@*SideNav - admin*@
 @if (Model.Employee.RoleId == 1)
 {
     <div class="sidenav">

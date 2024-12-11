@@ -26,4 +26,5 @@ public partial class TeamManager
     [ForeignKey("GameId")]
     [InverseProperty("TeamManagers")]
     public virtual Game Game { get; set; } = null!;
+    public int TeamId { get; }
 }

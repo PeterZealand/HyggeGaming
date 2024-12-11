@@ -40,5 +40,15 @@ namespace HyggeGaming.Services.EFService
                     ||  e.LastName.Contains(SearchString)));
         }
 
+        public void ConnectTeamWithGame(int teamId, int gameId)
+        {
+            var teamManager = new TeamManager
+            {
+                DevTeamId = teamId,
+                GameId = gameId
+            };
+            context.TeamManagers.Add(teamManager);
+            context.SaveChanges();
+        }
     }
 }

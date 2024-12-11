@@ -9,5 +9,7 @@ namespace HyggeGaming.Services.Interfaces
         public void UpdateDevTeam(DevTeam updatedevT);
         public IEnumerable<DevTeam> TeamSearch(string SearchString);
 
+        public void ConnectTeamWithGame(int teamId, int gameId);
+
     }
 }

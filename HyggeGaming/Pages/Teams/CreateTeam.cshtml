@@ -19,6 +19,15 @@
                 <span asp-validation-for="DevTeam.DevTname" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Game.GameId">Choose Game</label>
+                <select asp-for="Game.GameId" class="form-control">
+                    @foreach (var game in Model.Games)
+                    {
+                        <option value="@game.GameId">@game.GameName</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
