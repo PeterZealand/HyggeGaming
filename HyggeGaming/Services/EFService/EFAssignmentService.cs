@@ -24,11 +24,6 @@ namespace HyggeGaming.Services.EFService
             };
         }
 
-        public IEnumerable<Assignment> GetAssignment()
-        {
-            throw new NotImplementedException();
-        }
-
         public void CreateAssignment(Assignment assignment)
         {
             context.Assignments.Add(assignment);
@@ -64,6 +59,36 @@ namespace HyggeGaming.Services.EFService
                     a.Status.Contains(SearchString) ||
                     a.Game.GameId.ToString().Contains(SearchString))
                  .ToList(); 
+        }
+
+        public Assignment? GetAssignmentById(int id)
+        {
+            return context.Assignments
+                .Include(a => a.Game)
+                .FirstOrDefault(a => a.AssignmentId == id);
+        }
+
+        public bool AssignmentExists(int id)
+        {
+            return context.Assignments.Any(a => a.AssignmentId == id);
+        }
+
+        public void EditAssignment(Assignment assignment)
+        {
+            var existingAssignment = GetAssignmentById(assignment.AssignmentId);
+
+            if (existingAssignment == null)
+            {
+                throw new ArgumentException("Assignment not found");
+            }
+
+            // Update properties
+            existingAssignment.AssignmentName = assignment.AssignmentName;
+            existingAssignment.Description = assignment.Description;
+            existingAssignment.Status = assignment.Status;
+            existingAssignment.GameId = assignment.GameId;
+
+            context.SaveChanges();
         }
     }
 }

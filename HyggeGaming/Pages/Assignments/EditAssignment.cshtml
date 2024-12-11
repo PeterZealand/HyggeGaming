@@ -1,5 +1,5 @@
 ﻿@page
-@model HyggeGaming.Pages.Assignments.EditModel
+@model HyggeGaming.Pages.Assignments.EditAssignmentModel
 
 @{
     ViewData["Title"] = "Edit";
@@ -26,7 +26,14 @@
             </div>
             <div class="form-group">
                 <label asp-for="Assignment.Status" class="control-label"></label>
-                <input asp-for="Assignment.Status" class="form-control" />
+                <select asp-for="Assignment.Status" class="form-control">
+                    @foreach (var status in Model.StatusOptions)
+                    {
+                        <option value="@status" selected="@(status == Model.Assignment.Status)">
+                            @status
+                        </option>
+                    }
+                </select>
                 <span asp-validation-for="Assignment.Status" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -42,9 +49,7 @@
 </div>
 
 <div>
-    <a asp-page="./Index">Back to List</a>
+    <a asp-page="/Assignments/AllAssignments">Back to List</a>
 </div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+
