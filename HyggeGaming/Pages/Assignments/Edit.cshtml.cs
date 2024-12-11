@@ -22,7 +22,7 @@ namespace HyggeGaming.Pages.Assignments
         [BindProperty]
         public Assignment Assignment { get; set; } = default!;
 
-        public asyncIActionResult OnGet(int? id)
+        public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
             {
