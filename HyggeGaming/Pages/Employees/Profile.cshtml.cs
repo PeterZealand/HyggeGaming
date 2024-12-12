@@ -93,6 +93,7 @@ namespace HyggeGaming.Pages.Employees
 
         public IActionResult OnPostChangePassword(int employeeId, string newPassword, string confirmPassword)
         {
+
             if (newPassword == confirmPassword)
             {
                 Employee = EmployeeService.GetEmployeeForUpdating(employeeId);
@@ -106,9 +107,15 @@ namespace HyggeGaming.Pages.Employees
             }
             else
             {
-                //ErrorMessage = "Password er ikke ens.";
-                //ModelState.AddModelError(string.Empty, "Passwords do not match.");
-                return RedirectToPage("/Employees/Profile");
+                var loggedInEmployee = HttpContext.Session.GetString("LoggedIn");
+
+                if (!string.IsNullOrEmpty(loggedInEmployee))
+                {
+                    Employee = EmployeeService.GetEmployee(loggedInEmployee);
+                }
+
+                ErrorMessage = "Password not changed - make sure passwords are identical";
+                return Page();
             }
 
         }

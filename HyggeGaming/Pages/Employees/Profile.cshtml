@@ -7,6 +7,14 @@
     <h1>Profile</h1>
 </div>
 
+@if (!string.IsNullOrEmpty(Model.ErrorMessage))
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>@Model.ErrorMessage</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
 <div class="row d-flex align-items-start">
     <div class="col-3 border-end align-content-center">
         <div>
@@ -236,6 +244,7 @@
     </div>
 }
 
+@*Change password modal*@
 <div class="modal fade" id="updatePasswordModal" tabindex="-1" aria-labelledby="updatePasswordModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -245,10 +254,13 @@
             </div>
             <form method="post" asp-page-handler="ChangePassword">
                 <div class="modal-body">
-                    @if (!string.IsNullOrEmpty(Model.ErrorMessage))
-                    {
-                        <div class="text-danger mb-3">@Model.ErrorMessage</div>
-                    }
+                    @* @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+                    {                                               
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <strong>@Model.ErrorMessage</strong>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>                       
+                    } *@
                     <input type="hidden" name="employeeId" value="@Model.Employee.EmployeeId" />
                     <div class="mb-3">
                         <label for="newPassword" class="form-label">New Password</label>
