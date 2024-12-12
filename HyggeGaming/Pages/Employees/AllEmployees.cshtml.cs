@@ -12,6 +12,9 @@ namespace HyggeGaming.Pages.Employees
         [BindProperty(SupportsGet = true)]
         public string? SearchString { get; set; }
 
+        [BindProperty (SupportsGet = true)]
+        public string? successMsg { get; set; }
+
         IEmployeeService EmployeeService { get; set; }
 
         public AllEmployeesModel(IEmployeeService context)

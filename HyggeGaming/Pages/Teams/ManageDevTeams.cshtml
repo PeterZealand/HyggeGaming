@@ -90,7 +90,7 @@
         <tr>
             <th>Team Id</th>
             <th>Team Name</th>
-            <th>Assigned Game</th>
+            <th>Assigned</th>
             <th>Members</th>
             <th>Actions</th> 
         </tr>
@@ -103,7 +103,11 @@
                 <tr>
                     <td>@team.DevTeamId</td>
                     <td>@team.DevTname</td>
-                    <td>AssignedGameTitle</td> @*TODO*@
+                    <td>
+                        @foreach (var manager in team.TeamManagers)
+                        {
+                            @manager.Game.GameName
+                        }
                     <td>
                         <ul class="list-unstyled">
                             @foreach (var member in team.Employees)

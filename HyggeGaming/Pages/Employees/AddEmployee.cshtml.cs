@@ -72,7 +72,7 @@ namespace HyggeGaming.Pages.Employees
             }
             EmployeeService.AddEmployee(Emp);
 
-            return RedirectToPage("/Employees/AllEmployees");
+            return RedirectToPage("/Employees/AllEmployees", new {successMsg = "New employee has been added successfully"});
         }
     }
 

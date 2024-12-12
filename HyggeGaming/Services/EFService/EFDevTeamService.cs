@@ -21,8 +21,9 @@ namespace HyggeGaming.Services.EFService
         public IEnumerable<DevTeam> GetDevTeams()
         {
             return context.DevTeams
-                .Include(t => t.Employees);
-                
+                .Include(t => t.Employees)
+                .Include(t => t.TeamManagers)
+                    .ThenInclude(tm => tm.Game);               
         }
 
         public void UpdateDevTeam(DevTeam devT)
