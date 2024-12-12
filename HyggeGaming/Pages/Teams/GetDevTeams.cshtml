@@ -24,7 +24,12 @@
                 <tr>
                     <td>@team.DevTeamId</td>
                     <td>@team.DevTname</td>
-                    <td>AssignedGameTitle</td>
+                    <td>
+                        @foreach (var manager in team.TeamManagers)
+                        {
+                            @manager.Game.GameName
+                        }
+                    </td>
                     <td>
                         <ul class="list-unstyled">
                             @foreach (var member in team.Employees)
