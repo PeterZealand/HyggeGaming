@@ -8,65 +8,51 @@ namespace HyggeGaming.Pages.Teams
 {
     public class UpdateDevTeamModel : PageModel
     {
-        private readonly HGDBContext _context;
+        private readonly IDevTeamService DevTeamService;
 
-        public UpdateDevTeamModel(HGDBContext context)
+        public UpdateDevTeamModel(IDevTeamService devTeamService)
         {
-            _context = context;
-            //IDevTeamService service
-            //DevTeamService = service;
+            DevTeamService = devTeamService;
         }
-
-        private readonly IDevTeamService devTeamService;
-
 
         [BindProperty]
         public DevTeam DevT { get; set; }
-        //public DevTeam? DevT { get; set; }
 
-
-        //public IEnumerable<DevTeam> DevTeams { get; set; }
-        //public IEnumerable<Employee>? Employees { get; private set; }
-
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public IActionResult OnGet(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            // Hent DevTeam fra databasen baseret på ID
-            var devT = await _context.DevTeams.FirstOrDefaultAsync(m => m.DevTeamId == id);
-     
+            // Fetch DevTeam using the service
+            var devT = DevTeamService.GetDevTeams().FirstOrDefault(t => t.DevTeamId == id.Value);
+
             if (devT == null)
             {
                 return NotFound();
             }
-            else
-            {
-                DevT = devT;
-            }
+
+            DevT = devT;
 
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync()
+        public IActionResult OnPost()
         {
             if (!ModelState.IsValid)
             {
                 return Page();
             }
 
-            // Opdater DevTeam i databasen
-            _context.Attach(DevT).State = EntityState.Modified;
-
             try
             {
-                await _context.SaveChangesAsync();
+                // Update DevTeam using the service
+                DevTeamService.UpdateDevTeam(DevT);
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!DevTeamExists(DevT.DevTeamId))
+                if (DevTeamService.GetDevTeams().Any(t => t.DevTeamId == DevT.DevTeamId))
                 {
                     return NotFound();
                 }
@@ -77,11 +63,6 @@ namespace HyggeGaming.Pages.Teams
             }
 
             return RedirectToPage("/Teams/ManageDevTeams");
-        }
-
-        private bool DevTeamExists(int id)
-        {
-            return _context.DevTeams.Any(e => e.DevTeamId == id);
         }
     }
 }

@@ -29,8 +29,11 @@ namespace HyggeGaming.Services.EFService
 
         public void UpdateDevTeam(DevTeam devT)
         {
-            context.DevTeams.Add(devT);
-            context.SaveChanges();
+            var existingDevTeam = context.DevTeams.FirstOrDefault(t => t.DevTeamId == devT.DevTeamId);
+            
+                // Update the fields as needed
+                existingDevTeam.DevTname = devT.DevTname;
+                context.SaveChanges();
         }
 
         public IEnumerable<DevTeam> TeamSearch(string SearchString)
@@ -51,6 +54,11 @@ namespace HyggeGaming.Services.EFService
             };
             context.TeamManagers.Add(teamManager);
             context.SaveChanges();
+        }
+
+        public bool DevTeamExists(int id)
+        {
+            return context.DevTeams.Any(e => e.DevTeamId == id);
         }
     }
 }
