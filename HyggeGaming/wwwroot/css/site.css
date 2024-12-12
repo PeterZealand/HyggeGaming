@@ -194,3 +194,23 @@ td {
     background-color: antiquewhite;
     color: black;
 }
+
+/*Hide Password*/
+
+.hide {
+    display: none;
+}
+
+.toggle-checkbox:checked ~ .obfuscated {
+    display: none;
+}
+
+.toggle-checkbox:checked ~ .visible {
+    display: inline;
+}
+
+.toggle-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
