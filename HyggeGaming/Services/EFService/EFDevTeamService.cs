@@ -22,6 +22,7 @@ namespace HyggeGaming.Services.EFService
         {
             return context.DevTeams
                 .Include(t => t.Employees)
+                    .ThenInclude(e => e.Role)
                 .Include(t => t.TeamManagers)
                     .ThenInclude(tm => tm.Game);               
         }
