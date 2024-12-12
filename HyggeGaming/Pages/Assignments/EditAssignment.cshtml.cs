@@ -26,7 +26,6 @@ namespace HyggeGaming.Pages.Assignments
             GameService = gameService;
         }
 
-        
 
         public IActionResult OnGet(int id)
         {

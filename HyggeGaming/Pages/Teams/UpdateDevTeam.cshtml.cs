@@ -26,14 +26,14 @@ namespace HyggeGaming.Pages.Teams
             }
 
             // Fetch DevTeam using the service
-            var devT = DevTeamService.GetDevTeams().FirstOrDefault(t => t.DevTeamId == id.Value);
+            DevT = DevTeamService.GetDevTeams().FirstOrDefault(t => t.DevTeamId == id.Value);
 
-            if (devT == null)
+            if (DevT == null)
             {
                 return NotFound();
             }
 
-            DevT = devT;
+            //DevT = devT;
 
             return Page();
         }
@@ -45,22 +45,8 @@ namespace HyggeGaming.Pages.Teams
                 return Page();
             }
 
-            try
-            {
                 // Update DevTeam using the service
                 DevTeamService.UpdateDevTeam(DevT);
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (DevTeamService.GetDevTeams().Any(t => t.DevTeamId == DevT.DevTeamId))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
 
             return RedirectToPage("/Teams/ManageDevTeams");
         }
