@@ -8,10 +8,11 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/HyggeGaming.styles.css" asp-append-version="true" />
 </head>
-<body class="@((ViewData["Title"]?.ToString() == "Index" ? "bg-image" : ""))">
+<body class="@((ViewData["Title"]?.ToString() == "Index" ? "bg-index" : ""))"> 
+
     <header>
 
-        <nav class="navbar navbar-collapse navbar-light textnav" style="opacity: 0.7;">
+        @* <nav class="navbar navbar-collapse navbar-light textnav" style="opacity: 0.7;">
             <div class="container-fluid">
                 <a class="navbar-brand" href="javascript:void(0)"></a>
                 <button class="navbar-toggler me-auto" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
@@ -31,7 +32,27 @@
                     </ul>
                 </div>
             </div>
+        </nav> *@
+
+        @* test *@
+        <nav class="navbar navbar-collapse navbar-light textnav" style="opacity: 0.7;">
+            <!-- Hamburger button -->
+            <button class="navbar-toggler" type="button" onclick="toggleMenu()">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navigation links -->
+            <div id="nav-links" class="nav-links">
+                <a class="nav-link" asp-page="/index">Home</a>
+                <a class="nav-link" asp-page="/Public/UsIndex">About Us</a>
+                <a class="nav-link" asp-page="/Public/OurGames">Our Games</a>
+            </div>
         </nav>
+
+        @*--------*@
+
+
+
     </header>
     <div class="container">
         <main role="main" class="pb-3">
@@ -40,15 +61,30 @@
     </div>
 
     <footer class="border-top footer">
-        <div class="container">
-            &copy; 2024 - HyggeGaming - <a asp-area="" asp-page="/Privacy">Privacy</a>
-            <a class="btn btn-outline-dark ms-5" asp-page="/Employees/Login">Employee Login</a> @*TODO set login to the right!!!*@
+        <div class="row container">
+            <div class="col-3 index-text">
+                &copy; 2024 - HyggeGaming - <a class="hygge" asp-area="" asp-page="/Privacy">Privacy</a>
+            </div>
+            <div class="col-8">
+            </div>
+            <div class="col-1">
+                <a class="btn btn-outline-light ms-5" asp-page="/Employees/Login">Employee Login</a>
+            </div>
         </div>
     </footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @* test *@
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('nav-links');
+            navLinks.classList.toggle('open');
+        }
+    </script>
+    @* ___ *@
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>

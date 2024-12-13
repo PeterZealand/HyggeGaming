@@ -1,6 +1,7 @@
 ﻿@page
 @model HyggeGaming.Pages.Public.OurGamesModel
 @{
+    ViewData["Title"] = "OurGames";
 }
 
 <h1>Our Games</h1>
@@ -10,7 +11,7 @@
 <div class="row align-content-center">
     @foreach (var item in Model.Game)
     {
-        <div class="container rounded-3 m-5" style="background-color:#EEE2CA;">
+        <div class="container rounded-3 m-5 game-container" >
             <div class="row align-content-center">
             <div class="col-4 align-content-center">
                 <img src="~/img/PlaceholderPedro1.png" style="max-width:400px; max-height:auto;" /> 

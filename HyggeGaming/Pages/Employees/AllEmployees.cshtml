@@ -51,8 +51,8 @@
                 <td>@Html.DisplayFor(modelItem => item.Address)</td>
                 <td>@Html.DisplayFor(modelItem => item.Mail)</td>
                 <td>@Html.DisplayFor(modelItem => item.Password)</td>
-                <td>@Html.DisplayFor(modelItem => item.DevTeam.DevTeamId)</td>
-                <td>@Html.DisplayFor(modelItem => item.Role.RoleId)</td>
+                <td>@Html.DisplayFor(modelItem => item.DevTeam.DevTname)</td>
+                <td>@Html.DisplayFor(modelItem => item.Role.Role1)</td>
                 <td>@Html.DisplayFor(modelItem => item.ZipCodeNavigation.ZipCode)</td>
                 <td>
                     <a asp-page="/Employees/UpdateEmployee" asp-route-employeeId="@item.EmployeeId">Update</a>
