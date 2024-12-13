@@ -37,24 +37,22 @@
             <span class="fake-label">Full Address:</span>
             <span class="fake-input">@Model.Employee.Address, @Model.Employee.ZipCode @Model.Employee.ZipCodeNavigation.City1</span>
         </div>
-            <div class="form-like">
-                <span class="fake-label">Password:</span>
-                <span class="fake-input">
-                    <input type="password" value="@Model.Employee.Password"
-                           class="password-field" />
-                    <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#updatePasswordModal">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
-                            <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001m-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708z" />
-                        </svg>
-                    </button>
-                </span>
-            </div>
-        </div>
+
+        <div class="form-like">
+            <span class="fake-label">Password:</span>
+            <span class="fake-input">
+                <input type="password" value="@Model.Employee.Password"
+                       class="password-field" />
+                <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#updatePasswordModal">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
+                        <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001m-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708z" />
+                    </svg>
+                </button>
+            </span>
+        </div>       
     </div>
 
-
-
-    <div class="col-7 mt-5">
+    <div class="col-8 mt-5">
         <div class="form-like">
             <span class="fake-label">Role</span>
             <span class="fake-input">@Model.Employee.Role.Role1</span>
@@ -213,7 +211,7 @@
         <div class="logout-container align-bottom">
             <form method="Post" asp-page-handler="Logout" class="d-inline">
                 <button type="submit" class="btn btn-outline-dark">
-                    <img src="~/img/logout.png"class="p-4" style="max-width:200px;" /> @*Hvis dette beholdes - husk style i css*@
+                    <img src="~/img/logout.png"class="logout-img p-4" /> 
                 </button>
             </form>
         </div>
@@ -224,8 +222,6 @@
 @if (Model.Employee.RoleId == 1)
 {
     <div class="sidenav">
-
-
         <a asp-page="/Employees/AllEmployees">Manage Employees</a>
         <a asp-page="/Games/ManageGames">Manage Games</a>
         <a asp-page="/Teams/ManageDevTeams">Manage Teams</a>
@@ -234,7 +230,7 @@
         <div class="logout-container align-bottom">
             <form method="Post" asp-page-handler="Logout" class="d-inline">
                 <button type="submit" class="btn btn-outline-dark">
-                    <img src="~/img/logout.png" style="max-width:200px;"/>
+                    <img src="~/img/logout.png" class="logout-img p-4" />
                 </button>
             </form>
         </div>

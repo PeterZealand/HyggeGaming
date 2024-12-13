@@ -8,8 +8,11 @@ a.navbar-brand {
 }
 
 a {
-  color: #0077cc;
+    color: black;
 }
+    a:hover {
+        color: #4C1B06;
+    }
 
 .btn-primary {
   color: #fff;
@@ -47,10 +50,52 @@ button.accept-policy {
   line-height: 60px;
 }
 
-.navbar-toggler {
-    background-color: rgba(255, 255, 255); /* Semi-transparent white */
-    border: 2px solid black; /* Optional border */
-    border-radius: 5px; /* Rounded corners for better aesthetics */
+/*.navbar-toggler {
+    background-color: #FBF3DE; 
+    border: 2px solid black; 
+    border-radius: 5px; 
+}*/
+
+/* Basic styles for nav links */
+.nav-links {
+    position: absolute;
+    top: 0;
+    left: -100%; /* Start hidden off-screen to the left */
+    display: flex; /* Arrange items horizontally */
+    align-items: center; /* Center links vertically */
+    height: 100%;
+    transition: left 0.5s ease; /* Smooth sliding effect */
+    background-color: #FBF3DE; /* White background for the menu */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Optional shadow on the right */
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
+    /* Nav item styling */
+    .nav-links a {
+        text-decoration: none;
+        color: black; /* Set nav links to black */
+        margin: 0 15px; /* Space between items */
+        font-size: 1.2rem;
+        padding: 10px 20px;
+        transition: color 0.3s ease;
+    }
 
+    /* When the menu is active, slide in from the left */
+    .nav-links.open {
+        left: 0; /* Slide in from left */
+    }
+
+/* Hamburger button styling */
+.navbar-toggler {
+    background-color: #FBF3DE; /* Set hamburger background color */
+    border: 2px solid black; /* Remove border */
+    padding: 10px;
+    color: black;
+    margin-left: 20px;
+}
+
+    .navbar-toggler .navbar-toggler-icon {
+        background-color: #FBF3DE; /* Change icon color if needed */
+    }
+/*----*/
