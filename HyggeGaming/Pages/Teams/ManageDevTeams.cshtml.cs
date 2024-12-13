@@ -7,15 +7,16 @@ namespace HyggeGaming.Pages.Teams
 {
     public class ManageDevTeamsModel : PageModel
     {
+        private readonly IDevTeamService DevTeamService;
+        private readonly IEmployeeService EmployeeService;
+
         [BindProperty]
         public DevTeam DevT { get; set; }
         public IEnumerable<DevTeam>? DevTeams { get; set; }
-        IDevTeamService DevTeamService { get; set; }
-        
         [BindProperty]
         public Employee Employee { get; set; }
         public IEnumerable<Employee> Employees { get; set; }
-        IEmployeeService EmployeeService { get; set; }
+        
 
         [BindProperty (SupportsGet = true)]
         public string? SearchString { get; set; }

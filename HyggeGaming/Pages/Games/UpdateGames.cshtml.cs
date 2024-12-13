@@ -7,11 +7,9 @@ namespace HyggeGaming.Pages.Games
 {
     public class UpdateGamesModel : PageModel
     {
-
-        IGameService GameService { get; set; }
+        private readonly IGameService GameService;
 
         [BindProperty]
-
         public Game GameObject { get; set; }
         public List<string> DevStages { get; set; }
 
@@ -40,7 +38,6 @@ namespace HyggeGaming.Pages.Games
             return Page();
         }
 
-
         public IActionResult OnPost(int gameId)
         {
             if (!ModelState.IsValid)
@@ -50,7 +47,6 @@ namespace HyggeGaming.Pages.Games
             GameService.UpdateGame(GameObject);
 
             return RedirectToPage("/Games/ManageGames");
-
         }
     }
 }

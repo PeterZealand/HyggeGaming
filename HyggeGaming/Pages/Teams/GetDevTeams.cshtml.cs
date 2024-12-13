@@ -7,8 +7,8 @@ namespace HyggeGaming.Pages.Teams
 {
     public class GetDevTeamsModel : PageModel
     {
+        private readonly IDevTeamService DevTeamService;
         public IEnumerable<DevTeam>? DevTeam { get; set; }
-        IDevTeamService DevTeamService { get; set; }
 
         public GetDevTeamsModel(IDevTeamService service)
         {

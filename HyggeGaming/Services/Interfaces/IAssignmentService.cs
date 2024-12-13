@@ -16,7 +16,7 @@ namespace HyggeGaming.Services.Interfaces
 
         public Assignment? GetAssignmentById(int id);
 
-        public bool AssignmentExists(int id);
+        //public bool AssignmentExists(int id);
 
         public void EditAssignment(Assignment assignment);
     }

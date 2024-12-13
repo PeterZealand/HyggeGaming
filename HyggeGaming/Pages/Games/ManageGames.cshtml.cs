@@ -7,7 +7,7 @@ namespace HyggeGaming.Pages.Games
 {
     public class ManageGamesModel : PageModel
     {
-        public IGameService GameService { get; set; }
+        private readonly IGameService GameService;
         public IEnumerable<Game> games { get; set; }
 
         public ManageGamesModel(IGameService service)

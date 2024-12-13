@@ -6,10 +6,8 @@ namespace HyggeGaming.Pages.Games
 {
     public class ViewGamesModel : PageModel
     {
+        private readonly IGameService GameService;
         public IEnumerable<Game> Game { get; set; }
-
-        IGameService GameService { get; set; }
-
         public ViewGamesModel(IGameService service) 
         { 
             GameService = service;

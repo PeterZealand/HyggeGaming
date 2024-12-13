@@ -7,6 +7,7 @@ namespace HyggeGaming.Pages.Employees
 {
     public class AllEmployeesModel : PageModel
     {
+        private readonly IEmployeeService EmployeeService;
         public IEnumerable<Employee>? Employees { get; set; }
 
         [BindProperty(SupportsGet = true)]
@@ -14,8 +15,6 @@ namespace HyggeGaming.Pages.Employees
 
         [BindProperty (SupportsGet = true)]
         public string? successMsg { get; set; }
-
-        IEmployeeService EmployeeService { get; set; }
 
         public AllEmployeesModel(IEmployeeService context)
         {

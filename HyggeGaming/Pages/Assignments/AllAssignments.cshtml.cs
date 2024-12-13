@@ -13,7 +13,7 @@ namespace HyggeGaming.Pages.Assignments
 {
     public class AllAssignmentsModel : PageModel
     {
-        IAssignmentService AssignmentService { get; set; }
+        private readonly IAssignmentService AssignmentService;
 
         [BindProperty]
         public IEnumerable<Assignment> Assignment { get; set; }
