@@ -31,7 +31,6 @@
             </div>
             <div class="form-group">
                 <label asp-for="@Model.Emp.ZipCode" class="control-label"></label>
-                @* <input asp-for="@Model.Emp.ZipCode" class="form-control"></input> *@
                 <select asp-for="@Model.Emp.ZipCode" class="form-control">
                     <option value="">Choose zipcode</option>
                     @foreach (var zip in Model.Cities)
@@ -53,7 +52,6 @@
             </div>
             <div class="form-group">
                 <label asp-for="@Model.Emp.RoleId" class="control-label"></label>
-                @* <input asp-for="@Model.Emp.RoleId" class="form-control" ></input> *@
                 <select asp-for="@Model.Emp.RoleId" class="form-control">
                     <option value="">Choose role</option>
                     @foreach (var role in Model.Roles)
@@ -64,11 +62,8 @@
                 <span asp-validation-for="@Model.Emp.RoleId" class="text-danger"></span>
             </div>
             <div class="form-group visually-hidden">
-                @* <label asp-for="@Model.Emp.DevTeamId" class="control-label"></label>
-                <select asp-for="@Model.Emp.DevTeamId" class="form-control" asp-items="ViewBag.DevTeamId"></select>
-                <span asp-validation-for="@Model.Emp.DevTeamId" class="text-danger"></span> *@
                 <label asp-for="@Model.Emp.DevTeamId" class="control-label"></label>
-                <input asp-for="@Model.Emp.DevTeamId" class="form-control" ></input>
+                <input asp-for="@Model.Emp.DevTeamId" class="form-control" />
                 <span asp-validation-for="@Model.Emp.DevTeamId" class="text-danger"></span>
             </div>
             <div class="form-group">

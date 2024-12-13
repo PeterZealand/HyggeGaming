@@ -50,9 +50,6 @@
                 </span>
             </div>
         </div>
-
-
-        
     </div>
 
 
@@ -254,13 +251,6 @@
             </div>
             <form method="post" asp-page-handler="ChangePassword">
                 <div class="modal-body">
-                    @* @if (!string.IsNullOrEmpty(Model.ErrorMessage))
-                    {                                               
-                            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                            <strong>@Model.ErrorMessage</strong>
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                            </div>                       
-                    } *@
                     <input type="hidden" name="employeeId" value="@Model.Employee.EmployeeId" />
                     <div class="mb-3">
                         <label for="newPassword" class="form-label">New Password</label>
