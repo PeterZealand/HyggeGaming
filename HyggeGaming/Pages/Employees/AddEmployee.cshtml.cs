@@ -8,15 +8,14 @@ namespace HyggeGaming.Pages.Employees
 {
     public class AddEmployeeModel : PageModel
     {
-        IEmployeeService EmployeeService { get; set; }
+        private readonly IEmployeeService EmployeeService;
+        private readonly ICityService CityService;
+        private readonly IRoleService RoleService;
+
         [BindProperty]           
         public Employee Emp { get; set; }
-
-        private readonly ICityService CityService;
         public IEnumerable<City> Cities { get; set; }
-        private readonly IRoleService RoleService;
         public IEnumerable<Role> Roles { get; set; }
-
         public AddEmployeeModel(IEmployeeService service, ICityService cService, IRoleService rService)
         {
             EmployeeService = service;
@@ -24,14 +23,13 @@ namespace HyggeGaming.Pages.Employees
             RoleService = rService;
         }
 
-
         public IActionResult OnGet()
         {
             Cities = CityService.GetCities();
             Roles = RoleService.GetRoles();
             return Page();
         }
-       
+
         public IActionResult OnPost(int employeeId)
         {
             //Zipcode connection
@@ -75,8 +73,4 @@ namespace HyggeGaming.Pages.Employees
             return RedirectToPage("/Employees/AllEmployees", new {successMsg = "New employee has been added successfully"});
         }
     }
-
-    //SuccessMsg = "You have added a new employee";
-    //    return RedirectToPage("/Employees/AllEmployees");
-    //    //return Page();
 }

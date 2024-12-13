@@ -8,7 +8,6 @@ namespace HyggeGaming.Pages.Employees
     {
 
         private readonly IEmployeeService EmployeeService;
-
         private readonly IDevTeamService DevTeamService;
         private readonly IRoleService RoleService;
         private readonly ICityService CityService;
@@ -49,7 +48,6 @@ namespace HyggeGaming.Pages.Employees
             return Page();
         }
 
-
         public IActionResult OnPost(int employeeId)
         {
             //Zipcode connection
@@ -66,17 +64,12 @@ namespace HyggeGaming.Pages.Employees
             }
 
             //Role connection
-            //var roleString = Request.Form["Emp.RoleId"];
             var roleIdString = Request.Form["Emp.RoleId"];
             if (int.TryParse(roleIdString, out int roleId))
             {
                 Emp.RoleId = roleId; // Directly set RoleId
             }
-            //var role = RoleService.GetRoles().FirstOrDefault(r => r.RoleId == roleString); //Denne kan nok godt flyttes til Service, men det virker for nu
-            //if (role != null)
-            //{
-            //    Emp.RoleId = role.RoleId;
-            //}
+            
             else
             {
                 Console.WriteLine("Invalid input for role.");
@@ -96,7 +89,6 @@ namespace HyggeGaming.Pages.Employees
             EmployeeService.UpdateEmployee(Emp);
 
             return RedirectToPage("/Employees/AllEmployees");
-
         }
     }
 }

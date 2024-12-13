@@ -29,7 +29,6 @@
                 <select asp-for="Assignment.Status" class="form-control">
                     @foreach (var status in Model.StatusOptions)
                     {
-                        @* <option value="@status" selected="@(status == Model.Assignment.Status)"> *@
                         <option value="@status">@status</option>
                     }
                 </select>

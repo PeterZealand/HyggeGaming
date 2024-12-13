@@ -7,6 +7,8 @@ namespace HyggeGaming.Pages.Employees
 {
     public class ProfileModel : PageModel
     {
+        private readonly IEmployeeService EmployeeService;
+        private readonly IAssignmentService AssignmentService;
         public string ErrorMessage { get; set; }
 
         [BindProperty]
@@ -19,10 +21,6 @@ namespace HyggeGaming.Pages.Employees
         [BindProperty]
         public IEnumerable<Assignment> Assignments { get; set; }
         public List<string> Statuses { get; set; }
-
-        IEmployeeService EmployeeService { get; set; }
-        IAssignmentService AssignmentService { get; set; }
-
         public IEnumerable<Employee> Employees { get; set; }
 
         public ProfileModel(IEmployeeService service, IAssignmentService aService)
@@ -59,7 +57,6 @@ namespace HyggeGaming.Pages.Employees
             return RedirectToPage("/Employees/Login");
         }
 
-       
         public IActionResult OnPost(int employeeId)
         {   
                 //Manually remove fields from validation if needed

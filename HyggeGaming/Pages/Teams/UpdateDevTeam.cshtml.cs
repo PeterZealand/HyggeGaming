@@ -32,9 +32,6 @@ namespace HyggeGaming.Pages.Teams
             {
                 return NotFound();
             }
-
-            //DevT = devT;
-
             return Page();
         }
 
@@ -44,7 +41,6 @@ namespace HyggeGaming.Pages.Teams
             {
                 return Page();
             }
-
                 // Update DevTeam using the service
                 DevTeamService.UpdateDevTeam(DevT);
 

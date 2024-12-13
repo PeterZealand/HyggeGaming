@@ -37,6 +37,7 @@
             <span class="fake-label">Full Address:</span>
             <span class="fake-input">@Model.Employee.Address, @Model.Employee.ZipCode @Model.Employee.ZipCodeNavigation.City1</span>
         </div>
+
         <div class="form-like">
             <span class="fake-label">Password:</span>
             <span class="fake-input">
@@ -246,13 +247,6 @@
             </div>
             <form method="post" asp-page-handler="ChangePassword">
                 <div class="modal-body">
-                    @* @if (!string.IsNullOrEmpty(Model.ErrorMessage))
-                    {                                               
-                            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                            <strong>@Model.ErrorMessage</strong>
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                            </div>                       
-                    } *@
                     <input type="hidden" name="employeeId" value="@Model.Employee.EmployeeId" />
                     <div class="mb-3">
                         <label for="newPassword" class="form-label">New Password</label>

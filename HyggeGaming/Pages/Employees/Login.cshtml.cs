@@ -7,9 +7,10 @@ namespace HyggeGaming.Pages.Employees
 {
     public class LoginModel : PageModel
     {
+        private readonly IEmployeeService EmployeeService;
+
         [BindProperty]
         public Employee Employee { get; set; }
-        IEmployeeService EmployeeService { get; set; }
 
         public string ErrorMsg = string.Empty;
 

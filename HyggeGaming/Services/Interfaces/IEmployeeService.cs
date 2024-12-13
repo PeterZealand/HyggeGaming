@@ -5,12 +5,6 @@ namespace HyggeGaming.Services.Interfaces
 {
     public interface IEmployeeService
     {
-        public IEnumerable<DevTeam> GetDevTeams();
-
-        public IEnumerable<Role> GetRoles();
-
-        public IEnumerable<City> GetCities();
-
         public IEnumerable<Employee> GetEmployees();
         
         public bool CheckCredentials(Employee employee);

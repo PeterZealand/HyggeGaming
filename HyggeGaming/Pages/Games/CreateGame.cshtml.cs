@@ -8,7 +8,7 @@ namespace HyggeGaming.Pages.Games
 {
     public class CreateGameModel : PageModel
     {
-        public IGameService GameService { get; set; }
+        private readonly IGameService GameService;
 
         [BindProperty]
         public Game game { get; set; }

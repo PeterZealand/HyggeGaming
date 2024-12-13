@@ -9,23 +9,6 @@ namespace HyggeGaming.Services.EFService
     {
         private HGDBContext context;
 
-        //Skal de bruges?
-        public IEnumerable<DevTeam> GetDevTeams()
-        {
-            return context.DevTeams.ToList();
-        }
-
-        public IEnumerable<Role> GetRoles()
-        {
-            return context.Roles.ToList();
-        }
-
-        public IEnumerable<City> GetCities()
-        {
-            return context.Cities.ToList();
-        }
-        //
-
         public EFEmployeeService(HGDBContext service)
         {
             context = service;
@@ -43,11 +26,11 @@ namespace HyggeGaming.Services.EFService
             context?.SaveChanges();
         }
 
-        public void UpdateProfile(Employee Emp)
-        {
-            context?.Employees.Update(Emp);
-            context?.SaveChanges();
-        }
+        //public void UpdateProfile(Employee Emp)
+        //{
+        //    context?.Employees.Update(Emp);
+        //    context?.SaveChanges();
+        //}
 
         public bool CheckCredentials(Employee employee) 
         {

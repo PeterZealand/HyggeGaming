@@ -14,7 +14,6 @@ namespace HyggeGaming.Pages.Assignments
     public class EditAssignmentModel : PageModel
     {
         private readonly IAssignmentService AssignmentService;
-
         private readonly IGameService GameService;
 
         [BindProperty]
@@ -25,7 +24,6 @@ namespace HyggeGaming.Pages.Assignments
             AssignmentService = assignmentService;
             GameService = gameService;
         }
-
 
         public IActionResult OnGet(int id)
         {

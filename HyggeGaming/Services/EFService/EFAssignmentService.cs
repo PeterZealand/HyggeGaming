@@ -37,7 +37,6 @@ namespace HyggeGaming.Services.EFService
                 .ToList();
         }
 
-
         public void UpdateAssignment(Assignment assignment)
         {
             var existingAssignment = context.Assignments.FirstOrDefault(a => a.AssignmentId == assignment.AssignmentId);
@@ -68,10 +67,10 @@ namespace HyggeGaming.Services.EFService
                 .FirstOrDefault(a => a.AssignmentId == id);
         }
 
-        public bool AssignmentExists(int id)
-        {
-            return context.Assignments.Any(a => a.AssignmentId == id);
-        }
+        //public bool AssignmentExists(int id)
+        //{
+        //    return context.Assignments.Any(a => a.AssignmentId == id);
+        //}
 
         public void EditAssignment(Assignment assignment)
         {
@@ -89,11 +88,6 @@ namespace HyggeGaming.Services.EFService
             existingAssignment.GameId = assignment.GameId;
 
             context.SaveChanges();
-        }
-
-        public IEnumerable<Assignment> GetAssignment()
-        {
-            throw new NotImplementedException();
         }
     }
 }
