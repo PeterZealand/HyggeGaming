@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc;
 
-namespace HyggeGaming.Pages.Filters
+namespace HyggeGaming.Filters
 {
     public class AuthFilter : ActionFilterAttribute
     {

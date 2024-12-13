@@ -2,9 +2,11 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using HyggeGaming.Models;
 using HyggeGaming.Services.Interfaces;
+using HyggeGaming.Filters;
 
 namespace HyggeGaming.Pages.Employees
 {
+    [AuthFilter]
     public class AllEmployeesModel : PageModel
     {
         private readonly IEmployeeService EmployeeService;
