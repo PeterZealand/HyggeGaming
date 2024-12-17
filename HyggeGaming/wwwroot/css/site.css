@@ -63,15 +63,23 @@ body {
     text-decoration: underline;
 }
 
-.containerLogin {
-    background-color: #222;
+.My-container {
+    background-color: #AC9690;
     border-radius: 5px;
     margin: 20px;
     padding: 30px;
     padding-bottom: 50px;
-    color: ivory;
+    
 }
 
+.table-container {
+    background-color: #fcf7ed;
+    border: 2px solid #AC9690;
+    border-radius: 5px;
+    margin: 20px;
+    padding: 30px;
+    padding-bottom: 50px;
+}
 /*table css*/
 table {
     border-collapse: collapse;
@@ -106,10 +114,10 @@ td {
 
 
 /*Modal*/
-.myModal {
+/*.myModal {
     background-color: #222;
     color: ivory;
-}
+}*/
 
 
 /*SideNAV til Employee*/
@@ -169,16 +177,26 @@ td {
 
 .fake-input {
     padding: 5px 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #AC755D;
     border-radius: 5px;
-    background-color: #f9f9f9;
+    background-color: #FCF7ED;
     color: #333;
     width: 100%;
     min-width: 200px;
     display: inline-block;
 }
 
-/*---*/
+input {
+    background-color: #FCF7ED !important;
+}
+select {
+    background-color: #FCF7ED !important;
+}
+
+.MyModal {
+    background-color: #AC9690;
+    color: black;
+}
 
 .select-option {
     color: black;
@@ -237,7 +255,7 @@ td {
 }
 
 .myBtn {
-    background-color: #AC755D;
+    background-color: #AC8474;
     color: white;
     border: 2px solid #4C1B06;
 }
@@ -268,3 +286,13 @@ td {
     border: none;
     cursor: pointer;
 }
+
+.backBtn {
+    background-color: #AC9690;
+    color: white;
+    border: 2px solid #4C1B06;
+}
+    .backBtn:hover {
+        background-color: #ECC8A4;
+        color: white;
+    }

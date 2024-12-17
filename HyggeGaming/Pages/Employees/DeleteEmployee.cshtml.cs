@@ -13,14 +13,14 @@ namespace HyggeGaming.Pages.Employees
     public class DeleteEmployeeModel : PageModel
     {
         private readonly IEmployeeService EmployeeService;
+        
+        [BindProperty]
+        public Employee Emp { get; set; }
 
         public DeleteEmployeeModel(IEmployeeService employeeService)
         {
             EmployeeService = employeeService;
         }
-
-        [BindProperty]
-        public Employee Emp { get; set; }
 
         public IActionResult OnGet(int? id)
         {

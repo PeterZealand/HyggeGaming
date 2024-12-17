@@ -4,7 +4,7 @@
 }
 
 <div class="row flex-column align-content-center">
-    <div class="col-md-5 containerLogin">
+    <div class="col-md-5 My-container">
         <h2>Login</h2>
 
         <p>Welcome back!<br />Enter your credentials to access your account and continue where you left off.</p>
@@ -22,18 +22,18 @@
             <div class="login-input">
                 <div class="form-group">
                     <label asp-for="@Model.Employee.Mail" class="control-label">Email</label>
-                    <input asp-for="@Model.Employee.Mail" class="form-control" />
+                    <input asp-for="@Model.Employee.Mail" class="form-control myInput" />
                     <span asp-validation-for="@Model.Employee.Mail" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="@Model.Employee.Password" class="control-label">Password</label>
-                    <input asp-for="@Model.Employee.Password" class="form-control" type="password" />
+                    <input asp-for="@Model.Employee.Password" class="form-control myInput" type="password" />
                     <span asp-validation-for="@Model.Employee.Password" class="text-danger"></span>
                 </div>
             </div>
 
             <div class="form-group button-container align-content-center">
-                <input type="submit" value="Login" class="btn btn-outline-light large-btn mt-2" />
+                <button type="submit" value="Login" class="btn myBtn large-btn mt-2">Login</button>
             </div>
 
         </form>
