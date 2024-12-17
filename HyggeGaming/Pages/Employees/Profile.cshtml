@@ -3,8 +3,8 @@
 @{
 }
 
-<div class="m-2 border-bottom">
-    <h1>Profile</h1>
+<div class="m-2">
+    <h1>Profile & workspace</h1>
 </div>
 
 @if (!string.IsNullOrEmpty(Model.ErrorMessage))
@@ -16,7 +16,7 @@
 }
 
 <div class="row d-flex align-items-start">
-    <div class="col-3 border-end align-content-center">
+    <div class="col-3 My-container align-content-center">
         <div>
             <img class="profile-img" src="~/img/ProfileOtter.png" />
         </div>
@@ -40,19 +40,17 @@
 
         <div class="form-like">
             <span class="fake-label">Password:</span>
-            <span class="fake-input">
                 <input type="password" value="@Model.Employee.Password"
-                       class="password-field" />
-                <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#updatePasswordModal">
+                       class="fake-input password-field" />
+                <button class="btn myBtn mt-3" data-bs-toggle="modal" data-bs-target="#updatePasswordModal">
                     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
                         <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001m-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708z" />
                     </svg>
                 </button>
-            </span>
         </div>       
     </div>
 
-    <div class="col-8 mt-5">
+    <div class="col-8">
         <div class="form-like">
             <span class="fake-label">Role</span>
             <span class="fake-input">@Model.Employee.Role.Role1</span>
@@ -110,7 +108,7 @@
                             <p>Status: @item.Status</p>
                             <div class="card-footer">
                                 <!--Modal btn-->
-                                <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#editModal_@item.AssignmentId">
+                                <button type="button" class="btn myBtn" data-bs-toggle="modal" data-bs-target="#editModal_@item.AssignmentId">
                                     Change status
                                 </button>
                             </div>
@@ -121,7 +119,7 @@
                         <!-- Modal -->
                         <div class="modal" id="editModal_@item.AssignmentId">
                             <div class="modal-dialog">
-                                <div class="modal-content">
+                                <div class="modal-content MyModal">
                                     <div class="modal-header">
                                         <h5>Change status for assignment</h5>
                                     </div>
@@ -153,8 +151,8 @@
                                             </div>
 
                                             <div class="form-group mt-2">
-                                                <input type="submit" value="Save" class="btn btn-primary" />
-                                                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                                                <button type="submit" value="Save" class="btn myBtn">Save</button>
+                                                <button type="button" class="btn backBtn" data-bs-dismiss="modal">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
                                                         <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
                                                     </svg>
@@ -240,7 +238,7 @@
 @*Change password modal*@
 <div class="modal fade" id="updatePasswordModal" tabindex="-1" aria-labelledby="updatePasswordModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content">
+        <div class="modal-content MyModal">
             <div class="modal-header">
                 <h5 class="modal-title" id="updatePasswordModalLabel">Update Password</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -258,8 +256,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn backBtn" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn myBtn">Save changes</button>
                 </div>
             </form>
         </div>

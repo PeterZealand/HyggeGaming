@@ -20,16 +20,14 @@ namespace HyggeGaming.Pages.Games
 
         public IActionResult OnGet(int? gameId)
         {
-
             if (gameId == null)
-
             {
                 return NotFound();
             }
-
             
             GameObject = GameService.GetGameForUpdating(gameId.Value);
             DevStages = GameService.DevStages();
+
             if (GameObject == null)
             {
                 return NotFound();
@@ -38,7 +36,7 @@ namespace HyggeGaming.Pages.Games
             return Page();
         }
 
-        public IActionResult OnPost(int gameId)
+        public IActionResult OnPost()
         {
             if (!ModelState.IsValid)
             {

@@ -4,12 +4,10 @@
     ViewData["Title"] = "Update Employee";
 }
 
-<h1>Update</h1>
+<div class="My-container">
+<h1 class="ms-5">Update employee</h1>
 
-
-<h4>Employee</h4>
-<hr />
-<div class="row">
+<div class="row justify-content-center">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -67,13 +65,14 @@
                 <span asp-validation-for="@Model.Emp.DevTeamId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <button type="submit" value="Save" class="btn myBtn mt-3">Save</button>
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-page="/Employees/AllEmployees">Back to All Employees</a>
+    <a class="ms-5 btn backBtn" asp-page="/Employees/AllEmployees">Back to All Employees</a>
 </div>
 
+</div>

@@ -9,14 +9,12 @@ namespace HyggeGaming.Pages.Teams
     public class UpdateDevTeamModel : PageModel
     {
         private readonly IDevTeamService DevTeamService;
-
+        [BindProperty]
+        public DevTeam? DevT { get; set; }
         public UpdateDevTeamModel(IDevTeamService devTeamService)
         {
             DevTeamService = devTeamService;
         }
-
-        [BindProperty]
-        public DevTeam DevT { get; set; }
 
         public IActionResult OnGet(int? id)
         {
