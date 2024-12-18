@@ -86,10 +86,6 @@ table {
     width: 100%;
 }
 
-th {
-    background-color: #524b58;
-}
-
 td {
     padding: 8px;
     text-align: left;
@@ -110,14 +106,6 @@ td {
     .card:hover {
         box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     }
-
-
-
-/*Modal*/
-/*.myModal {
-    background-color: #222;
-    color: ivory;
-}*/
 
 
 /*SideNAV til Employee*/

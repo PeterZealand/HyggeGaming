@@ -4,11 +4,10 @@
     ViewData["Title"] = "Update Team";
 }
 
-<h1>Update</h1>
+<div class="My-container">
+<h1>Update Team</h1>
 
-<h4>Team</h4>
-<hr />
-<div class="row">
+<div class="row justify-content-center">
     <div class="col-md-4">
         <div>
             <p>Change name for team (id: @Model.DevT.DevTeamId, current name: @Model.DevT.DevTname)</p>
@@ -27,12 +26,13 @@
            
 
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <button type="submit" value="Save" class="btn myBtn">Save changes</button>
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-page="/Teams/ManageDevTeams">Back to List</a>
+    <a class="btn backBtn" asp-page="/Teams/ManageDevTeams">Back to List</a>
+</div>
 </div>
