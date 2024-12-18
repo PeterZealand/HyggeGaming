@@ -3,12 +3,11 @@
 @{
     ViewData["Title"] = "Update Games";
 }
-
+<div class="My-container">
 <h1>Update</h1>
+    <p>You are currently updating game: (@Model.GameObject.GameId) @Model.GameObject.GameName</p>
 
-<h4>Games</h4>
-<hr />
-<div class="row">
+<div class="row justify-content-center">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="All" class="text-danger"></div>
@@ -32,11 +31,15 @@
                 </select>
             </div>
             <div class="form-group mt-4">
-                <input type="submit" value="Update" class="btn btn-primary" />
+                <button type="submit" value="Update" class="btn myBtn">Save changes</button>
             </div>
-        </form>
-        <a asp-page="/Games/ManageGames">Back to game manager</a>
+        </form>          
     </div>
-</div>
 
+    <div>
+         <a class="btn backBtn" asp-page="/Games/ManageGames">Back to game manager</a>
+    </div>
+        
+</div>
+</div>
 
