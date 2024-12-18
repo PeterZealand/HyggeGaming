@@ -4,14 +4,13 @@
 }
 
 <h1>Manage Games</h1>
-
 <p>Here, you can add new games, update details for existing ones, or remove games that are no longer needed. This page is designed to give you full control, making it simple to keep the game list accurate and up to date.</p>
 <div>
-    <a asp-page="/Employees/Profile">Back to Profile</a>
-    <a class="btn btn-outline-success" asp-page="/Games/CreateGame">Create new game</a>
+    <a class="btn backBtn me-3" asp-page="/Employees/Profile">Back to Profile</a>
+    <a class="btn myBtn" asp-page="/Games/CreateGame">Create new game</a>
 </div>
  
-
+<div class="table-container">
 <table class="table">
     <thead>
         <tr>
@@ -34,7 +33,7 @@
                     <td>@item.GameType</td>
                     <td>@item.DevelopmentStage</td>
                     <td>
-                        <a class="btn btn-outline-dark" asp-page="/Games/UpdateGames" asp-route-gameId="@item.GameId">
+                        <a class="btn myBtn" asp-page="/Games/UpdateGames" asp-route-gameId="@item.GameId">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
                                 <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001m-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708z" />
                             </svg>
@@ -44,3 +43,4 @@
             }
         }
 </table>
+</div>

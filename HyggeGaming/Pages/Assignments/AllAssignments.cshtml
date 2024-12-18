@@ -9,20 +9,18 @@
 
 <div class="row mb-3">
     <div class="col d-flex">
-        <a class="btn myBtn" asp-page="/Employees/Profile">Back to Profile</a>
+        <a class="btn backBtn me-3" asp-page="/Employees/Profile">Back to Profile</a>
         <a class="btn myBtn" asp-page="CreateAssignment">Create New Assignment</a>
     </div>
     <div class="col-3 ms-auto text-end">
-        <form method="get">
-            <div class="form-group">
-                <input type="text" name="SearchString" class="form-control" placeholder="Search Assignments" value="@Model.SearchString" />
+        <form method="get" class="d-flex">
+                <input type="text" name="SearchString" class="form-control myInput mySearch me-1" placeholder="Search Assignments" value="@Model.SearchString" />
                 <button type="submit" class="btn myBtn">Search</button>
-            </div>
         </form>
     </div>
 </div>
 
-<div class="container">
+<div class="table-container">
     <table class="table">
         <thead>
             <tr>

@@ -193,6 +193,10 @@ select {
     background-color: #FCF7ED !important;
 }
 
+mySearch {
+    border: 2px solid #AC9690;
+}
+
 .MyModal {
     background-color: #AC9690;
     color: black;

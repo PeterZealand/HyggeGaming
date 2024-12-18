@@ -6,13 +6,13 @@
 <h1>Manage teams</h1>
 <p>This page is your central hub for organizing and managing employee teams within your organization. From here, you can efficiently oversee team structures, assign employees to teams, and ensure smooth collaboration across your workforce.</p>
 
-<a asp-page="/Employees/Profile">Back to Profile</a>
+    <a class="btn backBtn mb-4" asp-page="/Employees/Profile">Back to Profile</a>
 
 <div class="row mb-3">
     <div class="col d-flex">
-        <a class="btn btn-outline-success me-2" asp-page="/Teams/CreateTeam">Create new team</a>
+        <a class="btn myBtn me-2" asp-page="/Teams/CreateTeam">Create new team</a>
         <!--Modal btn-->
-        <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#editModal_Employee">
+        <button type="button" class="btn myBtn" data-bs-toggle="modal" data-bs-target="#editModal_Employee">
             Add employee to a team
         </button>
     </div>
@@ -20,7 +20,7 @@
         <form method="get">
             <div class="form-group d-flex">
                 <input type="text" name="SearchString" class="form-control me-2" placeholder="Search teams" value="@Model.SearchString" />
-                <button type="submit" class="btn btn-primary">Search</button>
+                <button type="submit" class="btn myBtn">Search</button>
             </div>
         </form>
     </div>
@@ -29,7 +29,7 @@
 <!-- Modal -->
 <div class="modal" id="editModal_Employee">
     <div class="modal-dialog">
-        <div class="modal-content">
+        <div class="modal-content MyModal">
             <div class="modal-header">
                 <h5>Change status for assignment</h5>               
             </div>
@@ -69,8 +69,8 @@
                     </div>
 
                     <div class="form-group mt-2">
-                        <input type="submit" value="Save" class="btn btn-primary" />
-                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                        <button type="submit" value="Save" class="btn myBtn">Save</button>
+                        <button type="button" class="btn backBtn" data-bs-dismiss="modal">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
                                 <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
                             </svg>
@@ -84,7 +84,7 @@
     </div>
 </div>
 
-
+<div class="table-container">
 <table class="table">
     <thead>
         <tr>
@@ -120,11 +120,12 @@
                         </ul>
                     </td>
                     <td>
-                        <a asp-page="/Teams/UpdateDevTeam" asp-route-id="@team.DevTeamId">Edit</a>
+                        <a class="btn myBtn" asp-page="/Teams/UpdateDevTeam" asp-route-id="@team.DevTeamId">Edit</a>
                     </td>
                 </tr>
             }
         }
     </tbody>
 </table>
+</div>
 
